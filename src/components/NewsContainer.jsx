@@ -39,7 +39,7 @@ const NewsContainer = () => {
     ];
     return (
         <div className="w-full min-h-screen bg-rally-primary p-14 flex justify-center">
-            <div className="w-[1024px]">
+            <div className="lg:w-[1024px]">
                 <div className="flex items-center">
                     <div className="font-racing text-white text-4xl mr-4">Jaunumi</div>
                     <div className="flex-1 h-0.5 bg-white"></div>
