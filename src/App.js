@@ -1,6 +1,8 @@
 import React from 'react';
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
 import Home from './components/Home';
+import RallyBanner from "./components/RallyBanner";
+import NewsPage from "./components/NewsPage";
 
 function App() {
     return (
@@ -16,6 +18,9 @@ function App() {
                         element={<Navigate to="/home" />}
                     />
                     <Route exact path="/home" element={<Home />} />
+
+                    <Route path="/banner" element={<RallyBanner />} />
+                    <Route path="/news" element={<NewsPage />} />
                 </Routes>
             </div>
         </Router>
