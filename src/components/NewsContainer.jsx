@@ -3,11 +3,11 @@ import React from 'react';
 const NewsItem = ({ date, title, paragraph, imgSrc }) => {
     return (
         <div className="flex mt-10">
-            <div className="w-full flex items-center font-descFont">
-                <div className="w-1/3 mr-5">
-                    <img src={imgSrc} alt="" className="w-full h-48 object-cover"/>
+            <div className="w-full flex sm:items-center font-descFont sm:flex-row flex-col">
+                <div className="sm:w-1/3 sm:mr-5 overflow-hidden mb-4 sm:mb-0">
+                    <img src={imgSrc} alt="" className="w-full h-48 object-cover drop-shadow-lg hover:scale-110 transition-all duration-200"/>
                 </div>
-                <div className="w-2/3 mb-6">
+                <div className="sm:w-2/3 mb-6">
                     <div className="font-light text-sm opacity-60">{date}</div>
                     <a href="#" className="font-medium text-[#f0f2fe] cursor-pointer text-xl tracking-wide">{title}</a>
                     <p className="font-light opacity-60">{paragraph}</p>
@@ -38,7 +38,7 @@ const NewsContainer = () => {
         },
     ];
     return (
-        <div className="w-full min-h-screen bg-rally-primary p-14 flex justify-center">
+        <div className="w-full min-h-20 bg-rally-primary sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px]">
                 <div className="flex items-center">
                     <div className="font-racing text-white text-4xl mr-4">Jaunumi</div>

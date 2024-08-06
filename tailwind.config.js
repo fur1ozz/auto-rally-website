@@ -19,6 +19,10 @@ module.exports = {
           secondary: "var(--rally-400)",
           accent: "var(--rally-500)",
         },
+        interfaceBar: {
+          purple: "#f0f2fe",
+          gray: "#f0f2fe",
+        }
       },
     },
   },

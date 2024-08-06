@@ -8,9 +8,9 @@ import Footer from "./Footer";
 const NewsPage = () => {
     return (
         <>
-            {/*<Header />*/}
+            <Header />
             <RallyBanner />
-            {/*<UserInterfaceBar />*/}
+            <UserInterfaceBar />
             <NewsContainer />
             <Footer />
         </>

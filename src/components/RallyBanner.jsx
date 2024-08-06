@@ -5,7 +5,7 @@ const RallyBanner = () => {
         <div className="w-screen flex justify-center p-24">
             <div className="w-[1024px]">
                 <div className="relative">
-                    <img src="/images/headers/bheader-1.jpg" alt="" className="w-full "/>
+                    <img src="/images/headers/bheader-1.jpg" alt="" className="w-full box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; shadow-[0_3px_8px_0_rgba(0,0,0,0.24)]"/>
                     {/*<img src="/images/headers/bheader-cover.png" alt="" className="w-full absolute z-10 top-0"/>*/}
                     <div className="bg-rally-primary absolute text-white px-6 py-2 font-bold text-2xl rounded-[1px] -top-7 left-0 ml-14">
                         Rallijs Cēsis
