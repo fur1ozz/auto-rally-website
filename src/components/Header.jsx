@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link, useLocation } from "react-router-dom";
 import {useDarkMode} from "../utils/HeaderUtils";
 
@@ -21,23 +21,47 @@ const Header = () => {
     const [isDarkMode, toggleDarkMode] = useDarkMode();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
+    const [time, setTime] = useState(new Date());
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setTime(new Date());
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, []);
+
+    const formatTime = (date) => {
+        const hours = date.getHours().toString().padStart(2, '0');
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+        return (
+            <>
+                {hours}<span className="animate-flash">:</span>{minutes}
+            </>
+        );
+    };
 
     const handleMobileMenuToggle = () => {
         setMobileMenuOpen(!mobileMenuOpen);
     };
     return (
-        <div className="w-full bg-interfaceBar-gray">
+        <div className="w-full bg-black/60">
             <nav className="py-5 px-10">
                 <div className="flex justify-between items-center mx-auto">
                     <div className="flex">
-                        <a href="/" className="flex">
-                            <img src="/favicon.ico" alt="Favicon" className="object-contain mr-3" />
-                            <span className="text-lg font-bold whitespace-nowrap text-black">
+                        <a href="/" className="flex mr-0 sm:mr-20 items-center">
+                            <img src="/images/LRC-1.png" alt="LRC" className="mr-3 w-7" />
+                            <span className="text-lg font-bold whitespace-nowrap text-white">
                                 AutoRally
                             </span>
                         </a>
-                        <div className="sm:flex hidden">
-                        {/*    left side of header for other buttons if necessary*/}
+                        <div className="sm:flex hidden items-center">
+                            <Link
+                                to="#"
+                                className="text-white font-medium mr-3"
+                            >
+                                Sezonas
+                            </Link>
                         </div>
                     </div>
 
@@ -56,14 +80,14 @@ const Header = () => {
                         {/*        </svg>*/}
                         {/*    )}*/}
                         {/*</button>*/}
-                        <div className="text-black font-medium mr-3">10:30</div>
+                        <div className="text-white font-medium mr-3 cursor-default">{formatTime(time)}</div>
                         <Link
                             to="#"
-                            className="text-black font-medium mr-3"
+                            className="text-white font-medium mr-3"
                         >
                             Ienākt
                         </Link>
-                        <button>
+                        <button className="text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
                             </svg>
@@ -73,7 +97,7 @@ const Header = () => {
                     <button
                         onClick={handleMobileMenuToggle}
                         type="button"
-                        className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100"
+                        className="inline-flex items-center p-2 ml-1 text-sm text-white rounded-lg sm:hidden"
                         aria-expanded={mobileMenuOpen}
                     >
                         <span className="sr-only">Open main menu</span>
@@ -91,7 +115,7 @@ const Header = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                             </svg>
                         </button>
-                        <LinkButtonPhone name="about" currentPath={location.pathname} />
+                        <LinkButtonPhone name="Sezonas" currentPath={location.pathname} />
                         <LinkButtonPhone name="projects" currentPath={location.pathname} />
                         <LinkButtonPhone name="contact" currentPath={location.pathname} />
                     </div>

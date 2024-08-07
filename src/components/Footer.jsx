@@ -3,25 +3,25 @@ import React from 'react';
 const Footer = () => {
     return (
         <footer className="bg-black">
-            <div className="mx-auto pt-16 lg:w-[1024px] px-10">
+            <div className="mx-auto pt-16 lg:w-[1024px] px-10 xl:px-0">
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 md:gap-8 gap-4 justify-items-center">
                     <div className="flex flex-col flex-shrink-0 mb-5">
-                        <div className="text-white">
-                            <img src="/favicon.ico" alt="Favicon" />
+                        <div className="text-white w-24">
+                            <img src="/images/LRC-1.png" alt="" />
                         </div>
                         <p className="text-sm leading-none mt-4 text-white">Copyright © 2024 autorally.lv</p>
                         <p className="text-sm leading-none mt-4 text-white">All rights reserved</p>
                         <div className="flex items-center gap-x-4 mt-12">
-                            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="bg-amber-600 rounded-full p-2 w-[32px] brightness-75 hover:brightness-100 transition duration-100">
+                            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="bg-rally-primary rounded-full p-2 w-[32px] brightness-75 hover:brightness-100 transition duration-100">
                                 <img src="/images/social-icons/facebook-white-icon.png" alt=""/>
                             </a>
-                            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="bg-amber-600 rounded-full p-2 w-[32px] brightness-75 hover:brightness-100 transition duration-100">
+                            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="bg-rally-primary rounded-full p-2 w-[32px] brightness-75 hover:brightness-100 transition duration-100">
                                 <img src="/images/social-icons/instagram-white-icon.png" alt=""/>
                             </a>
-                            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="bg-amber-600 rounded-full p-2 w-[32px] brightness-75 hover:brightness-100 transition duration-100">
+                            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="bg-rally-primary rounded-full p-2 w-[32px] brightness-75 hover:brightness-100 transition duration-100">
                                 <img src="/images/social-icons/youtube-app-white-icon.png" alt=""/>
                             </a>
-                            <a href="https://www.x.com" target="_blank" rel="noopener noreferrer" className="bg-amber-600 rounded-full p-2 w-[32px] brightness-75 hover:brightness-100 transition duration-100">
+                            <a href="https://www.x.com" target="_blank" rel="noopener noreferrer" className="bg-rally-primary rounded-full p-2 w-[32px] brightness-75 hover:brightness-100 transition duration-100">
                                 <img src="/images/social-icons/x-social-media-white-icon.png" alt=""/>
                             </a>
                         </div>
@@ -47,7 +47,7 @@ const Footer = () => {
                         <a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">Contact</a>
                     </div>
                 </div>
-                <div className="max-w-[1024px] w-full border-t-2 border-white py-8 mx-10 flex justify-center">
+                <div className="max-w-[1024px] w-full border-t-2 border-white py-8 flex justify-center">
                     <a href="#fur1ozzPortfolio" target="_blank" className="text-white">
                         Made with ❤️ by
                         <span className="font-semibold"> fur1ozz</span>

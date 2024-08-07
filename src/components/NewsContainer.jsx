@@ -4,8 +4,8 @@ const NewsItem = ({ date, title, paragraph, imgSrc }) => {
     return (
         <div className="flex mt-10">
             <div className="w-full flex sm:items-center font-descFont sm:flex-row flex-col">
-                <div className="sm:w-1/3 sm:mr-5 overflow-hidden mb-4 sm:mb-0">
-                    <img src={imgSrc} alt="" className="w-full h-48 object-cover drop-shadow-lg hover:scale-110 transition-all duration-200"/>
+                <div className="sm:w-1/3 sm:mr-5 overflow-hidden mb-4 sm:mb-0 shadow-[0_3px_8px_0_rgba(0,0,0,0.24)]">
+                    <img src={imgSrc} alt="" className="w-full h-48 object-cover hover:scale-110 transition-all duration-200"/>
                 </div>
                 <div className="sm:w-2/3 mb-6">
                     <div className="font-light text-sm opacity-60">{date}</div>
@@ -44,15 +44,21 @@ const NewsContainer = () => {
                     <div className="font-racing text-white text-4xl mr-4">Jaunumi</div>
                     <div className="flex-1 h-0.5 bg-white"></div>
                 </div>
-                {newsData.map((news, index) => (
-                    <NewsItem
-                        key={index}
-                        date={news.date}
-                        title={news.title}
-                        paragraph={news.paragraph}
-                        imgSrc={news.imgSrc}
-                    />
-                ))}
+                {newsData.length > 0 ? (
+                    newsData.map((news, index) => (
+                        <NewsItem
+                            key={index}
+                            date={news.date}
+                            title={news.title}
+                            paragraph={news.paragraph}
+                            imgSrc={news.imgSrc}
+                        />
+                    ))
+                ) : (
+                    <div className="mt-10 text-white text-center">
+                        Pašlaik nav jaunu ziņu.
+                    </div>
+                )}
             </div>
         </div>
     );
