@@ -46,7 +46,7 @@ const Header = () => {
     };
     return (
         <div className="w-full bg-black/60">
-            <nav className="py-5 px-10">
+            <nav className="py-5 px-10 sm:">
                 <div className="flex justify-between items-center mx-auto">
                     <div className="flex">
                         <a href="/" className="flex mr-0 sm:mr-20 items-center">
