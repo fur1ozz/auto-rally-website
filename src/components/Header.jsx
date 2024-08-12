@@ -50,7 +50,7 @@ const Header = () => {
                 <div className="flex justify-between items-center mx-auto">
                     <div className="flex">
                         <a href="/" className="flex mr-0 sm:mr-20 items-center">
-                            <img src="/images/LRC-1.png" alt="LRC" className="mr-3 w-7" />
+                            <img src="/icons/LRC-1.png" alt="LRC" className="mr-3 w-7" />
                             <span className="text-lg font-bold whitespace-nowrap text-white">
                                 AutoRally
                             </span>

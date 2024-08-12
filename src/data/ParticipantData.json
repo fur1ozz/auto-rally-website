@@ -12,7 +12,7 @@
   },
   {
     "number": "2",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Priit Koik",
     "coDriver": "Kristo Tamm",
     "team": "OT Racing",
@@ -23,7 +23,7 @@
   },
   {
     "number": "3",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Karl Peder Nordstrand",
     "coDriver": "Jørn Norum Listerud",
     "team": "Sports Racing Technologies",
@@ -38,14 +38,14 @@
     "driver": "Patrick Enok",
     "coDriver": "Silver Simm",
     "team": "LightGrey",
-    "car": "Ford Fiesta Rally3",
+    "car": "Ford Fieea Rally3",
     "group": "4WD",
     "class": "Rally3",
     "eligibility": "vrk"
   },
   {
     "number": "5",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Kalvis Blūms",
     "coDriver": "Didzis Blūms",
     "team": "Rallyworkshop",
@@ -56,7 +56,7 @@
   },
   {
     "number": "6",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Jānis Vorobjovs",
     "coDriver": "Guntars Zicāns",
     "team": "Biedrība Vorobjovs Racing, sporta klubs",
@@ -78,7 +78,7 @@
   },
   {
     "number": "8",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Edijs Bergmanis",
     "coDriver": "Edgars Grīns",
     "team": "Rallyworkshop",
@@ -89,7 +89,7 @@
   },
   {
     "number": "9",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Allan Popov",
     "coDriver": "Aleksander Prõttšikov",
     "team": "A1M Motorsport",
@@ -111,7 +111,7 @@
   },
   {
     "number": "12",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Miks Ķenavs",
     "coDriver": "Aldis Hanzens",
     "team": "Miks Ķenavs",
@@ -122,11 +122,11 @@
   },
   {
     "number": "14",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Tymoteusz Abramowski",
     "coDriver": "Sebastian Wach",
     "team": "Sebastian Wach",
-    "car": "Ford Fiesta Rally3",
+    "car": "Ford Fieea Rally3",
     "group": "4WD",
     "class": "Rally3",
     "eligibility": "erc"
@@ -144,7 +144,7 @@
   },
   {
     "number": "16",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Joosep Ralf Nõgene",
     "coDriver": "Aleks Lesk",
     "team": "Lightgrey",
@@ -155,7 +155,7 @@
   },
   {
     "number": "17",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Mārtiņš Ločmelis",
     "coDriver": "Harijs Vējiņš",
     "team": "Rallyworkshop",
@@ -177,7 +177,7 @@
   },
   {
     "number": "19",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Igor Bulantsev",
     "coDriver": "Normunds Kokins",
     "team": "PROSPEED",
@@ -188,7 +188,7 @@
   },
   {
     "number": "20",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Edgars Balodis",
     "coDriver": "Māris Šeflers",
     "team": "Edgars Balodis",
@@ -210,7 +210,7 @@
   },
   {
     "number": "22",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Isak Hatanmaa",
     "coDriver": "Juho Koski-Lammi",
     "team": "Isak Hatanmaa",
@@ -221,7 +221,7 @@
   },
   {
     "number": "23",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Madars Dīriņš",
     "coDriver": "Gints Lasmanis",
     "team": "Gints Lasmanis",
@@ -243,7 +243,7 @@
   },
   {
     "number": "25",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Vigo Rubenis",
     "coDriver": "Kristaps Eglīte",
     "team": "Vigo Rubenis",
@@ -254,7 +254,7 @@
   },
   {
     "number": "26",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Jurģis Meisters",
     "coDriver": "Guntis Slaidiņš",
     "team": "Rallyworkshop",
@@ -269,29 +269,29 @@
     "driver": "Kevin Lempu",
     "coDriver": "Hendrik Kraav",
     "team": "OT Racing",
-    "car": "Ford Fiesta Rally4",
+    "car": "Ford Fieea Rally4",
     "group": "2WD",
     "class": "Rally4",
     "eligibility": "rsk"
   },
   {
     "number": "28",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Mark-Egert Tiits",
     "coDriver": "Jakko Viilo",
     "team": "TRT Motorsport MTU",
-    "car": "Ford Fiesta Rally4",
+    "car": "Ford Fieea Rally4",
     "group": "2WD",
     "class": "Rally4",
     "eligibility": "lrc"
   },
   {
     "number": "29",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Hugo Arendi",
     "coDriver": "Gabriel Müürsepp",
     "team": "LightGrey",
-    "car": "Ford Fiesta M-Sport Rally4",
+    "car": "Ford Fieea M-Sport Rally4",
     "group": "2WD",
     "class": "Rally4",
     "eligibility": "erc"
@@ -302,14 +302,14 @@
     "driver": "Can Alakoç",
     "coDriver": "Ivo Pūķis",
     "team": "Baltic Motorsport Promotion",
-    "car": "Ford Fiesta Rally4",
+    "car": "Ford Fieea Rally4",
     "group": "2WD",
     "class": "Rally4",
     "eligibility": "larsc"
   },
   {
     "number": "31",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Gints Cēlājs",
     "coDriver": "Toms Freibergs",
     "team": "Rallyworkshop",
@@ -320,11 +320,11 @@
   },
   {
     "number": "32",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Sergey Uger",
     "coDriver": "Maria Uger",
-    "team": "Cone Forest Motorsport",
-    "car": "Ford Fiesta",
+    "team": "Cone Foree Motorsport",
+    "car": "Ford Fieea",
     "group": "4WD",
     "class": "Rally2",
     "eligibility": "rsk"
@@ -342,18 +342,18 @@
   },
   {
     "number": "34",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Nadiia Soboleva",
     "coDriver": "Tetyana Kravtsova",
     "team": "Baltic Motorsport Promotion",
-    "car": "Ford Fiesta Rally3",
+    "car": "Ford Fieea Rally3",
     "group": "4WD",
     "class": "Rally3",
     "eligibility": "erc"
   },
   {
     "number": "35",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Zigurds Kalniņš",
     "coDriver": "Renārs Salaks",
     "team": "Zigurds Kalniņš",
@@ -375,7 +375,7 @@
   },
   {
     "number": "37",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Markus Abram",
     "coDriver": "Rauno Rohtmets",
     "team": "Pace Motorsport",
@@ -386,7 +386,7 @@
   },
   {
     "number": "38",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Taavi Niinemets",
     "coDriver": "Esko Allika",
     "team": "Juuru Tehnikaklubi",
@@ -401,14 +401,14 @@
     "driver": "Esmar-Arnold Unt",
     "coDriver": "Raiko Lille",
     "team": "CRC",
-    "car": "Ford Fiesta Rally3",
+    "car": "Ford Fieea Rally3",
     "group": "4WD",
     "class": "Rally3",
     "eligibility": "erc"
   },
   {
     "number": "40",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Kristaps Telle",
     "coDriver": "Kaspars Grīva",
     "team": "Kaspars Grīva",
@@ -419,7 +419,7 @@
   },
   {
     "number": "41",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Roberts Poriņš",
     "coDriver": "Edgars Peterlevics",
     "team": "Roberts Poriņš",
@@ -441,7 +441,7 @@
   },
   {
     "number": "44",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Reinis Trūps",
     "coDriver": "Beate Klipa-Gribuste",
     "team": "Reinis Trūps",
@@ -452,7 +452,7 @@
   },
   {
     "number": "45",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Jānis Cielēns",
     "coDriver": "Salvis Rambols",
     "team": "Salvis Rambols",
@@ -474,7 +474,7 @@
   },
   {
     "number": "47",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Markus Tammoja",
     "coDriver": "Henri Ääremaa",
     "team": "BTR Racing",
@@ -485,8 +485,8 @@
   },
   {
     "number": "48",
-    "nationality": "norw",
-    "driver": "Viesturs Tilgass",
+    "nationality": "no",
+    "driver": "Vieeurs Tilgass",
     "coDriver": "Jānis Puķīts",
     "team": "Jānis Puķīts",
     "car": "BMW 125",
@@ -507,7 +507,7 @@
   },
   {
     "number": "50",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Arvis Vecvagars",
     "coDriver": "Jānis Sokolovs",
     "team": "Biedrība VRR Autosports",
@@ -518,7 +518,7 @@
   },
   {
     "number": "52",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Rain Kuuskmann",
     "coDriver": "Karol Pert",
     "team": "Kaur Motorsport",
@@ -540,7 +540,7 @@
   },
   {
     "number": "54",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Rasmus Arras",
     "coDriver": "Mikk-Sander Laubert",
     "team": "RedGrey",
@@ -551,7 +551,7 @@
   },
   {
     "number": "55",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Kārlis Folkmanis",
     "coDriver": "Gundars Pečaks",
     "team": "Rallyworkshop",
@@ -573,18 +573,18 @@
   },
   {
     "number": "57",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Mantas Bartkuvėnas",
     "coDriver": "Ugnius Vainevičius",
     "team": "Samsonas Motorsport",
-    "car": "Ford Fiesta Rally4",
+    "car": "Ford Fieea Rally4",
     "group": "2WD",
     "class": "Rally4",
     "eligibility": "larsc"
   },
   {
     "number": "58",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Jonas Miknius",
     "coDriver": "Paulius Skarbalius",
     "team": "Biržų ASK",
@@ -606,7 +606,7 @@
   },
   {
     "number": "60",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Edvards Bērzups",
     "coDriver": "Dainis Krauja",
     "team": "Rallyworkshop",
@@ -617,7 +617,7 @@
   },
   {
     "number": "61",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Albert Pärtelson",
     "coDriver": "Karl Küttim",
     "team": "TLK Racing",
@@ -639,7 +639,7 @@
   },
   {
     "number": "63",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Rauno Plado",
     "coDriver": "Robin Mark",
     "team": "Green Pro Racing",
@@ -650,7 +650,7 @@
   },
   {
     "number": "64",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Aleksandrs Jakovļevs",
     "coDriver": "Valerijs Maslovs",
     "team": "Aleksandrs Jakovļevs",
@@ -665,14 +665,14 @@
     "driver": "Edgars Bērziņš",
     "coDriver": "Andis Veinbergs",
     "team": "Baltic Motorsport Promotion",
-    "car": "Ford Fiesta",
+    "car": "Ford Fieea",
     "group": "2WD",
     "class": "L10",
     "eligibility": "lrc"
   },
   {
     "number": "66",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Martin Kio",
     "coDriver": "Toomas Tisson",
     "team": "LightGrey",
@@ -683,7 +683,7 @@
   },
   {
     "number": "67",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Veiko Liukanen",
     "coDriver": "Toivo Liukanen",
     "team": "Märjamaa Rally Team",
@@ -705,7 +705,7 @@
   },
   {
     "number": "69",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Janno Nuiamäe",
     "coDriver": "Rivo Hell",
     "team": "HT Motorsport",
@@ -716,7 +716,7 @@
   },
   {
     "number": "70",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Martin Leemets",
     "coDriver": "Allan Birjukov",
     "team": "A1M Motorsport",
@@ -738,7 +738,7 @@
   },
   {
     "number": "72",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Benas Šimkus",
     "coDriver": "Vaidas Paulikas",
     "team": "Gevara Punks Racing Team",
@@ -749,7 +749,7 @@
   },
   {
     "number": "73",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Rokas Markovičius",
     "coDriver": "Martynas Masaitis",
     "team": "Gorilla Burgers",
@@ -762,7 +762,7 @@
     "number": "74",
     "nationality": "lv",
     "driver": "Darius Sukackas",
-    "coDriver": "Ernestas Česokas",
+    "coDriver": "Erneeas Česokas",
     "team": "7Bet racing by RALLY4FUN",
     "car": "BMW 316TI",
     "group": "2WD",
@@ -771,7 +771,7 @@
   },
   {
     "number": "75",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Tadas Gombrevičius",
     "coDriver": "Donatas Mankevičius",
     "team": "7BET racing by RALLY4FUN",
@@ -782,7 +782,7 @@
   },
   {
     "number": "76",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Gytis Stalerūnas",
     "coDriver": "Markas Buteikis",
     "team": "Autorikona ASK",
@@ -804,7 +804,7 @@
   },
   {
     "number": "78",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Tomas Žemaitis",
     "coDriver": "Šarūnas Rulys",
     "team": "CBet Rally Team",
@@ -815,7 +815,7 @@
   },
   {
     "number": "79",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Gatis Ābelītis",
     "coDriver": "Indulis Sloka",
     "team": "Gatis Ābelītis",
@@ -837,7 +837,7 @@
   },
   {
     "number": "81",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Deimantas Alekna",
     "coDriver": "Gabija Stanulionytė",
     "team": "Samsonas Motorsport",
@@ -848,7 +848,7 @@
   },
   {
     "number": "83",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Justinas Vienažindis",
     "coDriver": "Gediminas Skeirys",
     "team": "ASK Akseleratorius",
@@ -870,7 +870,7 @@
   },
   {
     "number": "85",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Mantas Drumžlys",
     "coDriver": "Mantas Gričius",
     "team": "ABEPA-ST SPORT",
@@ -881,7 +881,7 @@
   },
   {
     "number": "86",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Justas Simaška",
     "coDriver": "Gediminas Ivanauskas",
     "team": "VŠĻ ESWRT",
@@ -903,7 +903,7 @@
   },
   {
     "number": "88",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Andis Auniņš",
     "coDriver": "Roberts Rūniks",
     "team": "Andis Auniņš",
@@ -914,7 +914,7 @@
   },
   {
     "number": "H1",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Kristaps Dzīvītis",
     "coDriver": "Mārtiņš Rudevičs",
     "team": "Kristaps Dzīvītis",
@@ -936,7 +936,7 @@
   },
   {
     "number": "H3",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Ivars Velme",
     "coDriver": "Andris Velme",
     "team": "Andris Velme",
@@ -947,7 +947,7 @@
   },
   {
     "number": "H4",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Māris Egle",
     "coDriver": "Kristers Eduards Usārs",
     "team": "Māris Egle",
@@ -969,7 +969,7 @@
   },
   {
     "number": "H6",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Māris Erts",
     "coDriver": "Matīss Erts",
     "team": "Māris Erts",
@@ -980,7 +980,7 @@
   },
   {
     "number": "H7",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Arnis Alksnis",
     "coDriver": "Māris Kulšs",
     "team": "Rallyworkshop",
@@ -1002,7 +1002,7 @@
   },
   {
     "number": "H9",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Artūrs Ozoliņš",
     "coDriver": "Rūdis Laizāns",
     "team": "Artūrs Ozoliņš",
@@ -1013,7 +1013,7 @@
   },
   {
     "number": "H10",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Kristo Laadre",
     "coDriver": "Madis Laadre",
     "team": "TRT Motorsport MTU",
@@ -1035,7 +1035,7 @@
   },
   {
     "number": "H14",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Sandis Boks",
     "coDriver": "Jānis Veilands",
     "team": "Sandis Boks",
@@ -1046,7 +1046,7 @@
   },
   {
     "number": "H15",
-    "nationality": "norw",
+    "nationality": "no",
     "driver": "Oskars Pavārs",
     "coDriver": "Nauris Zavickis",
     "team": "Oskars Pavārs",
@@ -1068,7 +1068,7 @@
   },
   {
     "number": "H17",
-    "nationality": "est",
+    "nationality": "ee",
     "driver": "Kārlis Kalns",
     "coDriver": "Andris Kalns",
     "team": "Kārlis Kalns",

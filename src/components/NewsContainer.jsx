@@ -41,7 +41,7 @@ const NewsContainer = () => {
         <div className="w-full min-h-20 bg-rally-primary sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px]">
                 <div className="flex items-center">
-                    <div className="font-racing text-white text-4xl mr-4">Jaunumi</div>
+                    <div className="font-containerHeading font-bold text-white text-4xl mr-4">Jaunumi</div>
                     <div className="flex-1 h-0.5 bg-white"></div>
                 </div>
                 {newsData.length > 0 ? (

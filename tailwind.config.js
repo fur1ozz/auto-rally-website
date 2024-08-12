@@ -10,6 +10,8 @@ module.exports = {
         topper: ['Poppins', 'sans-serif'],
         racing: ['Racing Sans One', 'sans-serif'],
         descFont: ['Roboto', 'sans-serif'],
+        containerHeading: ['Rajdhani', 'sans-serif'], // using for headings on containers
+        chakra: ['Chakra Petch', 'sans-serif'], //squared edges, used in participants cont
       },
       colors: {
         rally: {
