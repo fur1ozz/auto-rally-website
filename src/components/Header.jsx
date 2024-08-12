@@ -46,7 +46,7 @@ const Header = () => {
     };
     return (
         <div className="w-full bg-black/60">
-            <nav className="py-5 px-10 sm:">
+            <nav className="py-5 px-10">
                 <div className="flex justify-between items-center mx-auto">
                     <div className="flex">
                         <a href="/" className="flex mr-0 sm:mr-20 items-center">
@@ -61,6 +61,12 @@ const Header = () => {
                                 className="text-white font-medium mr-3"
                             >
                                 Sezonas
+                            </Link>
+                            <Link
+                                to="/news"
+                                className="text-white font-medium mr-3"
+                            >
+                                News
                             </Link>
                         </div>
                     </div>

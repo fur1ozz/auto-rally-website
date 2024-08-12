@@ -2,7 +2,8 @@ import React from 'react';
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
 import Home from './components/Home';
 import RallyBanner from "./components/RallyBanner";
-import NewsPage from "./components/NewsPage";
+import NewsPage from "./components/Pages/NewsPage";
+import ParticipantPage from "./components/Pages/ParticipantPage";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
 
                     <Route path="/banner" element={<RallyBanner />} />
                     <Route path="/news" element={<NewsPage />} />
+                    <Route path="/participants" element={<ParticipantPage />} />
                 </Routes>
             </div>
         </Router>
