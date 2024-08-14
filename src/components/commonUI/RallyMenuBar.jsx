@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, useLocation} from "react-router-dom";
 
-const UserInterfaceBar = () => {
+const RallyMenuBar = () => {
     const location = useLocation().pathname.split('/').pop();
 
     return (
@@ -90,4 +90,4 @@ const UserInterfaceBar = () => {
     );
 };
 
-export default UserInterfaceBar;
+export default RallyMenuBar;

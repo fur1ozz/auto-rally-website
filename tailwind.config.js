@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        topper: ['Poppins', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
         racing: ['Racing Sans One', 'sans-serif'],
         descFont: ['Roboto', 'sans-serif'],
         containerHeading: ['Rajdhani', 'sans-serif'], // using for headings on containers

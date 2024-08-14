@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from "../Header";
-import RallyBanner from "../RallyBanner";
-import UserInterfaceBar from "../UserInterfaceBar";
-import NewsContainer from "../NewsContainer";
-import Footer from "../Footer";
+import Header from "../components/UIFoundation/Header";
+import RallyBanner from "../components/commonUI/RallyBanner";
+import RallyMenuBar from "../components/commonUI/RallyMenuBar";
+import NewsContainer from "../components/rallyPageSpecific/NewsContainer";
+import Footer from "../components/UIFoundation/Footer";
 
 const NewsPage = () => {
     return (
@@ -14,7 +14,7 @@ const NewsPage = () => {
             >
                 <Header />
                 <RallyBanner />
-                <UserInterfaceBar />
+                <RallyMenuBar />
             </div>
             <NewsContainer />
             <Footer />

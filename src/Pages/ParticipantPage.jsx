@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from "../Header";
-import RallyBanner from "../RallyBanner";
-import UserInterfaceBar from "../UserInterfaceBar";
-import NewsContainer from "../NewsContainer";
-import Footer from "../Footer";
-import ParticipantContainer from "../ParticipantContainer";
+import Header from "../components/UIFoundation/Header";
+import RallyBanner from "../components/commonUI/RallyBanner";
+import RallyMenuBar from "../components/commonUI/RallyMenuBar";
+import NewsContainer from "../components/rallyPageSpecific/NewsContainer";
+import Footer from "../components/UIFoundation/Footer";
+import ParticipantContainer from "../components/rallyPageSpecific/ParticipantContainer";
 
 const ParticipantPage = () => {
     return (
@@ -15,7 +15,7 @@ const ParticipantPage = () => {
             >
                 <Header />
                 <RallyBanner />
-                <UserInterfaceBar />
+                <RallyMenuBar />
             </div>
             <ParticipantContainer />
             <Footer />

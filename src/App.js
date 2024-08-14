@@ -1,15 +1,15 @@
 import React from 'react';
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
-import Home from './components/Home';
-import RallyBanner from "./components/RallyBanner";
-import NewsPage from "./components/Pages/NewsPage";
-import ParticipantPage from "./components/Pages/ParticipantPage";
-import SpectatorsPage from "./components/Pages/SpectatorsPage";
+import HomePage from './Pages/HomePage';
+import RallyBanner from "./components/commonUI/RallyBanner";
+import NewsPage from "./Pages/NewsPage";
+import ParticipantPage from "./Pages/ParticipantPage";
+import SpectatorsPage from "./Pages/SpectatorsPage";
 
 function App() {
     return (
         <Router>
-            <div className="min-h-screen dark:bg-[#1d2125] font-topper">
+            <div className="min-h-screen dark:bg-[#1d2125] font-poppins">
                 <Routes>
                     <Route
                         path="/"
@@ -19,7 +19,7 @@ function App() {
                         path="*"
                         element={<Navigate to="/home" />}
                     />
-                    <Route exact path="/home" element={<Home />} />
+                    <Route exact path="/home" element={<HomePage />} />
 
                     <Route path="/banner" element={<RallyBanner />} />
 
