@@ -4,6 +4,7 @@ import Home from './components/Home';
 import RallyBanner from "./components/RallyBanner";
 import NewsPage from "./components/Pages/NewsPage";
 import ParticipantPage from "./components/Pages/ParticipantPage";
+import SpectatorsPage from "./components/Pages/SpectatorsPage";
 
 function App() {
     return (
@@ -21,8 +22,10 @@ function App() {
                     <Route exact path="/home" element={<Home />} />
 
                     <Route path="/banner" element={<RallyBanner />} />
+
                     <Route path="/news" element={<NewsPage />} />
                     <Route path="/participants" element={<ParticipantPage />} />
+                    <Route path="/spectators" element={<SpectatorsPage />} />
                 </Routes>
             </div>
         </Router>

@@ -3,7 +3,6 @@ import participantData from '../data/ParticipantData.json';
 import Flag from 'react-flagkit';
 
 const ParticipantItem = ({ number, nationality, coNationality, driver, coDriver, team, car, group, className, eligibility }) => {
-    // const eligibilityIcon = require(`/icons/competitionIcons/${eligibility}.png`);
 
     return (
         <div className="flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words">
@@ -76,6 +75,10 @@ const ParticipantContainer = () => {
                                 Pašlaik nav zināmu dalībnieku.
                             </div>
                         )}
+
+                        <div className="mt-6 text-[#4e4e4e] text-center font-bold">
+                            Kopējais dalībnieku skaits: {participantData.length}
+                        </div>
 
                     </div>
                 </div>
