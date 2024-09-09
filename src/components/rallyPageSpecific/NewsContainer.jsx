@@ -38,7 +38,7 @@ const NewsContainer = () => {
         },
     ];
     return (
-        <div className="w-full min-h-20 bg-rally-primary sm:p-14 p-10 flex justify-center">
+        <section className="w-full min-h-20 bg-rally-primary sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px]">
                 <div className="flex items-center">
                     <div className="font-containerHeading font-bold text-white text-4xl mr-4">Jaunumi</div>
@@ -60,7 +60,7 @@ const NewsContainer = () => {
                     </div>
                 )}
             </div>
-        </div>
+        </section>
     );
 };
 

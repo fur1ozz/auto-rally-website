@@ -2,10 +2,10 @@ import React from 'react';
 
 const SpectatorsContainer = () => {
     return (
-        <div className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
+        <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px]">
                 <div className="flex items-center">
-                    <div className="font-containerHeading font-bold text-[#4e4e4e] text-4xl mr-4">Skatītājiem</div>
+                    <h2 className="font-containerHeading font-bold text-[#4e4e4e] text-4xl mr-4">Skatītājiem</h2>
                     <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
                 </div>
                 <div className="flex mt-10 w-full text-[#4e4e4e]">
@@ -25,7 +25,7 @@ const SpectatorsContainer = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

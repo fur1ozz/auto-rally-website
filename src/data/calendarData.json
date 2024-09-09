@@ -1,0 +1,51 @@
+[
+  {
+    "rally_name": "Rallijs Alūksne",
+    "date_from": "07.09",
+    "date_to": "08.09",
+    "location": "lv",
+    "rally_image_for_calendar": "rally-aluksne-2024.png"
+  },
+  {
+    "rally_name": "Rallijs Sarma",
+    "date_from": "14.09",
+    "date_to": "15.09",
+    "location": "lv",
+    "rally_image_for_calendar": "rally-sarma-2024.png"
+  },
+  {
+    "rally_name": "Delfi Rally Estonia",
+    "date_from": "21.09",
+    "date_to": "22.09",
+    "location": "ee",
+    "rally_image_for_calendar": "delfi-rally-estonia-2024.png"
+  },
+  {
+    "rally_name": "Rallijs Cēsis",
+    "date_from": "28.09",
+    "date_to": "29.09",
+    "location": "lv",
+    "rally_image_for_calendar": "rally-cesis-2024.png"
+  },
+  {
+    "rally_name": "Rallijs Paide",
+    "date_from": "05.10",
+    "date_to": "06.10",
+    "location": "lv",
+    "rally_image_for_calendar": "rally-paide-2024.png"
+  },
+  {
+    "rally_name": "Samsonas Rally Utena",
+    "date_from": "12.10",
+    "date_to": "13.10",
+    "location": "lt",
+    "rally_image_for_calendar": "samsonas-rally-utena-2024.png"
+  },
+  {
+    "rally_name": "Rallijsprints Latvija",
+    "date_from": "19.10",
+    "date_to": "20.10",
+    "location": "lv",
+    "rally_image_for_calendar": "rally-sprint-latvia-2024.png"
+  }
+]

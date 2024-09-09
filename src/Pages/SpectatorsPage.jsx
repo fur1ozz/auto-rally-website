@@ -10,7 +10,7 @@ const SpectatorsPage = () => {
         <>
             <div
                 className="bg-fixed bg-cover bg-center"
-                style={{ backgroundImage: 'url(/images/parallax-backgrounds/gravel-road-3.jpg)' }}
+                style={{ backgroundImage: 'url(/images/parallax-backgrounds/gravel-road.jpg)' }}
             >
                 <Header />
                 <RallyBanner />

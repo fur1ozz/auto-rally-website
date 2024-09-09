@@ -48,7 +48,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="max-w-[1024px] w-full border-t-2 border-white py-8 flex justify-center">
-                    <a href="#fur1ozzPortfolio" target="_blank" className="text-white">
+                    <a href="https://fur1ozz-portfolio.vercel.app/about" target="_blank" className="text-white">
                         Made with ❤️ by
                         <span className="font-semibold"> fur1ozz</span>
                     </a>
