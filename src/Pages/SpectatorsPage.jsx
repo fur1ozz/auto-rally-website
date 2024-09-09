@@ -3,7 +3,7 @@ import Header from "../components/UIFoundation/Header";
 import RallyBanner from "../components/commonUI/RallyBanner";
 import RallyMenuBar from "../components/commonUI/RallyMenuBar";
 import Footer from "../components/UIFoundation/Footer";
-import SpectatorsContainer from "../components/rallyPageSpecific/SpectatorsContainer";
+import SpectatorsContainer from "../components/rallyPageComponents/SpectatorsContainer";
 
 const SpectatorsPage = () => {
     return (

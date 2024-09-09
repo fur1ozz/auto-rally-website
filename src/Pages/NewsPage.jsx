@@ -2,7 +2,7 @@ import React from 'react';
 import Header from "../components/UIFoundation/Header";
 import RallyBanner from "../components/commonUI/RallyBanner";
 import RallyMenuBar from "../components/commonUI/RallyMenuBar";
-import NewsContainer from "../components/rallyPageSpecific/NewsContainer";
+import NewsContainer from "../components/rallyPageComponents/NewsContainer";
 import Footer from "../components/UIFoundation/Footer";
 
 const NewsPage = () => {

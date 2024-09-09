@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Link, useLocation } from "react-router-dom";
+import {useCurrentTime} from "../../hooks/useCurrentTime";
+import {formatTime} from "../../utils/formatTime";
 
 // TODO need to fix
 const LinkButtonPhone = ({ name, currentPath }) => {
@@ -19,25 +21,7 @@ const LinkButtonPhone = ({ name, currentPath }) => {
 const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
-    const [time, setTime] = useState(new Date());
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setTime(new Date());
-        }, 1000);
-
-        return () => clearInterval(timer);
-    }, []);
-
-    const formatTime = (date) => {
-        const hours = date.getHours().toString().padStart(2, '0');
-        const minutes = date.getMinutes().toString().padStart(2, '0');
-        return (
-            <>
-                {hours}<span className="animate-flash">:</span>{minutes}
-            </>
-        );
-    };
+    const time = useCurrentTime();
 
     const handleMobileMenuToggle = () => {
         setMobileMenuOpen(!mobileMenuOpen);

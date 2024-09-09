@@ -1,17 +1,20 @@
 import React from 'react';
 import Header from "../components/UIFoundation/Header";
-import RallyBanner from "../components/commonUI/RallyBanner";
-import RallyMenuBar from "../components/commonUI/RallyMenuBar";
-import UpcomingEvent from "../components/pageSpecific/UpcomingEvent";
+import UpcomingEvent from "../components/homePageComponents/UpcomingEvent";
 import Footer from "../components/UIFoundation/Footer";
-import HeroSection from "../components/heroComponents/HeroSection";
-import HomeCalendar from "../components/pageSpecific/HomeCalendar";
+import HomeCalendar from "../components/homePageComponents/HomeCalendar";
+import RallyQuotes from "../components/homePageComponents/RallyQuotes";
+import PreviousWinner from "../components/homePageComponents/PreviousWinner";
 
 const HomePage = () => {
     return (
         <>
-            <HeroSection />
+            <div className="bg-black">
+                <Header />
+            </div>
             <UpcomingEvent />
+            <PreviousWinner />
+            <RallyQuotes />
             <HomeCalendar />
             <Footer />
         </>
