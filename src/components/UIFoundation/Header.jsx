@@ -39,16 +39,10 @@ const Header = () => {
                         </a>
                         <div className="sm:flex hidden items-center">
                             <Link
-                                to="#"
-                                className="text-white font-medium mr-3"
-                            >
-                                Sezonas
-                            </Link>
-                            <Link
                                 to="/news"
                                 className="text-white font-medium mr-3"
                             >
-                                News
+                                Rally Cesis
                             </Link>
                         </div>
                     </div>
