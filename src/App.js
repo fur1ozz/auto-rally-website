@@ -5,6 +5,7 @@ import RallyBanner from "./components/commonUI/RallyBanner";
 import NewsPage from "./Pages/NewsPage";
 import ParticipantPage from "./Pages/ParticipantPage";
 import SpectatorsPage from "./Pages/SpectatorsPage";
+import ChampionshipPage from "./Pages/ChampionshipPage";
 
 function App() {
     return (
@@ -26,6 +27,7 @@ function App() {
                     <Route path="/news" element={<NewsPage />} />
                     <Route path="/participants" element={<ParticipantPage />} />
                     <Route path="/spectators" element={<SpectatorsPage />} />
+                    <Route path="/championship" element={<ChampionshipPage />} />
                 </Routes>
             </div>
         </Router>

@@ -55,7 +55,7 @@ const Header = () => {
                         >
                             Ienākt
                         </Link>
-                        <button className="text-white">
+                        <button className="text-rally-primary">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
                             </svg>
@@ -65,7 +65,7 @@ const Header = () => {
                     <button
                         onClick={handleMobileMenuToggle}
                         type="button"
-                        className="inline-flex items-center p-2 ml-1 text-sm text-white rounded-lg sm:hidden"
+                        className="inline-flex items-center p-2 ml-1 text-sm text-rally-primary rounded-lg sm:hidden"
                         aria-expanded={mobileMenuOpen}
                     >
                         <span className="sr-only">Open main menu</span>
@@ -77,7 +77,7 @@ const Header = () => {
                     <div className={`sm:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-[200px]"} w-[200px] h-screen bg-interfaceBar-purple fixed top-0 right-0 p-5 transition-all duration-200 ease-in-out z-10`}>
                         <button
                             onClick={handleMobileMenuToggle}
-                            className="text-pj-400"
+                            className="text-rally-primary"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
