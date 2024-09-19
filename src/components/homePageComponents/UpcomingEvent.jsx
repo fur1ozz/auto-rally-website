@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 const UpcomingEvent = () => {
     return (
-        <Link to="#upcoming-event">
+        <a href="/2024/rally-utena/news">
             <div
                 className="bg-cover bg-center cursor-pointer"
                 style={{ backgroundImage: 'url(/images/parallax-backgrounds/for-home/rally-road-1.png)' }}
@@ -56,7 +56,7 @@ const UpcomingEvent = () => {
                     </div>
                 </div>
             </div>
-        </Link>
+        </a>
     );
 };
 

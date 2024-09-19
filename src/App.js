@@ -27,21 +27,22 @@ function App() {
                     />
                     <Route exact path="/home" element={<HomePage />} />
 
+                    {/*remove this later*/}
                     <Route path="/banner" element={<RallyBanner />} />
 
-                    <Route path="/news" element={<NewsPage />} />
-                    <Route path="/participants" element={<ParticipantPage />} />
-                    <Route path="/documents" element={<DocumentPage />} />
-                    <Route path="/spectators" element={<SpectatorsPage />} />
+                    <Route path="/:year/:rallyName/news" element={<NewsPage />} />
+                    <Route path="/:year/:rallyName/participants" element={<ParticipantPage />} />
+                    <Route path="/:year/:rallyName/documents" element={<DocumentPage />} />
+                    <Route path="/:year/:rallyName/spectators" element={<SpectatorsPage />} />
 
-                    {/*<Route path="/results" element={<ResultsPage />} />*/}
-                    <Route path="/results" element={<RetirementPage />} />
-                    <Route path="/results/retirements" element={<RetirementPage />} />
-                    <Route path="/results/penalties" element={<PenaltyPage />} />
+                    <Route path="/:year/:rallyName/results" element={<ResultsPage />} />
+                    {/*<Route path="/results" element={<RetirementPage />} />*/}
+                    <Route path="/:year/:rallyName/results/retirements" element={<RetirementPage />} />
+                    <Route path="/:year/:rallyName/results/penalties" element={<PenaltyPage />} />
 
 
-                    <Route path="/championship" element={<ChampionshipPage />} />
-                    <Route path="/gallery" element={<GalleryPage />} />
+                    <Route path="/:year/:rallyName/championship" element={<ChampionshipPage />} />
+                    <Route path="/:year/:rallyName/gallery" element={<GalleryPage />} />
                 </Routes>
             </div>
         </Router>

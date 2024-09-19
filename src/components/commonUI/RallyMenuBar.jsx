@@ -1,15 +1,16 @@
 import React from 'react';
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 
 const RallyMenuBar = () => {
-    const location = useLocation().pathname.split('/').pop();
+    const location = useLocation().pathname;
+    const { year, rallyName } = useParams();
 
     return (
         <div className="w-full min-h-14 bg-black/60 justify-center flex text-white">
             <div className="w-[1024px] justify-center items-center hidden lg:flex">
                 <Link
-                    to="/news"
-                    className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location === 'news' ? 'bg-rally-primary text-white' : 'hover:bg-white hover:text-black'}`}
+                    to={`/${year}/${rallyName}/news`}
+                    className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location.includes('/news') ? 'bg-rally-primary text-white' : 'hover:bg-white hover:text-black'}`}
                 >
                     <div className="h-4 w-4 mr-1 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -19,8 +20,8 @@ const RallyMenuBar = () => {
                     Jaunumi
                 </Link>
                 <Link
-                    to="/participants"
-                    className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location === 'participants' ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
+                    to={`/${year}/${rallyName}/participants`}
+                    className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location.includes('/participants') ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
                 >
                     <div className="h-4 w-4 mr-1 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -30,8 +31,8 @@ const RallyMenuBar = () => {
                     Dalībnieki
                 </Link>
                 <Link
-                    to="/documents"
-                    className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location === 'documents' ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
+                    to={`/${year}/${rallyName}/documents`}
+                    className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location.includes('/documents') ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
                 >
                     <div className="h-4 w-4 mr-1 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -41,8 +42,8 @@ const RallyMenuBar = () => {
                     Dokumenti
                 </Link>
                 <Link
-                    to="/spectators"
-                    className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location === 'spectators' ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
+                    to={`/${year}/${rallyName}/spectators`}
+                    className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location.includes('/spectators') ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
                 >
                     <div className="h-4 w-4 mr-1 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -53,8 +54,8 @@ const RallyMenuBar = () => {
                     Skatītājiem
                 </Link>
                 <Link
-                    to="/results"
-                    className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location === 'results' ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
+                    to={`/${year}/${rallyName}/results`}
+                    className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location.includes('/results') ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
                 >
                     <div className="h-4 w-4 mr-1 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -64,8 +65,8 @@ const RallyMenuBar = () => {
                     Rezultāti
                 </Link>
                 <Link
-                    to="/championship"
-                    className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location === 'championship' ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
+                    to={`/${year}/${rallyName}/championship`}
+                    className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location.includes('/championship') ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
                 >
                     <div className="h-4 w-4 mr-1 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -75,8 +76,8 @@ const RallyMenuBar = () => {
                     Čempionāts
                 </Link>
                 <Link
-                    to="/gallery"
-                    className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location === 'gallery' ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
+                    to={`/${year}/${rallyName}/gallery`}
+                    className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location.includes('/gallery') ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
                 >
                     <div className="h-4 w-4 mr-1 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">

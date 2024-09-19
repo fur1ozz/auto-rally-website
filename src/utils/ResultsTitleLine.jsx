@@ -1,62 +1,67 @@
 import React, {useEffect, useState} from 'react';
+import {Link, useParams} from "react-router-dom";
 
 const ResultsTitleLine = () => {
     const [currentPath, setCurrentPath] = useState("");
+    const { year, rallyName } = useParams();
 
     useEffect(() => {
-        setCurrentPath(window.location.pathname);
+        const path = window.location.pathname;
+        const lastPart = path.substring(path.lastIndexOf("/") + 1);
+        setCurrentPath(lastPart);
     }, []);
 
     const checkActive = (link) => {
-        return currentPath === link ? "text-4xl text-rally-primary" : "text-xl";
+        const lastPartOfLink = link.substring(link.lastIndexOf("/") + 1);
+        return currentPath === lastPartOfLink ? "text-4xl text-rally-primary" : "text-xl";
     };
     return (
         <div className="flex items-center mb-10">
             <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
-            <a
-                href="/results"
+            <Link
+                to={`/${year}/${rallyName}/results`}
                 className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkActive(
                     "/results"
                 )}`}
             >
                 Rezultāti
-            </a>
+            </Link>
             <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
-            <a
-                href="/results/splits"
+            <Link
+                to={`/${year}/${rallyName}/results/splits`}
                 className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkActive(
-                    "/results/splits"
+                    "/splits"
                 )}`}
             >
                 Starplaiki
-            </a>
+            </Link>
             <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
-            <a
-                href="/results/penalties"
+            <Link
+                to={`/${year}/${rallyName}/results/penalties`}
                 className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkActive(
-                    "/results/penalties"
+                    "/penalties"
                 )}`}
             >
                 Sodi
-            </a>
+            </Link>
             <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
-            <a
-                href="/results/retirements"
+            <Link
+                to={`/${year}/${rallyName}/results/retirements`}
                 className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkActive(
-                    "/results/retirements"
+                    "/retirements"
                 )}`}
             >
                 Izstājušies
-            </a>
+            </Link>
             <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
-            <a
-                href="/results/stage-winners"
+            <Link
+                to={`/${year}/${rallyName}/results/stage-winners`}
                 className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkActive(
-                    "/results/stage-winners"
+                    "/stage-winners"
                 )}`}
             >
                 Posmu Uzvarētāji
-            </a>
+            </Link>
             <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
         </div>
     );

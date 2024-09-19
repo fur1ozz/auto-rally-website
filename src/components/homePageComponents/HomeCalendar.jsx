@@ -10,7 +10,7 @@ const CalendarItem = ({ rally_name, date_from, date_to, location, rally_image_fo
     const { backgroundColor, borderColor } = getColorsForSurfaceType(road_surface);
 
     return (
-        <Link to={`#${eng_name.replace(/\s+/g, '-').toLowerCase()}`}>
+        <a href={`/2024/${eng_name.replace(/\s+/g, '-').toLowerCase()}/news`}>
             <div className="w-[300px] h-[300px] rounded-md mb-10 mx-2 group cursor-pointer flex flex-col font-chakra shadow-[0_3px_8px_0_rgba(0,0,0,0.17)]">
                 <div className="overflow-hidden h-[55%] flex justify-center items-center rounded-t-md relative">
                     <img
@@ -38,7 +38,7 @@ const CalendarItem = ({ rally_name, date_from, date_to, location, rally_image_fo
                     </div>
                 </div>
             </div>
-        </Link>
+        </a>
     );
 };
 
