@@ -1,8 +1,8 @@
-import React from 'react';
-import championshipData from '../../data/championshipData.json';  // Assuming the championship data contains group, class, crews
+import React, {useState} from 'react';
+import championshipData from '../../data/championshipData.json';
 import seasonData from '../../data/seasonEventsWithGroups.json';
-import RallyQuotes from "../homePageComponents/RallyQuotes";
-import TitleWithLine from "../../utils/titleWithLine";  // The season data for event names
+import groupClassData from '../../data/champGroupClassData.json';
+import TitleWithLine from "../../utils/titleWithLine";
 
 const ChampItem = ({ position, driver, coDriver, events, totalPoints }) => {
     const eventPoints = Object.values(events);
@@ -29,19 +29,82 @@ const ChampItem = ({ position, driver, coDriver, events, totalPoints }) => {
 };
 
 const ChampContainer = () => {
+    const [selectedClass, setSelectedClass] = useState(null);
+
+    const handleClassClick = (className) => {
+        setSelectedClass(className);
+    };
+
+    const filteredChampionshipData = () => {
+        // If no class is selected, return all data
+        if (!selectedClass) return championshipData.groups;
+
+        // Otherwise, filter data by the selected class
+        const filteredGroups = {};
+        Object.entries(championshipData.groups).forEach(([groupName, groupData]) => {
+            const filteredClasses = {};
+            Object.entries(groupData.classes).forEach(([className, crews]) => {
+                if (className === selectedClass) {
+                    filteredClasses[className] = crews;  // Only include the selected class
+                }
+            });
+            if (Object.keys(filteredClasses).length > 0) {
+                filteredGroups[groupName] = { ...groupData, classes: filteredClasses };
+            }
+        });
+
+        return filteredGroups;
+    };
+
+
     return (
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px] overflow-x-auto">
                 <TitleWithLine title="Čempionāts" />
 
-                {Object.entries(championshipData.groups).map(([groupName, groupData]) => (
+                <div className="flex flex-col flex-wrap my-5">
+                    <div className="flex flex-col mr-10 justify-end">
+                        <div className="flex flex-wrap text-sm">
+                            <button
+                                className={`mr-2 mb-2 px-4 py-1 rounded font-light ${
+                                    selectedClass === null ? 'bg-rally-primary font-normal text-[#ededed]' : 'bg-gray-200'
+                                }`}
+                                onClick={() => setSelectedClass(null)}
+                            >
+                                Radit visus
+                            </button>
+                        </div>
+                    </div>
+                    <div className="flex flex-wrap">
+                        {groupClassData.map((groupData, groupIndex) => (
+                            <div key={groupIndex} className="flex flex-col mr-10">
+                                <h4>{groupData.group}</h4>
+                                <div className="flex flex-wrap text-sm">
+                                    {groupData.classes.map((className, classIndex) => (
+                                        <button
+                                            key={classIndex}
+                                            className={`mr-2 mb-2 px-4 py-1 rounded font-light ${
+                                                selectedClass === className ? 'bg-rally-primary font-normal text-[#ededed]' : 'bg-gray-200'
+                                            }`}
+                                            onClick={() => handleClassClick(className)}
+                                        >
+                                            {className}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {Object.entries(filteredChampionshipData()).map(([groupName, groupData]) => (
                     Object.entries(groupData.classes).map(([className, crews]) => {
-                        // Get the correct events for the group from the season data
+
                         const groupEvents = seasonData.season.groups[groupName].events;
                         const numberOfEvents = groupEvents.length;
 
                         return (
-                            <div key={className} className="mt-20">
+                            <div key={className} className="mt-10">
                                 <h4 className="text-2xl font-semibold text-[#4e4e4e]">{className}</h4>
 
                                 <div className="flex mb-10 w-full text-[#4e4e4e] overflow-x-auto">

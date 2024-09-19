@@ -1,0 +1,150 @@
+[
+  {
+    "crewNumber": "1",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Emīls Blūms",
+    "coDriver": "Didzis Eglītis",
+    "vehicle": "Mitsubishi Lancer Evo IX (4WD)",
+    "penalties": [
+      {
+        "reason": "Jump start at SS-1 (-0.12)",
+        "penaltyTime": "0:10.00"
+      },
+      {
+        "reason": "Jump start at SS-4 (-0.21)",
+        "penaltyTime": "1:00.00"
+      }
+    ]
+  },
+  {
+    "crewNumber": "11",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Mārtiņš Ķikusts",
+    "coDriver": "Gundars Berķis",
+    "vehicle": "Mitsubishi Lancer Evo VII (4WD)",
+    "penalties": [
+      {
+        "reason": "Jump start at SS-6 (-0.04)",
+        "penaltyTime": "0:10.00"
+      }
+    ]
+  },
+  {
+    "crewNumber": "34",
+    "nationality": "UA",
+    "coNationality": "UA",
+    "driver": "Nadiia Soboleva",
+    "coDriver": "Tetyana Kravtsova",
+    "vehicle": "Ford Fiesta Rally3 (4WD)",
+    "penalties": [
+      {
+        "reason": "Jump start at SS-1 (-0.02)",
+        "penaltyTime": "0:10.00"
+      }
+    ]
+  },
+  {
+    "crewNumber": "36",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Ralfs Sirmacis",
+    "coDriver": "Armands Bite",
+    "vehicle": "BMW M3 (2WD)",
+    "penalties": [
+      {
+        "reason": "1 Minute late at TC-4",
+        "penaltyTime": "0:10.00"
+      }
+    ]
+  },
+  {
+    "crewNumber": "46",
+    "nationality": "EE",
+    "coNationality": "EE",
+    "driver": "Arno Metsaluik",
+    "coDriver": "Märtin Liivaoja",
+    "vehicle": "Honda Civic Type-R (2WD)",
+    "penalties": [
+      {
+        "reason": "1 Minute late at TC-4",
+        "penaltyTime": "0:10.00"
+      }
+    ]
+  },
+  {
+    "crewNumber": "65",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Edgars Bērziņš",
+    "coDriver": "Andis Veinbergs",
+    "vehicle": "Ford Fiesta (2WD)",
+    "penalties": [
+      {
+        "reason": "Stewards decision",
+        "penaltyTime": "0:20.00"
+      }
+    ]
+  },
+  {
+    "crewNumber": "68",
+    "nationality": "EE",
+    "coNationality": "EE",
+    "driver": "Kaspar Kaldjärv",
+    "coDriver": "Madis Allese",
+    "vehicle": "GAZ 51 (2WD)",
+    "penalties": [
+      {
+        "reason": "5 Minutes late at TC-5C",
+        "penaltyTime": "0:50.00"
+      },
+      {
+        "reason": "3 Minutes late at TC-6",
+        "penaltyTime": "0:30.00"
+      }
+    ]
+  },
+  {
+    "crewNumber": "H11",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Klāvs Danne",
+    "coDriver": "Džannijs Kļaviņš",
+    "vehicle": "VAZ 2108 (2WD)",
+    "penalties": [
+      {
+        "reason": "1 Minute late at TC-2",
+        "penaltyTime": "0:10.00"
+      }
+    ]
+  },
+  {
+    "crewNumber": "H16",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Oskars Līdaks",
+    "coDriver": "Ričards Līdaks",
+    "vehicle": "Subaru Impreza (4WD)",
+    "penalties": [
+      {
+        "reason": "Jump start at SS-4 (-0.11)",
+        "penaltyTime": "0:10.00"
+      }
+    ]
+  },
+  {
+    "crewNumber": "H17",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Kārlis Kalns",
+    "coDriver": "Andris Kalns",
+    "vehicle": "Opel Ascona B (VRK11)",
+    "penalties": [
+      {
+        "reason": "8 Minutes late at TC-3",
+        "penaltyTime": "1:20.00"
+      }
+    ]
+  }
+]

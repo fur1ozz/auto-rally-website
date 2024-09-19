@@ -1,0 +1,162 @@
+[
+  {
+    "crewNumber": "5",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Kalvis Blūms",
+    "coDriver": "Didzis Blūms",
+    "vehicle": "Mitsubishi Lancer Evo (4WD)",
+    "retireReason": "Technical",
+    "finishedStages": 4
+  },
+  {
+    "crewNumber": "6",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Jānis Vorobjovs",
+    "coDriver": "Guntars Zicāns",
+    "vehicle": "Mitsubishi Lancer Evo VIII (4WD)",
+    "retireReason": "Engine",
+    "finishedStages": 4
+  },
+  {
+    "crewNumber": "7",
+    "nationality": "EE",
+    "coNationality": "EE",
+    "driver": "Karl Martin Volver",
+    "coDriver": "Annika Sõna",
+    "vehicle": "Škoda Fabia (4WD)",
+    "retireReason": "Technical",
+    "finishedStages": 3
+  },
+  {
+    "crewNumber": "25",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Vigo Rubenis",
+    "coDriver": "Kristaps Eglīte",
+    "vehicle": "Subaru Impreza (4WD)",
+    "retireReason": "Rool over",
+    "finishedStages": 5
+  },
+  {
+    "crewNumber": "29",
+    "nationality": "EE",
+    "coNationality": "EE",
+    "driver": "Hugo Arendi",
+    "coDriver": "Gabriel Müürsepp",
+    "vehicle": "Ford Fiesta M-Sport Rally4 (2WD)",
+    "retireReason": "Out of road",
+    "finishedStages": 5
+  },
+  {
+    "crewNumber": "41",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Roberts Poriņš",
+    "coDriver": "Edgars Peterlevics",
+    "vehicle": "VW Golf (2WD)",
+    "retireReason": "Technical",
+    "finishedStages": 4
+  },
+  {
+    "crewNumber": "43",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Jānis Grīnbergs",
+    "coDriver": "Jānis Strazdiņš",
+    "vehicle": "BMW 330 (2WD)",
+    "retireReason": "Technical",
+    "finishedStages": 2
+  },
+  {
+    "crewNumber": "50",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Arvis Vecvagars",
+    "coDriver": "Jānis Sokolovs",
+    "vehicle": "Renault Clio (2WD)",
+    "retireReason": "Fuel pump",
+    "finishedStages": 5
+  },
+  {
+    "crewNumber": "60",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Edvards Bērzups",
+    "coDriver": "Dainis Krauja",
+    "vehicle": "Renault Clio (2WD)",
+    "retireReason": "Fire",
+    "finishedStages": 6
+  },
+  {
+    "crewNumber": "88",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Andis Auniņš",
+    "coDriver": "Roberts Rūniks",
+    "vehicle": "Renault Clio (2WD)",
+    "retireReason": "Fuel pump",
+    "finishedStages": 3
+  },
+  {
+    "crewNumber": "H4",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Māris Egle",
+    "coDriver": "Kristers Eduards Usārs",
+    "vehicle": "Audi 80 Quattro (4WD)",
+    "retireReason": "DNF",
+    "finishedStages": 7
+  },
+  {
+    "crewNumber": "H8",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Dāvis Kviesis",
+    "coDriver": "Oskars Pugovičs",
+    "vehicle": "VW Golf II (2WD)",
+    "retireReason": "Wheel",
+    "finishedStages": 4
+  },
+  {
+    "crewNumber": "H9",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Artūrs Ozoliņš",
+    "coDriver": "Rūdis Laizāns",
+    "vehicle": "VW Golf Mk1 (2WD)",
+    "retireReason": "Axle",
+    "finishedStages": 5
+  },
+  {
+    "crewNumber": "H11",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Klāvs Danne",
+    "coDriver": "Džannijs Kļaviņš",
+    "vehicle": "VAZ 2108 (2WD)",
+    "retireReason": "Engine",
+    "finishedStages": 3
+  },
+  {
+    "crewNumber": "H14",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Sandis Boks",
+    "coDriver": "Jānis Veilands",
+    "vehicle": "Volvo 940 (2WD)",
+    "retireReason": "DNF",
+    "finishedStages": 8
+  },
+  {
+    "crewNumber": "H15",
+    "nationality": "LV",
+    "coNationality": "LV",
+    "driver": "Oskars Pavārs",
+    "coDriver": "Nauris Zavickis",
+    "vehicle": "Subaru Impreza (4WD)",
+    "retireReason": "Wheel",
+    "finishedStages": 6
+  }
+]

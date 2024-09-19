@@ -1,0 +1,31 @@
+[
+  {
+    "group": "LRC",
+    "classes": [
+      "LRC1",
+      "LRC2",
+      "LRC3",
+      "LRC4",
+      "LRC5",
+      "LRC6",
+      "LRC7",
+      "LRC Juniors"
+    ]
+  },
+  {
+    "group": "RSK",
+    "classes": [
+      "RSK8",
+      "RSK9",
+      "RSK10"
+    ]
+  },
+  {
+    "group": "VRK",
+    "classes": [
+      "VRK11",
+      "VRK12",
+      "VRK13"
+    ]
+  }
+]

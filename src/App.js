@@ -8,6 +8,9 @@ import SpectatorsPage from "./Pages/PagesAboutRally/SpectatorsPage";
 import ChampionshipPage from "./Pages/PagesAboutRally/ChampionshipPage";
 import DocumentPage from "./Pages/PagesAboutRally/DocumentPage";
 import GalleryPage from "./Pages/PagesAboutRally/GalleryPage";
+import ResultsPage from "./Pages/PagesAboutRally/PagesForRallyResults/ResultsPage";
+import PenaltyPage from "./Pages/PagesAboutRally/PagesForRallyResults/PenaltyPage";
+import RetirementPage from "./Pages/PagesAboutRally/PagesForRallyResults/RetirementPage";
 
 function App() {
     return (
@@ -30,7 +33,13 @@ function App() {
                     <Route path="/participants" element={<ParticipantPage />} />
                     <Route path="/documents" element={<DocumentPage />} />
                     <Route path="/spectators" element={<SpectatorsPage />} />
-                    {/*results*/}
+
+                    {/*<Route path="/results" element={<ResultsPage />} />*/}
+                    <Route path="/results" element={<RetirementPage />} />
+                    <Route path="/results/retirements" element={<RetirementPage />} />
+                    <Route path="/results/penalties" element={<PenaltyPage />} />
+
+
                     <Route path="/championship" element={<ChampionshipPage />} />
                     <Route path="/gallery" element={<GalleryPage />} />
                 </Routes>
