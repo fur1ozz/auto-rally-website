@@ -8,8 +8,8 @@ const UpcomingEvent = () => {
                 className="bg-cover bg-center cursor-pointer"
                 style={{ backgroundImage: 'url(/images/parallax-backgrounds/for-home/rally-road-1.png)' }}
             >
-                <div className="w-full backdrop-blur-sm bg-black/20 flex justify-center items-center text-white sm:px-14 px-4">
-                    <div className="w-[1024px] font-chakra ">
+                <div className="w-full backdrop-blur-sm bg-black/20 flex justify-center items-center text-white sm:px-14 px-4 overflow-hidden">
+                    <div className="w-[1024px] font-chakra hover:scale-[1.02] transition-all duration-300">
                         <div className="flex items-center pt-10">
                             <div className="font-semibold md:text-3xl sm:text-2xl text-xl mr-5">Upcoming Event</div>
                             <div className="flex-1 h-0.5 bg-white"></div>

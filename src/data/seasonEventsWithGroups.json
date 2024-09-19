@@ -1,0 +1,25 @@
+{
+  "season": {
+    "year": 2024,
+    "groups": {
+      "LRC": {
+        "events": [
+          "Alūksne",
+          "Sarma",
+          "Estonia",
+          "Cēsis",
+          "Paide",
+          "Utena"
+        ]
+      },
+      "RSK": {
+        "events": [
+          "Alūksne",
+          "Sarma",
+          "Cēsis",
+          "Latvija"
+        ]
+      }
+    }
+  }
+}

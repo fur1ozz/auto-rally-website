@@ -8,10 +8,10 @@
             "driver": "Tomass Vēveris",
             "co_driver": "Reinis Artimovičs",
             "events": {
-              "aluksne": 10,
+              "alūksne": 10,
               "sarma": 5,
               "estonia": 6,
-              "cesis": 7,
+              "cēsis": 7,
               "paide": 13,
               "utena": 2
             },
@@ -22,10 +22,10 @@
             "driver": "Jānis Ozols",
             "co_driver": "Oskars Liepiņš",
             "events": {
-              "aluksne": 9,
+              "alūksne": 9,
               "sarma": 7,
               "estonia": 8,
-              "cesis": 6,
+              "cēsis": 6,
               "paide": 12,
               "utena": 5
             },
@@ -36,10 +36,10 @@
             "driver": "Andris Jansons",
             "co_driver": "Mārtiņš Bērziņš",
             "events": {
-              "aluksne": 8,
+              "alūksne": 8,
               "sarma": 6,
               "estonia": 5,
-              "cesis": 7,
+              "cēsis": 7,
               "paide": 10,
               "utena": 4
             },
@@ -52,10 +52,10 @@
             "driver": "Andris Jansons",
             "co_driver": "Mārtiņš Bērziņš",
             "events": {
-              "aluksne": 8,
+              "alūksne": 8,
               "sarma": 6,
               "estonia": 5,
-              "cesis": 7,
+              "cēsis": 7,
               "paide": 10,
               "utena": 4
             },
@@ -68,10 +68,10 @@
             "driver": "Edgars Kalniņš",
             "co_driver": "Juris Pētersons",
             "events": {
-              "aluksne": 7,
+              "alūksne": 7,
               "sarma": 6,
               "estonia": 5,
-              "cesis": 9,
+              "cēsis": 9,
               "paide": 8,
               "utena": 3
             },
@@ -88,12 +88,10 @@
             "driver": "Jānis Ozols",
             "co_driver": "Oskars Liepiņš",
             "events": {
-              "aluksne": 9,
+              "alūksne": 9,
               "sarma": 7,
-              "estonia": 8,
-              "cesis": 6,
-              "paide": 12,
-              "utena": 5
+              "cēsis": 6,
+              "latvija": 5
             },
             "total_points": 47
           }
@@ -104,12 +102,10 @@
             "driver": "Māris Bērziņš",
             "co_driver": "Edgars Jansons",
             "events": {
-              "aluksne": 10,
+              "alūksne": 10,
               "sarma": 5,
-              "estonia": 9,
-              "cesis": 8,
-              "paide": 11,
-              "utena": 6
+              "cēsis": 8,
+              "latvija": 6
             },
             "total_points": 49
           }
@@ -120,12 +116,10 @@
             "driver": "Kaspars Siliņš",
             "co_driver": "Ilmārs Krūmiņš",
             "events": {
-              "aluksne": 8,
+              "alūksne": 8,
               "sarma": 9,
-              "estonia": 10,
-              "cesis": 7,
-              "paide": 10,
-              "utena": 5
+              "cēsis": 7,
+              "latvija": 5
             },
             "total_points": 49
           }

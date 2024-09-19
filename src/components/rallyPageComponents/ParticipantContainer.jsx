@@ -1,6 +1,7 @@
 import React from 'react';
 import participantData from '../../data/participantData.json';
 import Flag from 'react-flagkit';
+import TitleWithLine from "../../utils/titleWithLine";
 
 const ParticipantItem = ({ number, nationality, coNationality, driver, coDriver, team, car, group, className, eligibility }) => {
 
@@ -32,11 +33,7 @@ const ParticipantContainer = () => {
     return (
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px] overflow-x-auto">
-                <div className="flex items-center">
-                    <h2 className="font-containerHeading font-bold text-[#4e4e4e] text-4xl mr-4">Dalībnieki</h2>
-                    <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
-                </div>
-
+                <TitleWithLine title="Dalībnieki" />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <div className="min-w-[1024px] flex flex-col sm:items-center font-chakra">
                         <div className="flex w-full justify-between py-2 border-b border-gray-300 text-rally-secondary font-medium items-center">
