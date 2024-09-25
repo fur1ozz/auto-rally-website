@@ -1,0 +1,30 @@
+[
+  {
+    "crew_number": 1,
+    "driver_name": "Emīls Blūms",
+    "co_driver_name": "Didzis Eglītis",
+    "cumulative_time": "36:55.00",
+    "overall_position": 2,
+    "group_positions": {
+      "LRC5": 1,
+      "LRC1": 3
+    },
+    "class_positions": {
+      "L13": 1,
+      "L10": 2
+    }
+  },
+  {
+    "crew_number": 3,
+    "driver_name": "John Smith",
+    "co_driver_name": "Mark Thomas",
+    "cumulative_time": "36:05.00",
+    "overall_position": 1,
+    "group_positions": {
+      "LRC3": 1
+    },
+    "class_positions": {
+      "L10": 1
+    }
+  }
+]

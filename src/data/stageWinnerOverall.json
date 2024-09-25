@@ -1,0 +1,380 @@
+{
+  "overall_results": {
+    "stage_1": {
+      "stage": "SS1",
+      "stage_name": "CĒSIS",
+      "stage_distance": 8.11,
+      "stage_number": 1,
+      "top_3": [
+        {
+          "place": 1,
+          "driver": "Karl Peder Nordstrand",
+          "driver_nationality": "LV",
+          "co_driver": "Jørn Norum Listerud",
+          "co_driver_nationality": "NO",
+          "team": "Sports Racing Technologies",
+          "vehicle": "SRT PROTO 02",
+          "drive_type": "4WD",
+          "crew_number": 1,
+          "completion_time": "4:53.13",
+          "average_speed_kmh": 99.60
+        },
+        {
+          "place": 2,
+          "driver": "Second Driver Name",
+          "driver_nationality": "EE",
+          "co_driver": "Second Co-driver Name",
+          "co_driver_nationality": "LV",
+          "team": "Second Team Name",
+          "vehicle": "Second Vehicle Name",
+          "drive_type": "4WD",
+          "crew_number": 2,
+          "completion_time": "4:55.00",
+          "average_speed_kmh": 98.50
+        },
+        {
+          "place": 3,
+          "driver": "Third Driver Name",
+          "driver_nationality": "LT",
+          "co_driver": "Third Co-driver Name",
+          "co_driver_nationality": "EE",
+          "team": "Third Team Name",
+          "vehicle": "Third Vehicle Name",
+          "drive_type": "4WD",
+          "crew_number": 3,
+          "completion_time": "5:00.00",
+          "average_speed_kmh": 97.00
+        }
+      ]
+    },
+    "stage_2": {
+      "stage": "SS2",
+      "stage_name": "MEŽA APSAIMNIEKOTĀJS",
+      "stage_distance": 13.63,
+      "stage_number": 2,
+      "top_3": [
+        {
+          "place": 1,
+          "driver": "Karl Peder Nordstrand",
+          "driver_nationality": "LV",
+          "co_driver": "Jørn Norum Listerud",
+          "co_driver_nationality": "NO",
+          "team": "Sports Racing Technologies",
+          "vehicle": "SRT PROTO 02",
+          "drive_type": "4WD",
+          "crew_number": 1,
+          "completion_time": "6:33.37",
+          "average_speed_kmh": 124.74
+        },
+        {
+          "place": 2,
+          "driver": "Second Driver Name",
+          "driver_nationality": "EE",
+          "co_driver": "Second Co-driver Name",
+          "co_driver_nationality": "LV",
+          "team": "Second Team Name",
+          "vehicle": "Second Vehicle Name",
+          "drive_type": "4WD",
+          "crew_number": 2,
+          "completion_time": "6:35.50",
+          "average_speed_kmh": 124.00
+        },
+        {
+          "place": 3,
+          "driver": "Third Driver Name",
+          "driver_nationality": "LT",
+          "co_driver": "Third Co-driver Name",
+          "co_driver_nationality": "EE",
+          "team": "Third Team Name",
+          "vehicle": "Third Vehicle Name",
+          "drive_type": "4WD",
+          "crew_number": 3,
+          "completion_time": "6:38.00",
+          "average_speed_kmh": 123.50
+        }
+      ]
+    },
+    "stage_3": {
+      "stage": "SS3",
+      "stage_name": "MELAT-LUX",
+      "stage_distance": 9.42,
+      "stage_number": 3,
+      "top_3": [
+        {
+          "place": 1,
+          "driver": "Karl Peder Nordstrand",
+          "driver_nationality": "LV",
+          "co_driver": "Jørn Norum Listerud",
+          "co_driver_nationality": "NO",
+          "team": "Sports Racing Technologies",
+          "vehicle": "SRT PROTO 02",
+          "drive_type": "4WD",
+          "crew_number": 1,
+          "completion_time": "4:23.12",
+          "average_speed_kmh": 128.88
+        },
+        {
+          "place": 2,
+          "driver": "Second Driver Name",
+          "driver_nationality": "EE",
+          "co_driver": "Second Co-driver Name",
+          "co_driver_nationality": "LV",
+          "team": "Second Team Name",
+          "vehicle": "Second Vehicle Name",
+          "drive_type": "4WD",
+          "crew_number": 2,
+          "completion_time": "4:25.00",
+          "average_speed_kmh": 128.00
+        },
+        {
+          "place": 3,
+          "driver": "Third Driver Name",
+          "driver_nationality": "LT",
+          "co_driver": "Third Co-driver Name",
+          "co_driver_nationality": "EE",
+          "team": "Third Team Name",
+          "vehicle": "Third Vehicle Name",
+          "drive_type": "4WD",
+          "crew_number": 3,
+          "completion_time": "4:30.00",
+          "average_speed_kmh": 127.00
+        }
+      ]
+    },
+    "stage_4": {
+      "stage": "SS4",
+      "stage_name": "SARSAUTO",
+      "stage_distance": 13.52,
+      "stage_number": 4,
+      "top_3": [
+        {
+          "place": 1,
+          "driver": "Karl Peder Nordstrand",
+          "driver_nationality": "LV",
+          "co_driver": "Jørn Norum Listerud",
+          "co_driver_nationality": "NO",
+          "team": "Sports Racing Technologies",
+          "vehicle": "SRT PROTO 02",
+          "drive_type": "4WD",
+          "crew_number": 1,
+          "completion_time": "6:39.10",
+          "average_speed_kmh": 121.95
+        },
+        {
+          "place": 2,
+          "driver": "Second Driver Name",
+          "driver_nationality": "EE",
+          "co_driver": "Second Co-driver Name",
+          "co_driver_nationality": "LV",
+          "team": "Second Team Name",
+          "vehicle": "Second Vehicle Name",
+          "drive_type": "4WD",
+          "crew_number": 2,
+          "completion_time": "6:40.50",
+          "average_speed_kmh": 121.50
+        },
+        {
+          "place": 3,
+          "driver": "Third Driver Name",
+          "driver_nationality": "LT",
+          "co_driver": "Third Co-driver Name",
+          "co_driver_nationality": "EE",
+          "team": "Third Team Name",
+          "vehicle": "Third Vehicle Name",
+          "drive_type": "4WD",
+          "crew_number": 3,
+          "completion_time": "6:42.00",
+          "average_speed_kmh": 121.00
+        }
+      ]
+    },
+    "stage_5": {
+      "stage": "SS5",
+      "stage_name": "EUROPCAR",
+      "stage_distance": 14.72,
+      "stage_number": 5,
+      "top_3": [
+        {
+          "place": 1,
+          "driver": "Karl Peder Nordstrand",
+          "driver_nationality": "LV",
+          "co_driver": "Jørn Norum Listerud",
+          "co_driver_nationality": "NO",
+          "team": "Sports Racing Technologies",
+          "vehicle": "SRT PROTO 02",
+          "drive_type": "4WD",
+          "crew_number": 1,
+          "completion_time": "7:20.17",
+          "average_speed_kmh": 120.39
+        },
+        {
+          "place": 2,
+          "driver": "Second Driver Name",
+          "driver_nationality": "EE",
+          "co_driver": "Second Co-driver Name",
+          "co_driver_nationality": "LV",
+          "team": "Second Team Name",
+          "vehicle": "Second Vehicle Name",
+          "drive_type": "4WD",
+          "crew_number": 2,
+          "completion_time": "7:22.00",
+          "average_speed_kmh": 120.00
+        },
+        {
+          "place": 3,
+          "driver": "Third Driver Name",
+          "driver_nationality": "LT",
+          "co_driver": "Third Co-driver Name",
+          "co_driver_nationality": "EE",
+          "team": "Third Team Name",
+          "vehicle": "Third Vehicle Name",
+          "drive_type": "4WD",
+          "crew_number": 3,
+          "completion_time": "7:25.00",
+          "average_speed_kmh": 119.50
+        }
+      ]
+    },
+    "stage_6": {
+      "stage": "SS6",
+      "stage_name": "PRINTMII",
+      "stage_distance": 9.42,
+      "stage_number": 6,
+      "top_3": [
+        {
+          "place": 1,
+          "driver": "Karl Peder Nordstrand",
+          "driver_nationality": "LV",
+          "co_driver": "Jørn Norum Listerud",
+          "co_driver_nationality": "NO",
+          "team": "Sports Racing Technologies",
+          "vehicle": "SRT PROTO 02",
+          "drive_type": "4WD",
+          "crew_number": 1,
+          "completion_time": "4:14.36",
+          "average_speed_kmh": 133.32
+        },
+        {
+          "place": 2,
+          "driver": "Second Driver Name",
+          "driver_nationality": "EE",
+          "co_driver": "Second Co-driver Name",
+          "co_driver_nationality": "LV",
+          "team": "Second Team Name",
+          "vehicle": "Second Vehicle Name",
+          "drive_type": "4WD",
+          "crew_number": 2,
+          "completion_time": "4:16.00",
+          "average_speed_kmh": 132.00
+        },
+        {
+          "place": 3,
+          "driver": "Third Driver Name",
+          "driver_nationality": "LT",
+          "co_driver": "Third Co-driver Name",
+          "co_driver_nationality": "EE",
+          "team": "Third Team Name",
+          "vehicle": "Third Vehicle Name",
+          "drive_type": "4WD",
+          "crew_number": 3,
+          "completion_time": "4:18.00",
+          "average_speed_kmh": 131.00
+        }
+      ]
+    },
+    "stage_7": {
+      "stage": "SS7",
+      "stage_name": "METĀLU PASAULE",
+      "stage_distance": 13.52,
+      "stage_number": 7,
+      "top_3": [
+        {
+          "place": 1,
+          "driver": "Karl Peder Nordstrand",
+          "driver_nationality": "LV",
+          "co_driver": "Jørn Norum Listerud",
+          "co_driver_nationality": "NO",
+          "team": "Sports Racing Technologies",
+          "vehicle": "SRT PROTO 02",
+          "drive_type": "4WD",
+          "crew_number": 1,
+          "completion_time": "6:32.42",
+          "average_speed_kmh": 124.03
+        },
+        {
+          "place": 2,
+          "driver": "Second Driver Name",
+          "driver_nationality": "EE",
+          "co_driver": "Second Co-driver Name",
+          "co_driver_nationality": "LV",
+          "team": "Second Team Name",
+          "vehicle": "Second Vehicle Name",
+          "drive_type": "4WD",
+          "crew_number": 2,
+          "completion_time": "6:34.00",
+          "average_speed_kmh": 123.50
+        },
+        {
+          "place": 3,
+          "driver": "Third Driver Name",
+          "driver_nationality": "LT",
+          "co_driver": "Third Co-driver Name",
+          "co_driver_nationality": "EE",
+          "team": "Third Team Name",
+          "vehicle": "Third Vehicle Name",
+          "drive_type": "4WD",
+          "crew_number": 3,
+          "completion_time": "6:36.00",
+          "average_speed_kmh": 123.00
+        }
+      ]
+    },
+    "stage_8": {
+      "stage": "SS8",
+      "stage_name": "TOLMETS VIDZEME",
+      "stage_distance": 14.72,
+      "stage_number": 8,
+      "top_3": [
+        {
+          "place": 1,
+          "driver": "Karl Peder Nordstrand",
+          "driver_nationality": "LV",
+          "co_driver": "Jørn Norum Listerud",
+          "co_driver_nationality": "NO",
+          "team": "Sports Racing Technologies",
+          "vehicle": "SRT PROTO 02",
+          "drive_type": "4WD",
+          "crew_number": 1,
+          "completion_time": "7:07.82",
+          "average_speed_kmh": 123.87
+        },
+        {
+          "place": 2,
+          "driver": "Second Driver Name",
+          "driver_nationality": "EE",
+          "co_driver": "Second Co-driver Name",
+          "co_driver_nationality": "LV",
+          "team": "Second Team Name",
+          "vehicle": "Second Vehicle Name",
+          "drive_type": "4WD",
+          "crew_number": 2,
+          "completion_time": "7:09.50",
+          "average_speed_kmh": 123.50
+        },
+        {
+          "place": 3,
+          "driver": "Third Driver Name",
+          "driver_nationality": "LT",
+          "co_driver": "Third Co-driver Name",
+          "co_driver_nationality": "EE",
+          "team": "Third Team Name",
+          "vehicle": "Third Vehicle Name",
+          "drive_type": "4WD",
+          "crew_number": 3,
+          "completion_time": "7:12.00",
+          "average_speed_kmh": 123.00
+        }
+      ]
+    }
+  }
+}

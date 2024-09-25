@@ -24,6 +24,7 @@ module.exports = {
         interfaceBar: {
           purple: "#f0f2fe",
           gray: "#f0f2fe",
+          gray: "#af2c2c",
         }
       },
       keyframes: {

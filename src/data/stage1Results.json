@@ -1,0 +1,20 @@
+[
+  {
+    "crew_number": 1,
+    "driver": "Emīls Blūms",
+    "co_driver": "Didzis Eglītis",
+    "team": "Samsonas Motorsport",
+    "vehicle": "Mitsubishi Lancer Evo IX",
+    "stage_time": "06:10.00",
+    "overall_until_stage": "06:10.00"
+  },
+  {
+    "crew_number": 2,
+    "driver": "John Doe",
+    "co_driver": "Jane Doe",
+    "team": "Team XYZ",
+    "vehicle": "Ford Fiesta",
+    "stage_time": "06:15.00",
+    "overall_until_stage": "06:15.00"
+  }
+]

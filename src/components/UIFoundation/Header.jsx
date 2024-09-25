@@ -38,12 +38,12 @@ const Header = () => {
                             </span>
                         </a>
                         <div className="sm:flex hidden items-center">
-                            <Link
-                                to="/news"
-                                className="text-white font-medium mr-3"
-                            >
-                                Rally Cesis
-                            </Link>
+                            {/*<Link*/}
+                            {/*    to="/news"*/}
+                            {/*    className="text-white font-medium mr-3"*/}
+                            {/*>*/}
+                            {/*    Rally Cesis*/}
+                            {/*</Link>*/}
                         </div>
                     </div>
 

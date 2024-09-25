@@ -11,6 +11,9 @@ import GalleryPage from "./Pages/PagesAboutRally/GalleryPage";
 import ResultsPage from "./Pages/PagesAboutRally/PagesForRallyResults/ResultsPage";
 import PenaltyPage from "./Pages/PagesAboutRally/PagesForRallyResults/PenaltyPage";
 import RetirementPage from "./Pages/PagesAboutRally/PagesForRallyResults/RetirementPage";
+import StageResults from "./components/rallyPageComponents/componentsForResults/StageResults";
+import StageResultPage from "./Pages/PagesAboutRally/PagesForRallyResults/StageResultPage";
+import StageWinnersPage from "./Pages/PagesAboutRally/PagesForRallyResults/StageWinnersPage";
 
 function App() {
     return (
@@ -36,9 +39,11 @@ function App() {
                     <Route path="/:year/:rallyName/spectators" element={<SpectatorsPage />} />
 
                     <Route path="/:year/:rallyName/results" element={<ResultsPage />} />
+                    <Route path="/:year/:rallyName/results/stage/:stageNumber" element={<StageResultPage />} />
                     {/*<Route path="/results" element={<RetirementPage />} />*/}
                     <Route path="/:year/:rallyName/results/retirements" element={<RetirementPage />} />
                     <Route path="/:year/:rallyName/results/penalties" element={<PenaltyPage />} />
+                    <Route path="/:year/:rallyName/results/stage-winners" element={<StageWinnersPage />} />
 
 
                     <Route path="/:year/:rallyName/championship" element={<ChampionshipPage />} />
