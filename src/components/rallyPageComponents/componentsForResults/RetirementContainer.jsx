@@ -3,22 +3,21 @@ import TitleWithLine from "../../../utils/titleWithLine";
 import Flag from "react-flagkit";
 import retirementData from "../../../data/retirementData.json";
 import ResultsTitleLine from "../../../utils/ResultsTitleLine";
+import {TableCrew, TableCrewHeading} from "../../../utils/tableItems/TableCrew";
+import {TableNumber} from "../../../utils/tableItems/TableNumber";
+import TableFlag from "../../../utils/tableItems/TableFlag";
+import Table from "../../../utils/tableItems/Table";
+import TableHeading from "../../../utils/tableItems/TableHeading";
 
 const RetirementItem = ({ number, nationality, coNationality, driver, coDriver, car, retireReason, finishedStages }) => {
     return (
         <div className="flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words">
-            <div className="w-[5%] flex justify-center font-chakra font-semibold text-xl">{number}</div>
-            <div className="flex flex-col w-[5%]">
-                <Flag country={nationality.toUpperCase()} className="mb-1 rounded-sm" />
-                <Flag country={coNationality.toUpperCase()} className="rounded-sm" />
-            </div>
-            <div className="flex flex-col w-[18%] font-normal">
-                <div>{driver}</div>
-                <div>{coDriver}</div>
-            </div>
-            <div className="w-[25%]">{car}</div>
-            <div className="flex flex-col w-[22%] font-medium text-red-600">{retireReason}</div>
-            <div className="w-[11%] flex flex-col font-medium ">{finishedStages}</div>
+            <TableNumber number={number} />
+            <TableFlag nationality={nationality} coNationality={coNationality} />
+            <TableCrew driver={driver} coDriver={coDriver} />
+            <div className="w-[30%]">{car}</div>
+            <div className="flex flex-col w-[30%] font-medium text-red-600">{retireReason}</div>
+            <div className="w-[12%] flex flex-col font-semibold items-center pr-2 text-black">{finishedStages}</div>
         </div>
     );
 };
@@ -29,18 +28,15 @@ const RetirementContainer = () => {
                 <ResultsTitleLine />
                 <TitleWithLine title="Izstājušies" />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
-                    <div className="min-w-[1024px] flex flex-col font-chakra">
-                        <div className="flex w-full justify-between py-2 border-b border-gray-300 text-black font-semibold items-end">
+                    <Table>
+                        <TableHeading>
                             <div className="w-[5%] flex justify-center">Nr.</div>
-                            <div className="w-[5%]">Nac.</div>
-                            <div className="flex flex-col w-[18%]">
-                                <div>Pilots</div>
-                                <div>Stūrmanis</div>
-                            </div>
-                            <div className="w-[25%]">Automašīna</div>
-                            <div className="flex flex-col w-[22%]">Iemesls</div>
-                            <div className="w-[11%]">Pabegtie posmi</div>
-                        </div>
+                            <div className="w-[4%]"></div>
+                            <TableCrewHeading />
+                            <div className="w-[30%]">Automašīna</div>
+                            <div className="flex flex-col w-[29%]">Iemesls</div>
+                            <div className="w-[13%] flex justify-center text-center pr-2">Pabegtie posmi</div>
+                        </TableHeading>
                         {retirementData.length > 0 ? (
                             retirementData.map((item, index) => (
                                 <RetirementItem
@@ -63,7 +59,7 @@ const RetirementContainer = () => {
                         <div className="mt-6 text-[#4e4e4e] font-medium">
                             Kopā izstājušies: <span className="font-semibold text-rally-primary">{retirementData.length}</span>
                         </div>
-                    </div>
+                    </Table>
                 </div>
             </div>
         </section>

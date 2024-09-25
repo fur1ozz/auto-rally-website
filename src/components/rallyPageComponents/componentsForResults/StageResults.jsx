@@ -2,6 +2,7 @@ import React from 'react';
 import ResultsTitleLine from "../../../utils/ResultsTitleLine";
 import TitleWithLine from "../../../utils/titleWithLine";
 import {useParams} from "react-router-dom";
+import TableHeading from "../../../utils/tableItems/TableHeading";
 
 const StageResults = () => {
     const { year, rallyName, stageNumber } = useParams();
@@ -30,26 +31,24 @@ const StageResults = () => {
                     <div className="min-w-[1024px] flex justify-between">
                         <div className="min-w-[500px] flex flex-col sm:items-center font-chakra">
                             <div className="mb-4">Ātrumposma Rezultati</div>
-                            <div className="flex w-full justify-between py-2 border-b border-gray-300 text-black font-semibold items-end">
+                            <TableHeading>
                                 <div className="w-[5%] flex justify-center">V.</div>
                                 <div className="w-[5%] flex justify-center">Nr.</div>
-                                <div className="w-[5%]"></div>
-                                {/*maybe add back nac. text*/}
+                                <div className="w-[4%]"></div>
                                 <div className="w-[50%]">Ekipāža</div>
-                                <div className="w-[15%]">Laiks</div>
-                            </div>
+                                <div className="w-[16%]">Laiks</div>
+                            </TableHeading>
                             {}
                         </div>
                         <div className="min-w-[500px] flex flex-col sm:items-center font-chakra">
                             <div className="mb-4">Kopvērtējums</div>
-                            <div className="flex w-full justify-between py-2 border-b border-gray-300 text-black font-semibold items-end">
+                            <TableHeading>
                                 <div className="w-[5%] flex justify-center">V.</div>
                                 <div className="w-[5%] flex justify-center">Nr.</div>
-                                <div className="w-[5%]"></div>
-                                {/*maybe add back nac. text*/}
+                                <div className="w-[4%]"></div>
                                 <div className="w-[50%]">Ekipāža</div>
-                                <div className="w-[15%]">Laiks</div>
-                            </div>
+                                <div className="w-[16%]">Laiks</div>
+                            </TableHeading>
                             {}
                         </div>
                     </div>

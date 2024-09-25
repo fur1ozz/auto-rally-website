@@ -1,8 +1,12 @@
 import React from 'react';
 import TitleWithLine from "../../../utils/titleWithLine";
 import ResultsTitleLine from "../../../utils/ResultsTitleLine";
-import Flag from "react-flagkit";
 import resultsData from '../../../data/resultsData.json';
+import {TableNumber} from "../../../utils/tableItems/TableNumber";
+import TableFlag from "../../../utils/tableItems/TableFlag";
+import {TableCrew, TableCrewHeading} from "../../../utils/tableItems/TableCrew";
+import TableHeading from "../../../utils/tableItems/TableHeading";
+import Table from "../../../utils/tableItems/Table";
 
 const convertTimeToSeconds = (time) => {
     const [minutes, seconds] = time.split(':');
@@ -36,16 +40,10 @@ const formatTime = (seconds) => {
 const ResultsItem = ({ place, number, nationality, coNationality, driver, coDriver, car, team, driveType, groupClass, penalty, overallTime, timeDifference, }) => {
     return (
         <div className="flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words">
-            <div className="w-[5%] flex justify-center font-chakra font-semibold text-xl text-cyan-500">{place}</div>
-            <div className="w-[5%] flex justify-center font-chakra font-semibold text-lg">{number}</div>
-            <div className="flex flex-col w-[5%] items-end pr-2">
-                <Flag country={nationality.toUpperCase()} className="mb-1 rounded-sm" />
-                <Flag country={coNationality.toUpperCase()} className="rounded-sm" />
-            </div>
-            <div className="flex flex-col w-[18%] font-normal">
-                <div>{driver}</div>
-                <div>{coDriver}</div>
-            </div>
+            <div className="w-[5%] flex justify-center font-chakra font-semibold text-xl">{place}</div>
+            <TableNumber number={number} />
+            <TableFlag nationality={nationality} coNationality={coNationality} />
+            <TableCrew driver={driver} coDriver={coDriver} />
             <div className="flex flex-col w-[23%]">
                 <div>{team}</div>
                 <div>{car}</div>
@@ -55,8 +53,8 @@ const ResultsItem = ({ place, number, nationality, coNationality, driver, coDriv
                 <div>{groupClass}</div>
             </div>
             <div className="w-[12%] font-medium text-red-600">{penalty}</div>
-            <div className="w-[12%] font-medium">{overallTime}</div>
-            <div className="flex flex-col w-[10%] items-end pr-4 text-[#af2c2c] font-medium">
+            <div className="w-[12%] font-medium text-black">{overallTime}</div>
+            <div className="flex flex-col w-[10%] items-end pr-2 text-[#af2c2c] font-medium">
                 <div>
                     {place === 1 ? '-' : formatTime(timeDifference.differenceFromFirst)}
                 </div>
@@ -88,15 +86,12 @@ const ResultsContainer = () => {
                     </div>
                 </div>
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
-                    <div className="min-w-[1024px] flex flex-col sm:items-center font-chakra">
-                        <div className="flex w-full justify-between py-2 border-b border-gray-300 text-black font-semibold items-end">
+                    <Table>
+                        <TableHeading>
                             <div className="w-[5%] flex justify-center">V.</div>
                             <div className="w-[5%] flex justify-center">Nr.</div>
-                            <div className="w-[5%]"></div>
-                            <div className="flex flex-col w-[18%]">
-                                <div>Pilots</div>
-                                <div>Stūrmanis</div>
-                            </div>
+                            <div className="w-[4%]"></div>
+                            <TableCrewHeading />
                             <div className="flex flex-col w-[23%]">
                                 <div>Pieteicējs</div>
                                 <div>Automašīna</div>
@@ -107,11 +102,11 @@ const ResultsContainer = () => {
                             </div>
                             <div className="w-[12%]">Soda laiks</div>
                             <div className="w-[12%]">Laiks</div>
-                            <div className="flex flex-col w-[10%] items-end pr-4">
+                            <div className="flex flex-col w-[10%] items-end pr-2">
                                 <div>No 1.</div>
-                                <div>No Iep.</div>
+                                <div className="text-sm font-medium">No Iep.</div>
                             </div>
-                        </div>
+                        </TableHeading>
                         {resultsData.map((result, index) => (
                             <ResultsItem
                                 key={index}
@@ -130,7 +125,7 @@ const ResultsContainer = () => {
                                 timeDifference={timeDifferences[index]}
                             />
                         ))}
-                    </div>
+                    </Table>
                 </div>
             </div>
         </section>

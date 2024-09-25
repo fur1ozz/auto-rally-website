@@ -1,28 +1,29 @@
 import React from 'react';
 import TitleWithLine from "../../../utils/titleWithLine";
-import Flag from "react-flagkit";
 import penaltyData from '../../../data/penaltyData.json';
 import ResultsTitleLine from "../../../utils/ResultsTitleLine";
+import {TableNumber} from "../../../utils/tableItems/TableNumber";
+import TableFlag from "../../../utils/tableItems/TableFlag";
+import {TableCrew, TableCrewHeading} from "../../../utils/tableItems/TableCrew";
+import TableHeading from "../../../utils/tableItems/TableHeading";
+import Table from "../../../utils/tableItems/Table";
 
-const PenaltyItem = ({ number, nationality, coNationality, driver, coDriver, car, penalties }) => {
+const PenaltyItem = ({ number, nationality, coNationality, driver, coDriver, team, car, driveType, penalties }) => {
     return (
         <div className="flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words">
-            <div className="w-[5%] flex justify-center font-chakra font-semibold text-xl">{number}</div>
-            <div className="flex flex-col w-[5%]">
-                <Flag country={nationality.toUpperCase()} className="mb-1 rounded-sm" />
-                <Flag country={coNationality.toUpperCase()} className="rounded-sm" />
+            <TableNumber number={number} />
+            <TableFlag nationality={nationality} coNationality={coNationality} />
+            <TableCrew driver={driver} coDriver={coDriver} />
+            <div className="flex flex-col w-[30%]">
+                <div>{team}</div>
+                <div>{car} ({driveType})</div>
             </div>
-            <div className="flex flex-col w-[18%] font-normal">
-                <div>{driver}</div>
-                <div>{coDriver}</div>
-            </div>
-            <div className="w-[22%]">{car}</div>
-            <div className="flex flex-col w-[25%] font-medium text-rally-accent">
+            <div className="flex flex-col w-[30%] font-medium text-rally-accent">
                 {penalties.map((penalty, index) => (
                     <div key={index} className="mb-1">{penalty.reason}</div>
                 ))}
             </div>
-            <div className="w-[11%] flex flex-col font-medium text-red-600">
+            <div className="w-[12%] flex flex-col font-medium text-red-600 items-end pr-2">
                 {penalties.map((penalty, index) => (
                     <div key={index} className="mb-1">{penalty.penaltyTime}</div>
                 ))}
@@ -38,18 +39,18 @@ const PenaltyContainer = () => {
                 <ResultsTitleLine />
                 <TitleWithLine title="Sodi" />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
-                    <div className="min-w-[1024px] flex flex-col font-chakra">
-                        <div className="flex w-full justify-between py-2 border-b border-gray-300 text-black font-semibold items-end">
+                    <Table>
+                        <TableHeading>
                             <div className="w-[5%] flex justify-center">Nr.</div>
-                            <div className="w-[5%]">Nac.</div>
-                            <div className="flex flex-col w-[18%]">
-                                <div>Pilots</div>
-                                <div>Stūrmanis</div>
+                            <div className="w-[4%]"></div>
+                            <TableCrewHeading />
+                            <div className="w-[30%] flex flex-col">
+                                <div>Pieteicējs</div>
+                                <div>Automašīna</div>
                             </div>
-                            <div className="w-[22%]">Automašīna</div>
-                            <div className="flex flex-col w-[25%]">Iemesls</div>
-                            <div className="w-[11%]">Soda laiks</div>
-                        </div>
+                            <div className="flex flex-col w-[30%]">Iemesls</div>
+                            <div className="w-[12%] flex justify-end pr-2">Soda laiks</div>
+                        </TableHeading>
                         {penaltyData.length > 0 ? (
                             penaltyData.map((penalty, index) => (
                                 <PenaltyItem
@@ -61,6 +62,7 @@ const PenaltyContainer = () => {
                                     coDriver={penalty.coDriver}
                                     team={penalty.team}
                                     car={penalty.vehicle}
+                                    driveType={penalty.drive_type}
                                     penalties={penalty.penalties}
                                 />
                             ))
@@ -73,7 +75,7 @@ const PenaltyContainer = () => {
                         <div className="mt-6 text-[#4e4e4e] font-medium">
                             Kopējais sodāmo dalībnieku skaits: <span className="font-semibold text-red-600">{penaltyData.length}</span>
                         </div>
-                    </div>
+                    </Table>
                 </div>
             </div>
         </section>

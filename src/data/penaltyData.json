@@ -5,7 +5,9 @@
     "coNationality": "LV",
     "driver": "Emīls Blūms",
     "coDriver": "Didzis Eglītis",
-    "vehicle": "Mitsubishi Lancer Evo IX (4WD)",
+    "team": "Sports Racing Technologies",
+    "vehicle": "Mitsubishi Lancer Evo IX",
+    "drive_type": "4WD",
     "penalties": [
       {
         "reason": "Jump start at SS-1 (-0.12)",
@@ -23,7 +25,9 @@
     "coNationality": "LV",
     "driver": "Mārtiņš Ķikusts",
     "coDriver": "Gundars Berķis",
-    "vehicle": "Mitsubishi Lancer Evo VII (4WD)",
+    "team": "Motorsport Club",
+    "vehicle": "Mitsubishi Lancer Evo VII",
+    "drive_type": "4WD",
     "penalties": [
       {
         "reason": "Jump start at SS-6 (-0.04)",
@@ -37,7 +41,9 @@
     "coNationality": "UA",
     "driver": "Nadiia Soboleva",
     "coDriver": "Tetyana Kravtsova",
-    "vehicle": "Ford Fiesta Rally3 (4WD)",
+    "team": "Ukraine Rally Team",
+    "vehicle": "Ford Fiesta Rally3",
+    "drive_type": "4WD",
     "penalties": [
       {
         "reason": "Jump start at SS-1 (-0.02)",
@@ -51,7 +57,9 @@
     "coNationality": "LV",
     "driver": "Ralfs Sirmacis",
     "coDriver": "Armands Bite",
-    "vehicle": "BMW M3 (2WD)",
+    "team": "BMW Club Latvia",
+    "vehicle": "BMW M3",
+    "drive_type": "2WD",
     "penalties": [
       {
         "reason": "1 Minute late at TC-4",
@@ -65,7 +73,9 @@
     "coNationality": "EE",
     "driver": "Arno Metsaluik",
     "coDriver": "Märtin Liivaoja",
-    "vehicle": "Honda Civic Type-R (2WD)",
+    "team": "Honda Racing Estonia",
+    "vehicle": "Honda Civic Type-R",
+    "drive_type": "2WD",
     "penalties": [
       {
         "reason": "1 Minute late at TC-4",
@@ -79,7 +89,9 @@
     "coNationality": "LV",
     "driver": "Edgars Bērziņš",
     "coDriver": "Andis Veinbergs",
-    "vehicle": "Ford Fiesta (2WD)",
+    "team": "Fiesta Racing Team",
+    "vehicle": "Ford Fiesta",
+    "drive_type": "2WD",
     "penalties": [
       {
         "reason": "Stewards decision",
@@ -93,7 +105,9 @@
     "coNationality": "EE",
     "driver": "Kaspar Kaldjärv",
     "coDriver": "Madis Allese",
-    "vehicle": "GAZ 51 (2WD)",
+    "team": "Historic Racing Estonia",
+    "vehicle": "GAZ 51",
+    "drive_type": "2WD",
     "penalties": [
       {
         "reason": "5 Minutes late at TC-5C",
@@ -111,7 +125,9 @@
     "coNationality": "LV",
     "driver": "Klāvs Danne",
     "coDriver": "Džannijs Kļaviņš",
-    "vehicle": "VAZ 2108 (2WD)",
+    "team": "VAZ Historic Rally Team",
+    "vehicle": "VAZ 2108",
+    "drive_type": "2WD",
     "penalties": [
       {
         "reason": "1 Minute late at TC-2",
@@ -125,7 +141,9 @@
     "coNationality": "LV",
     "driver": "Oskars Līdaks",
     "coDriver": "Ričards Līdaks",
-    "vehicle": "Subaru Impreza (4WD)",
+    "team": "Impreza Racing Club",
+    "vehicle": "Subaru Impreza",
+    "drive_type": "4WD",
     "penalties": [
       {
         "reason": "Jump start at SS-4 (-0.11)",
@@ -139,7 +157,9 @@
     "coNationality": "LV",
     "driver": "Kārlis Kalns",
     "coDriver": "Andris Kalns",
-    "vehicle": "Opel Ascona B (VRK11)",
+    "team": "Opel Classics Rally Team",
+    "vehicle": "Opel Ascona B",
+    "drive_type": "VRK11",
     "penalties": [
       {
         "reason": "8 Minutes late at TC-3",
