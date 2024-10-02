@@ -7,36 +7,11 @@ import TableFlag from "../../../utils/tableItems/TableFlag";
 import {TableCrew, TableCrewHeading} from "../../../utils/tableItems/TableCrew";
 import TableHeading from "../../../utils/tableItems/TableHeading";
 import Table from "../../../utils/tableItems/Table";
+import {useNavigate, useParams} from "react-router-dom";
+import StageSortBar from "../../../utils/sortingBars/StageSortBar";
+import {formatTimeForDifference} from "../../../utils/formatTime";
+import {calculateTimeDifferences} from "../../../utils/calculateTimeDiferences";
 
-const convertTimeToSeconds = (time) => {
-    const [minutes, seconds] = time.split(':');
-    return parseInt(minutes) * 60 + parseFloat(seconds);
-};
-
-const calculateTimeDifferences = (results) => {
-    const timeDifferences = [];
-    const firstDriverTime = convertTimeToSeconds(results[0].overall_time);
-    timeDifferences.push({ differenceFromFirst: 0, differenceFromPrevious: null });
-
-    for (let i = 1; i < results.length; i++) {
-        const currentTime = convertTimeToSeconds(results[i].overall_time);
-        const previousTime = convertTimeToSeconds(results[i - 1].overall_time);
-
-        const differenceFromFirst = currentTime - firstDriverTime;
-        const differenceFromPrevious = currentTime - previousTime;
-
-        timeDifferences.push({
-            differenceFromFirst,
-            differenceFromPrevious,
-        });
-    }
-    return timeDifferences;
-};
-const formatTime = (seconds) => {
-    const minutes = Math.floor(seconds / 60);
-    const secs = (seconds % 60).toFixed(2);
-    return `+${minutes > 0 ? `${minutes}.` : ''}${secs}`;
-}
 const ResultsItem = ({ place, number, nationality, coNationality, driver, coDriver, car, team, driveType, groupClass, penalty, overallTime, timeDifference, }) => {
     return (
         <div className="flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words">
@@ -56,35 +31,33 @@ const ResultsItem = ({ place, number, nationality, coNationality, driver, coDriv
             <div className="w-[12%] font-medium text-black">{overallTime}</div>
             <div className="flex flex-col w-[10%] items-end pr-2 text-[#af2c2c] font-medium">
                 <div>
-                    {place === 1 ? '-' : formatTime(timeDifference.differenceFromFirst)}
+                    {place === 1 ? '-' : formatTimeForDifference(timeDifference.differenceFromFirst)}
                 </div>
-                <div className="text-sm">{timeDifference.differenceFromPrevious !== null ? formatTime(timeDifference.differenceFromPrevious) : '-'}</div>
+                <div className="text-sm">{timeDifference.differenceFromPrevious !== null ? formatTimeForDifference(timeDifference.differenceFromPrevious) : '-'}</div>
             </div>
         </div>
     );
 };
 const ResultsContainer = () => {
-    const timeDifferences = calculateTimeDifferences(resultsData);
+    const timeDifferences = calculateTimeDifferences(resultsData, 'overall_time');
+    const navigate = useNavigate();
+    const { year, rallyName, stageNumber } = useParams();
+
+    const baseUrl = `/${year}/${rallyName}/results/`;
+
+    // cant remember what this does
+    const handleStageChange = (stage) => {
+        const newUrl = `${baseUrl}${stage}`;
+        navigate(newUrl);
+    };
+
 
     return (
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px] overflow-x-auto">
                 <ResultsTitleLine />
                 <TitleWithLine title="Rezultāti" />
-                <div className="flex flex-col flex-wrap my-5">
-                    <div className="flex flex-col mr-10">
-                        <div className="flex flex-wrap text-sm">
-                            <button className="mr-2 mb-2 px-4 py-1 rounded font-light bg-gray-200">1</button>
-                            <button className="mr-2 mb-2 px-4 py-1 rounded font-light bg-gray-200">2</button>
-                            <button className="mr-2 mb-2 px-4 py-1 rounded font-light bg-gray-200">3</button>
-                            <button className="mr-2 mb-2 px-4 py-1 rounded font-light bg-gray-200">4</button>
-                            <button className="mr-2 mb-2 px-4 py-1 rounded font-light bg-gray-200">5</button>
-                            <button className="mr-2 mb-2 px-4 py-1 rounded font-light bg-gray-200">6</button>
-                            <button className="mr-2 mb-2 px-4 py-1 rounded font-light bg-gray-200">7</button>
-                            <button className="mr-2 mb-2 px-4 py-1 rounded font-light bg-gray-200">8</button>
-                        </div>
-                    </div>
-                </div>
+                <StageSortBar numberOfStage={8} resultLinkName="results" />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <Table>
                         <TableHeading>

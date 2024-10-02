@@ -23,7 +23,7 @@ const FolderItem = ({ number, title, files }) => {
 
     return (
         <div className="flex flex-col mb-5">
-            <div className={`flex w-full p-2 border-b border-gray-300 text-xl items-center font-normal ${isOpen ? 'border-rally-primary' : ''}`}>
+            <div className={`flex w-full p-2 border-b-2 border-gray-300 text-xl items-center font-normal ${isOpen ? 'border-rally-primary' : ''}`}>
                 <button
                     className="flex"
                     onClick={() => setIsOpen(!isOpen)}

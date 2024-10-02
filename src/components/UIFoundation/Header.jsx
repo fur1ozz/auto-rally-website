@@ -28,22 +28,25 @@ const Header = () => {
     };
     return (
         <div className="w-full bg-black/60">
-            <nav className="py-5 px-10">
+            <nav className="py-2 px-10">
                 <div className="flex justify-between items-center mx-auto">
                     <div className="flex">
                         <a href="/" className="flex mr-0 sm:mr-20 items-center">
-                            <img src="/icons/LRC-1.png" alt="LRC" className="mr-3 w-7" />
-                            <span className="text-lg font-bold whitespace-nowrap text-white">
-                                AutoRally
-                            </span>
+                            <img src="/icons/LRC-1.png" alt="LRC" className="mr-3 w-12" />
                         </a>
                         <div className="sm:flex hidden items-center">
-                            {/*<Link*/}
-                            {/*    to="/news"*/}
-                            {/*    className="text-white font-medium mr-3"*/}
-                            {/*>*/}
-                            {/*    Rally Cesis*/}
-                            {/*</Link>*/}
+                            <Link
+                                to="/"
+                                className="text-white font-medium mr-4"
+                            >
+                                Home
+                            </Link>
+                            <Link
+                                to="/"
+                                className="text-white font-medium mr-4"
+                            >
+                                Calendar
+                            </Link>
                         </div>
                     </div>
 

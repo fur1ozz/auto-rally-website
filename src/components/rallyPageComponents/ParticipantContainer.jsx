@@ -2,27 +2,26 @@ import React from 'react';
 import participantData from '../../data/participantData.json';
 import Flag from 'react-flagkit';
 import TitleWithLine from "../../utils/titleWithLine";
+import Table from "../../utils/tableItems/Table";
+import TableHeading from "../../utils/tableItems/TableHeading";
+import {TableCrew, TableCrewHeading} from "../../utils/tableItems/TableCrew";
+import {TableNumber, TableNumberLarger} from "../../utils/tableItems/TableNumber";
+import TableFlag from "../../utils/tableItems/TableFlag";
 
 const ParticipantItem = ({ number, nationality, coNationality, driver, coDriver, team, car, group, className, eligibility }) => {
 
     return (
         <div className="flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words">
-            <div className="w-[5%] flex justify-center font-chakra font-semibold text-xl">{number}</div>
-            <div className="flex flex-col w-[5%]">
-                <Flag country={nationality.toUpperCase()} className="mb-1 rounded-sm" />
-                <Flag country={coNationality.toUpperCase()} className="rounded-sm" />
-            </div>
-            <div className="flex flex-col w-[18%] font-normal">
-                <div>{driver}</div>
-                <div>{coDriver}</div>
-            </div>
-            <div className="w-[18%]">{team}</div>
-            <div className="w-[18%]">{car}</div>
-            <div className="flex flex-col w-[11%]">
+            <TableNumberLarger number={number} />
+            <TableFlag nationality={nationality} coNationality={coNationality} />
+            <TableCrew driver={driver} coDriver={coDriver} />
+            <div className="w-[24%] pr-2">{team}</div>
+            <div className="w-[24%]">{car}</div>
+            <div className="flex flex-col w-[12%]">
                 <div>{group}</div>
                 <div>{className}</div>
             </div>
-            <div className="w-[11%] flex flex-wrap">
+            <div className="w-[12%] flex flex-wrap">
                 <img src={`/icons/competitionIcons/${eligibility}.png`} alt={eligibility} className="h-3 mr-1" />
             </div>
         </div>
@@ -35,22 +34,19 @@ const ParticipantContainer = () => {
             <div className="lg:w-[1024px] overflow-x-auto">
                 <TitleWithLine title="Dalībnieki" />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
-                    <div className="min-w-[1024px] flex flex-col sm:items-center font-chakra">
-                        <div className="flex w-full justify-between py-2 border-b border-gray-300 text-rally-secondary font-medium items-center">
+                    <Table>
+                        <TableHeading>
                             <div className="w-[5%] flex justify-center">Nr.</div>
-                            <div className="w-[5%]">Nac.</div>
-                            <div className="flex flex-col w-[18%]">
-                                <div>Pilots</div>
-                                <div>Stūrmanis</div>
-                            </div>
-                            <div className="w-[18%]">Pieteicējs</div>
-                            <div className="w-[18%]">Automašīna</div>
-                            <div className="flex flex-col w-[11%]">
+                            <div className="w-[4%]"></div>
+                            <TableCrewHeading />
+                            <div className="w-[24%]">Pieteicējs</div>
+                            <div className="w-[24%]">Automašīna</div>
+                            <div className="flex flex-col w-[12%]">
                                 <div>Grupa</div>
                                 <div>Klase</div>
                             </div>
-                            <div className="w-[11%]">Ieskaite</div>
-                        </div>
+                            <div className="w-[12%]">Ieskaite</div>
+                        </TableHeading>
                         {participantData.length > 0 ? (
                             participantData.map((participant, index) => (
                                 <ParticipantItem
@@ -77,7 +73,7 @@ const ParticipantContainer = () => {
                             Kopējais dalībnieku skaits: {participantData.length}
                         </div>
 
-                    </div>
+                    </Table>
                 </div>
 
             </div>

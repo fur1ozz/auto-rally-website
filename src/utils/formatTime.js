@@ -7,3 +7,14 @@ export const formatTime = (date) => {
         </>
     );
 };
+
+// results table formatting
+export const formatTimeForDifference = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const secs = (seconds % 60).toFixed(2);
+    return `+${minutes > 0 ? `${minutes}.` : ''}${secs}`;
+};
+export const convertTimeToSeconds = (time) => {
+    const [minutes, seconds] = time.split(':');
+    return parseInt(minutes) * 60 + parseFloat(seconds);
+};
