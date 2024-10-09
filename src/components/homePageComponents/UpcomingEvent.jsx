@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 const UpcomingEvent = () => {
     return (
-        <a href="/2024/rally-utena/news">
+        <a href="/2024/samsonas-rally-utena/news">
             <div
                 className="bg-cover bg-center cursor-pointer"
                 style={{ backgroundImage: 'url(/images/parallax-backgrounds/for-home/rally-road-1.png)' }}
@@ -15,7 +15,7 @@ const UpcomingEvent = () => {
                             <div className="flex-1 h-0.5 bg-white"></div>
                         </div>
                         <h2 className="flex items-center justify-center md:text-3xl sm:text-2xl text-lg font-semibold py-4">Samsonas Rally Utena</h2>
-                        <img src="/images/headers/rally-utena-2024.png" alt="" className="w-full shadow-[0_3px_8px_0_rgba(0,0,0,0.24)]"/>
+                        <img src="/images/headers/samsonas-rally-utena-2024.png" alt="" className="w-full shadow-[0_3px_8px_0_rgba(0,0,0,0.24)]"/>
                         <div className="flex justify-between font-medium sm:text-lg text-[10px] sm:px-6 py-4">
                             <div className="flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="sm:size-5 size-4">

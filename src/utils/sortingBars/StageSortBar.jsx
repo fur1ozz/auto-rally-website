@@ -19,7 +19,7 @@ const StageSortBar = ({ resultLinkName, numberOfStage}) => {
                     {Array.from({ length: numberOfStage }, (_, index) => (
                         <Link
                             key={index + 1}
-                            to={`${baseUrl}stage-${index + 1}`}
+                            to={`${baseUrl}${index + 1}`}
                             className="mr-2 mb-2 px-4 py-1 rounded font-light bg-gray-200"
                         >
                             {index + 1}

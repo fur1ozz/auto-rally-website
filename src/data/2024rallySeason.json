@@ -1,0 +1,51 @@
+[
+  {
+    "rally_name": "Rally Alūksne",
+    "rally_tag": "rally-aluksne",
+    "year": 2024,
+    "date_from": "19.01.",
+    "date_to": "20.01."
+  },
+  {
+    "rally_name": "Rally Sarma",
+    "rally_tag": "rally-sarma",
+    "year": 2024,
+    "date_from": "10.02.",
+    "date_to": "10.02."
+  },
+  {
+    "rally_name": "Delfi Rally Estonia",
+    "rally_tag": "delfi-rally-estonia",
+    "year": 2024,
+    "date_from": "05.07.",
+    "date_to": "07.07."
+  },
+  {
+    "rally_name": "Rally Cēsis",
+    "rally_tag": "rally-cesis",
+    "year": 2024,
+    "date_from": "09.08.",
+    "date_to": "10.08."
+  },
+  {
+    "rally_name": "Rally Paide",
+    "rally_tag": "rally-paide",
+    "year": 2024,
+    "date_from": "23.08.",
+    "date_to": "24.08."
+  },
+  {
+    "rally_name": "Samsonas Rally Utena",
+    "rally_tag": "samsonas-rally-utena",
+    "year": 2024,
+    "date_from": "26.09.",
+    "date_to": "28.09."
+  },
+  {
+    "rally_name": "Rallysprint Latvija",
+    "rally_tag": "rally-sprint-latvia",
+    "year": 2024,
+    "date_from": "26.10.",
+    "date_to": "27.10."
+  }
+]

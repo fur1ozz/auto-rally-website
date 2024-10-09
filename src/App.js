@@ -39,7 +39,7 @@ function App() {
                     <Route path="/:year/:rallyName/spectators" element={<SpectatorsPage />} />
 
                     <Route path="/:year/:rallyName/results" element={<ResultsPage />} />
-                    <Route path="/:year/:rallyName/results/:stageNumber" element={<StageResultPage />} />
+                    <Route path="/:year/:rallyName/results-stage/:stageNumber" element={<StageResultPage />} />
                     {/*<Route path="/results" element={<RetirementPage />} />*/}
                     <Route path="/:year/:rallyName/results/retirements" element={<RetirementPage />} />
                     <Route path="/:year/:rallyName/results/penalties" element={<PenaltyPage />} />

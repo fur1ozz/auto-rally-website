@@ -49,7 +49,6 @@ const StageOverallTimeItem = ({ place, number, nationality, coNationality, drive
 };
 const StageResults = () => {
     const { year, rallyName, stageNumber } = useParams();
-    const stageNumberWithoutPrefix = stageNumber.replace('stage-', '');
 
     const sortedResultsData = [...resultsData].sort((a, b) => {
         const timeA = a.overall_until_with_penalty.split(':').map(Number);
@@ -69,8 +68,8 @@ const StageResults = () => {
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px] overflow-x-auto">
                 <ResultsTitleLine />
-                <TitleWithLine title={`Ātrumposms - ${stageNumberWithoutPrefix}`} />
-                <StageSortBar numberOfStage={8} resultLinkName="results" />
+                <TitleWithLine title={`Ātrumposms - ${stageNumber}`} />
+                <StageSortBar numberOfStage={8} resultLinkName="results-stage" />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <div className="min-w-[1024px] flex justify-between">
                         <div className="min-w-[500px] flex flex-col sm:items-center font-chakra">
