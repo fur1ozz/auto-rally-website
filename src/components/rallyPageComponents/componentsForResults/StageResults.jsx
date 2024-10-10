@@ -12,7 +12,8 @@ import { TableStageHeading } from "../../../utils/tableItems/TableStageHeading";
 const StageOverallTimeItem = ({ place, number, nationality, coNationality, driver, coDriver, car, driveType, time, timeDifference, isOdd, isHighlighted, onMouseEnter, onMouseLeave }) => {
     return (
         <div
-            className={`flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words cursor-pointer ${isOdd ? 'bg-[#f9f9f9]' : ''} ${isHighlighted ? 'bg-[#e2e2e2]' : ''}`}
+            className={`flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words cursor-pointer
+                ${isHighlighted ? 'bg-[#e2e2e2]' : (isOdd ? 'bg-[#f9f9f9]' : '')}`}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
         >
