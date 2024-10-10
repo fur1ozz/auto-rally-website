@@ -8,10 +8,12 @@ import {TableCrew, TableCrewHeading} from "../../utils/tableItems/TableCrew";
 import {TableNumber, TableNumberLarger} from "../../utils/tableItems/TableNumber";
 import TableFlag from "../../utils/tableItems/TableFlag";
 
-const ParticipantItem = ({ number, nationality, coNationality, driver, coDriver, team, car, group, className, eligibility }) => {
+const ParticipantItem = ({ number, nationality, coNationality, driver, coDriver, team, car, group, className, eligibility, isOdd }) => {
 
     return (
-        <div className="flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words">
+        <div
+            className={`flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words ${isOdd ? 'bg-[#f9f9f9]' : ''}`}
+        >
             <TableNumberLarger number={number} />
             <TableFlag nationality={nationality} coNationality={coNationality} />
             <TableCrew driver={driver} coDriver={coDriver} />
@@ -61,6 +63,7 @@ const ParticipantContainer = () => {
                                     group={participant.group}
                                     className={participant.class}
                                     eligibility={participant.eligibility}
+                                    isOdd={index % 2 !== 0}
                                 />
                             ))
                         ) : (

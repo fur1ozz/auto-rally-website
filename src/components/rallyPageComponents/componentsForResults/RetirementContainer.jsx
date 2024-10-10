@@ -9,9 +9,11 @@ import TableFlag from "../../../utils/tableItems/TableFlag";
 import Table from "../../../utils/tableItems/Table";
 import TableHeading from "../../../utils/tableItems/TableHeading";
 
-const RetirementItem = ({ number, nationality, coNationality, driver, coDriver, car, retireReason, finishedStages }) => {
+const RetirementItem = ({ number, nationality, coNationality, driver, coDriver, car, retireReason, finishedStages, isOdd }) => {
     return (
-        <div className="flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words">
+        <div
+            className={`flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words ${isOdd ? 'bg-[#f9f9f9]' : ''}`}
+        >
             <TableNumber number={number} />
             <TableFlag nationality={nationality} coNationality={coNationality} />
             <TableCrew driver={driver} coDriver={coDriver} />
@@ -49,6 +51,7 @@ const RetirementContainer = () => {
                                     car={item.vehicle}
                                     retireReason={item.retireReason}
                                     finishedStages={item.finishedStages}
+                                    isOdd={index % 2 !== 0}
                                 />
                             ))                        ) : (
                             <div className="mt-10 text-[#4e4e4e] text-center">

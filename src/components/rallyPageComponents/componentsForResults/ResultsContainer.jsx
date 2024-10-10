@@ -12,9 +12,11 @@ import StageSortBar from "../../../utils/sortingBars/StageSortBar";
 import {formatTimeForDifference} from "../../../utils/formatTime";
 import {calculateTimeDifferences} from "../../../utils/calculateTimeDiferences";
 
-const ResultsItem = ({ place, number, nationality, coNationality, driver, coDriver, car, team, driveType, groupClass, penalty, overallTime, timeDifference, }) => {
+const ResultsItem = ({ place, number, nationality, coNationality, driver, coDriver, car, team, driveType, groupClass, penalty, overallTime, timeDifference, isOdd }) => {
     return (
-        <div className="flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words">
+        <div
+            className={`flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words ${isOdd ? 'bg-[#f9f9f9]' : ''}`}
+        >
             <div className="w-[5%] flex justify-center font-chakra font-semibold text-xl">{place}</div>
             <TableNumber number={number} />
             <TableFlag nationality={nationality} coNationality={coNationality} />
@@ -96,6 +98,7 @@ const ResultsContainer = () => {
                                 penalty={result.penalty_time}
                                 overallTime={result.overall_time}
                                 timeDifference={timeDifferences[index]}
+                                isOdd={index % 2 !== 0}
                             />
                         ))}
                     </Table>

@@ -8,9 +8,11 @@ import {TableCrew, TableCrewHeading} from "../../../utils/tableItems/TableCrew";
 import TableHeading from "../../../utils/tableItems/TableHeading";
 import Table from "../../../utils/tableItems/Table";
 
-const PenaltyItem = ({ number, nationality, coNationality, driver, coDriver, team, car, driveType, penalties }) => {
+const PenaltyItem = ({ number, nationality, coNationality, driver, coDriver, team, car, driveType, penalties, isOdd }) => {
     return (
-        <div className="flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words">
+        <div
+            className={`flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words ${isOdd ? 'bg-[#f9f9f9]' : ''}`}
+        >
             <TableNumber number={number} />
             <TableFlag nationality={nationality} coNationality={coNationality} />
             <TableCrew driver={driver} coDriver={coDriver} />
@@ -64,6 +66,7 @@ const PenaltyContainer = () => {
                                     car={penalty.vehicle}
                                     driveType={penalty.drive_type}
                                     penalties={penalty.penalties}
+                                    isOdd={index % 2 !== 0}
                                 />
                             ))
                         ) : (

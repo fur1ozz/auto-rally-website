@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ResultsTitleLine from "../../../utils/ResultsTitleLine";
 import TitleWithLine from "../../../utils/titleWithLine";
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import StageSortBar from "../../../utils/sortingBars/StageSortBar";
 import Flag from "react-flagkit";
-import {formatTimeForDifference} from "../../../utils/formatTime";
-import {calculateTimeDifferences} from "../../../utils/calculateTimeDiferences";
+import { formatTimeForDifference } from "../../../utils/formatTime";
+import { calculateTimeDifferences } from "../../../utils/calculateTimeDiferences";
 import resultsData from "../../../data/stage1Results.json";
-import {TableStageHeading} from "../../../utils/tableItems/TableStageHeading";
+import { TableStageHeading } from "../../../utils/tableItems/TableStageHeading";
 
-const StageOverallTimeItem = ({ place, number, nationality, coNationality, driver, coDriver, car, driveType, time, timeDifference }) => {
+const StageOverallTimeItem = ({ place, number, nationality, coNationality, driver, coDriver, car, driveType, time, timeDifference, isOdd, isHighlighted, onMouseEnter, onMouseLeave }) => {
     return (
-        <div className="flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words">
+        <div
+            className={`flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words cursor-pointer ${isOdd ? 'bg-[#f9f9f9]' : ''} ${isHighlighted ? 'bg-[#e2e2e2]' : ''}`}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+        >
             <div className="w-[10%] flex justify-center font-chakra font-semibold text-xl">{place}</div>
             <div className="w-[10%] flex justify-center font-chakra font-semibold text-lg text-rally-primary">
                 {number}
@@ -47,14 +51,16 @@ const StageOverallTimeItem = ({ place, number, nationality, coNationality, drive
         </div>
     );
 };
+
 const StageResults = () => {
     const { year, rallyName, stageNumber } = useParams();
+
+    const [hoveredCrew, setHoveredCrew] = useState(null);
 
     const sortedResultsData = [...resultsData].sort((a, b) => {
         const timeA = a.overall_until_with_penalty.split(':').map(Number);
         const timeB = b.overall_until_with_penalty.split(':').map(Number);
 
-        // Convert to seconds for easy comparison
         const totalSecondsA = timeA[0] * 60 + timeA[1] + (timeA[2] ? timeA[2] / 100 : 0);
         const totalSecondsB = timeB[0] * 60 + timeB[1] + (timeB[2] ? timeB[2] / 100 : 0);
 
@@ -88,6 +94,10 @@ const StageResults = () => {
                                     driveType={result.drive_type}
                                     time={result.stage_time}
                                     timeDifference={timeDifferencesStage[index]}
+                                    isOdd={index % 2 !== 0}
+                                    isHighlighted={hoveredCrew === result.crew_number}
+                                    onMouseEnter={() => setHoveredCrew(result.crew_number)}
+                                    onMouseLeave={() => setHoveredCrew(null)}
                                 />
                             ))}
                         </div>
@@ -107,6 +117,10 @@ const StageResults = () => {
                                     driveType={result.drive_type}
                                     time={result.overall_until_with_penalty}
                                     timeDifference={timeDifferencesOverall[index]}
+                                    isOdd={index % 2 !== 0}
+                                    isHighlighted={hoveredCrew === result.crew_number}
+                                    onMouseEnter={() => setHoveredCrew(result.crew_number)}
+                                    onMouseLeave={() => setHoveredCrew(null)}
                                 />
                             ))}
                         </div>
