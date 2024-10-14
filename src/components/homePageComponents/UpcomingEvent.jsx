@@ -1,12 +1,11 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 
 const UpcomingEvent = () => {
     return (
         <a href="/2024/samsonas-rally-utena/news">
             <div
                 className="bg-cover bg-center cursor-pointer"
-                style={{ backgroundImage: 'url(/images/parallax-backgrounds/for-home/rally-road-1.png)' }}
+                style={{ backgroundImage: 'url(/images/parallax-backgrounds/gravel-3.jpg)' }}
             >
                 <div className="w-full backdrop-blur-sm bg-black/20 flex justify-center items-center text-white sm:px-14 px-4 overflow-hidden">
                     <div className="w-[1024px] font-chakra hover:scale-[1.02] transition-all duration-300">

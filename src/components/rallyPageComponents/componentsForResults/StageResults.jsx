@@ -9,7 +9,7 @@ import { calculateTimeDifferences } from "../../../utils/calculateTimeDiferences
 import resultsData from "../../../data/stage1Results.json";
 import { TableStageHeading } from "../../../utils/tableItems/TableStageHeading";
 
-const StageOverallTimeItem = ({ place, number, nationality, coNationality, driver, coDriver, car, driveType, time, timeDifference, isOdd, isHighlighted, onMouseEnter, onMouseLeave }) => {
+const StageOverallTimeItem = ({ place, number, nationality, coNationality, driver, coDriver, car, driveType, time, timeDifference, isOdd, isHighlighted, onMouseEnter, onMouseLeave, penalty_time }) => {
     return (
         <div
             className={`flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words cursor-pointer
@@ -45,8 +45,13 @@ const StageOverallTimeItem = ({ place, number, nationality, coNationality, drive
                 <div className="font-medium ">
                     {time}
                 </div>
-                <div className="text-sm text-[#af2c2c] font-normal">
-                    {place === 1 ? '-' : formatTimeForDifference(timeDifference.differenceFromFirst)}
+                <div className="flex items-center">
+                    <div className="text-xs text-white font-normal bg-rose-600 rounded h-fit px-1 mr-1">
+                        {penalty_time || ""}
+                    </div>
+                    <div className="text-sm text-[#af2c2c] font-normal">
+                        {place === 1 ? '-' : formatTimeForDifference(timeDifference.differenceFromFirst)}
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,6 +104,7 @@ const StageResults = () => {
                                     isHighlighted={hoveredCrew === result.crew_number}
                                     onMouseEnter={() => setHoveredCrew(result.crew_number)}
                                     onMouseLeave={() => setHoveredCrew(null)}
+                                    penalty_time={result.penalty_time}
                                 />
                             ))}
                         </div>
@@ -122,6 +128,7 @@ const StageResults = () => {
                                     isHighlighted={hoveredCrew === result.crew_number}
                                     onMouseEnter={() => setHoveredCrew(result.crew_number)}
                                     onMouseLeave={() => setHoveredCrew(null)}
+                                    penalty_time={false}
                                 />
                             ))}
                         </div>
