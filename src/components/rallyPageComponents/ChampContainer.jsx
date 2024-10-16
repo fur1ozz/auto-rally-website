@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import championshipData from '../../data/championshipData.json';
 import seasonData from '../../data/seasonEventsWithGroups.json';
 import groupClassData from '../../data/champGroupClassData.json';
-import TitleWithLine from "../../utils/titleWithLine";
+import TitleWithLine from "../elements/titleWithLine";
 
 const ChampItem = ({ position, driver, coDriver, events, totalPoints }) => {
     const eventPoints = Object.values(events);

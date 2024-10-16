@@ -1,11 +1,11 @@
 import React from 'react';
-import ResultsTitleLine from "../../../utils/ResultsTitleLine";
-import TitleWithLine from "../../../utils/titleWithLine";
-import {TableNumber} from "../../../utils/tableItems/TableNumber";
-import TableFlag from "../../../utils/tableItems/TableFlag";
-import {TableCrew, TableCrewHeading} from "../../../utils/tableItems/TableCrew";
-import Table from "../../../utils/tableItems/Table";
-import TableHeading from "../../../utils/tableItems/TableHeading";
+import ResultsTitleLine from "../../elements/ResultsTitleLine";
+import TitleWithLine from "../../elements/titleWithLine";
+import {TableNumber} from "../../elements/tableItems/TableNumber";
+import TableFlag from "../../elements/tableItems/TableFlag";
+import {TableCrew, TableCrewHeading} from "../../elements/tableItems/TableCrew";
+import Table from "../../elements/tableItems/Table";
+import TableHeading from "../../elements/tableItems/TableHeading";
 
 const WinnerItem = ({ stageNumber, stageName, stageDistance, crewNumber, nationality, coNationality, driver, coDriver, car, team, driveType, stageTime, averageSpeed, isOdd }) => {
     return (

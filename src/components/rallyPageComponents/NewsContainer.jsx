@@ -1,5 +1,5 @@
 import React from 'react';
-import TitleWithLine from "../../utils/titleWithLine";
+import TitleWithLine from "../elements/titleWithLine";
 
 const NewsItem = ({ date, title, paragraph, imgSrc }) => {
     return (

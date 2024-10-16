@@ -1,14 +1,14 @@
 import React from 'react';
-import TitleWithLine from "../../../utils/titleWithLine";
-import ResultsTitleLine from "../../../utils/ResultsTitleLine";
+import TitleWithLine from "../../elements/titleWithLine";
+import ResultsTitleLine from "../../elements/ResultsTitleLine";
 import resultsData from '../../../data/resultsData.json';
-import {TableNumber} from "../../../utils/tableItems/TableNumber";
-import TableFlag from "../../../utils/tableItems/TableFlag";
-import {TableCrew, TableCrewHeading} from "../../../utils/tableItems/TableCrew";
-import TableHeading from "../../../utils/tableItems/TableHeading";
-import Table from "../../../utils/tableItems/Table";
+import {TableNumber} from "../../elements/tableItems/TableNumber";
+import TableFlag from "../../elements/tableItems/TableFlag";
+import {TableCrew, TableCrewHeading} from "../../elements/tableItems/TableCrew";
+import TableHeading from "../../elements/tableItems/TableHeading";
+import Table from "../../elements/tableItems/Table";
 import {useNavigate, useParams} from "react-router-dom";
-import StageSortBar from "../../../utils/sortingBars/StageSortBar";
+import StageSortBar from "../../elements/sortingBars/StageSortBar";
 import {formatTimeForDifference} from "../../../utils/formatTime";
 import {calculateTimeDifferences} from "../../../utils/calculateTimeDiferences";
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import TableHeading from "../../../utils/tableItems/TableHeading";
+import TableHeading from "../../elements/tableItems/TableHeading";
 import Flag from "react-flagkit";
 import calculateCrewWinCount from "../../../utils/calculateCrewWinCount";
 

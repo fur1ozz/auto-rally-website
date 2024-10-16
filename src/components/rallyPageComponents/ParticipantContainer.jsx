@@ -1,19 +1,19 @@
 import React from 'react';
 import participantData from '../../data/participantData.json';
-import Flag from 'react-flagkit';
-import TitleWithLine from "../../utils/titleWithLine";
-import Table from "../../utils/tableItems/Table";
-import TableHeading from "../../utils/tableItems/TableHeading";
-import {TableCrew, TableCrewHeading} from "../../utils/tableItems/TableCrew";
-import {TableNumber, TableNumberLarger} from "../../utils/tableItems/TableNumber";
-import TableFlag from "../../utils/tableItems/TableFlag";
+import TitleWithLine from "../elements/titleWithLine";
+import Table from "../elements/tableItems/Table";
+import TableHeading from "../elements/tableItems/TableHeading";
+import {TableCrew, TableCrewHeading} from "../elements/tableItems/TableCrew";
+import {TableNumberLarger} from "../elements/tableItems/TableNumber";
+import TableFlag from "../elements/tableItems/TableFlag";
+import {useParams} from "react-router-dom";
+import useFetchData from "../../hooks/useFetchData";
+import Loader from "../elements/Loader";
 
 const ParticipantItem = ({ number, nationality, coNationality, driver, coDriver, team, car, group, className, eligibility, isOdd }) => {
 
     return (
-        <div
-            className={`flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words ${isOdd ? 'bg-[#f9f9f9]' : ''}`}
-        >
+        <div className={`flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words ${isOdd ? 'bg-[#f9f9f9]' : ''}`}>
             <TableNumberLarger number={number} />
             <TableFlag nationality={nationality} coNationality={coNationality} />
             <TableCrew driver={driver} coDriver={coDriver} />
@@ -24,13 +24,20 @@ const ParticipantItem = ({ number, nationality, coNationality, driver, coDriver,
                 <div>{className}</div>
             </div>
             <div className="w-[12%] flex flex-wrap">
-                <img src={`/icons/competitionIcons/${eligibility}.png`} alt={eligibility} className="h-3 mr-1" />
+                {eligibility.map((item, idx) => (
+                    <img key={idx} src={`/icons/competitionIcons/${item}.png`} alt={item} className="h-3 mr-1" />
+                ))}
             </div>
         </div>
     );
 };
 
+
 const ParticipantContainer = () => {
+    const { year, rallyName } = useParams();
+    const url = `http://localhost/api/participants/${year}/${rallyName}`;
+
+    const { data: participants, loading, error } = useFetchData(url);
     return (
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px] overflow-x-auto">
@@ -49,33 +56,62 @@ const ParticipantContainer = () => {
                             </div>
                             <div className="w-[12%]">Ieskaite</div>
                         </TableHeading>
-                        {participantData.length > 0 ? (
-                            participantData.map((participant, index) => (
-                                <ParticipantItem
-                                    key={index}
-                                    number={participant.number}
-                                    nationality={participant.nationality}
-                                    coNationality={participant.nationality}
-                                    driver={participant.driver}
-                                    coDriver={participant.coDriver}
-                                    team={participant.team}
-                                    car={participant.car}
-                                    group={participant.group}
-                                    className={participant.class}
-                                    eligibility={participant.eligibility}
-                                    isOdd={index % 2 !== 0}
-                                />
-                            ))
-                        ) : (
-                            <div className="mt-10 text-[#4e4e4e] text-center">
-                                Pašlaik nav zināmu dalībnieku.
-                            </div>
+                        {/*{participants.length > 0 ? (*/}
+                        {/*    participants.map((participant, index) => (*/}
+                        {/*        <ParticipantItem*/}
+                        {/*            key={index}*/}
+                        {/*            number={participant.crew.crew_number}*/}
+                        {/*            nationality={participant.driver.nationality}*/}
+                        {/*            coNationality={participant.co_driver.nationality}*/}
+                        {/*            driver={`${participant.driver.name} ${participant.driver.surname}`}*/}
+                        {/*            coDriver={`${participant.co_driver.name} ${participant.co_driver.surname}`}*/}
+                        {/*            team={participant.team.team_name}*/}
+                        {/*            car={participant.crew.car}*/}
+                        {/*            group={participant.crew.drive_type}*/}
+                        {/*            className={participant.crew.drive_class}*/}
+                        {/*            eligibility={participant.crew.groups.map(group => group.group_name.toLowerCase())}*/}
+                        {/*            isOdd={index % 2 !== 0}*/}
+                        {/*        />*/}
+                        {/*    ))*/}
+                        {/*) : (*/}
+                        {/*    <div className="mt-10 text-[#4e4e4e] text-center">*/}
+                        {/*        Pašlaik nav zināmu dalībnieku.*/}
+                        {/*    </div>*/}
+                        {/*)}*/}
+
+                        {loading && <Loader />}
+                        {!loading && error && <div>Error loading data: {error.message}</div>}
+
+                        {!loading && !error && (
+                            participants.length > 0 ? (
+                                participants.map((participant, index) => (
+                                    <ParticipantItem
+                                        key={index}
+                                        number={participant.crew.crew_number}
+                                        nationality={participant.driver.nationality}
+                                        coNationality={participant.co_driver.nationality}
+                                        driver={`${participant.driver.name} ${participant.driver.surname}`}
+                                        coDriver={`${participant.co_driver.name} ${participant.co_driver.surname}`}
+                                        team={participant.team.team_name}
+                                        car={participant.crew.car}
+                                        group={participant.crew.drive_type}
+                                        className={participant.crew.drive_class}
+                                        eligibility={participant.crew.groups.map(group => group.group_name.toLowerCase())}
+                                        isOdd={index % 2 !== 0}
+                                    />
+                                ))
+                            ) : (
+                                <div className="mt-10 text-[#4e4e4e] text-center">
+                                    Pašlaik nav zināmu dalībnieku.
+                                </div>
+                            )
                         )}
 
-                        <div className="mt-6 text-[#4e4e4e] text-center font-bold">
-                            Kopējais dalībnieku skaits: {participantData.length}
-                        </div>
-
+                        {!loading &&
+                            <div className="mt-6 text-[#4e4e4e] text-center font-bold">
+                                Kopējais dalībnieku skaits: {participantData.length}
+                            </div>
+                        }
                     </Table>
                 </div>
 

@@ -1,4 +1,7 @@
 import React from 'react';
+import {useParams} from "react-router-dom";
+import useFetchData from "../../hooks/useFetchData";
+import Loader from "../elements/Loader";
 
 const NewsItem = ({ date, title, paragraph, imgSrc }) => {
     return (
@@ -17,26 +20,11 @@ const NewsItem = ({ date, title, paragraph, imgSrc }) => {
     );
 };
 const NewsContainer = () => {
-    const newsData = [
-        {
-            date: '05-08-2024 15:05',
-            title: 'Informācija rallija ekipāžām',
-            paragraph: 'Šodien, 23. jūlijā, ir pēdējā diena, lai pieteiktos rallijam Cēsis 2024 par zemāku dalības maksu, līdz 26. jūlijam tā tiks paaugstināta.',
-            imgSrc: '/images/newsImages/img1.png',
-        },
-        {
-            date: '04-08-2024 14:00',
-            title: 'Rallija sacensības tuvojas',
-            paragraph: 'Rallija sacensības tuvojas, un dalībniekiem ir jābūt gataviem izaicinājumam. Līdzjutēji tiek aicināti piedalīties.',
-            imgSrc: '/images/newsImages/img2.png',
-        },
-        {
-            date: '03-08-2024 13:30',
-            title: 'Svarīga informācija dalībniekiem',
-            paragraph: 'Dalībniekiem jāņem vērā jaunākie noteikumi un izmaiņas, kas ir publicētas oficiālajā mājaslapā.',
-            imgSrc: '/images/newsImages/img3.png',
-        },
-    ];
+    const { year, rallyName } = useParams();
+    const url = `http://localhost/api/news/${year}/${rallyName}`;
+
+    const { data: newsData, loading, error } = useFetchData(url);
+
     return (
         <section className="w-full min-h-20 bg-rally-primary sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px]">
@@ -44,20 +32,25 @@ const NewsContainer = () => {
                     <div className="font-containerHeading font-bold text-white text-4xl mr-4">Jaunumi</div>
                     <div className="flex-1 h-0.5 bg-white"></div>
                 </div>
-                {newsData.length > 0 ? (
-                    newsData.map((news, index) => (
-                        <NewsItem
-                            key={index}
-                            date={news.date}
-                            title={news.title}
-                            paragraph={news.paragraph}
-                            imgSrc={news.imgSrc}
-                        />
-                    ))
-                ) : (
-                    <div className="mt-10 text-white text-center">
-                        Pašlaik nav jaunu ziņu.
-                    </div>
+                {loading && <Loader />}
+                {!loading && error && <div>Error loading data: {error.message}</div>}
+
+                {!loading && !error && (
+                    newsData.length > 0 ? (
+                        newsData.map((news, index) => (
+                            <NewsItem
+                                key={index}
+                                date={news.pub_date_time}
+                                title={news.title}
+                                paragraph={news.paragraph}
+                                imgSrc={`/images/newsImages/img${index+1}.png`}
+                            />
+                        ))
+                    ) : (
+                        <div className="mt-10 text-white text-center">
+                            Pašlaik nav jaunu ziņu.
+                        </div>
+                    )
                 )}
             </div>
         </section>

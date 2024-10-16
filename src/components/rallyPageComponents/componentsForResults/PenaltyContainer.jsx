@@ -1,12 +1,12 @@
 import React from 'react';
-import TitleWithLine from "../../../utils/titleWithLine";
+import TitleWithLine from "../../elements/titleWithLine";
 import penaltyData from '../../../data/penaltyData.json';
-import ResultsTitleLine from "../../../utils/ResultsTitleLine";
-import {TableNumber} from "../../../utils/tableItems/TableNumber";
-import TableFlag from "../../../utils/tableItems/TableFlag";
-import {TableCrew, TableCrewHeading} from "../../../utils/tableItems/TableCrew";
-import TableHeading from "../../../utils/tableItems/TableHeading";
-import Table from "../../../utils/tableItems/Table";
+import ResultsTitleLine from "../../elements/ResultsTitleLine";
+import {TableNumber} from "../../elements/tableItems/TableNumber";
+import TableFlag from "../../elements/tableItems/TableFlag";
+import {TableCrew, TableCrewHeading} from "../../elements/tableItems/TableCrew";
+import TableHeading from "../../elements/tableItems/TableHeading";
+import Table from "../../elements/tableItems/Table";
 
 const PenaltyItem = ({ number, nationality, coNationality, driver, coDriver, team, car, driveType, penalties, isOdd }) => {
     return (

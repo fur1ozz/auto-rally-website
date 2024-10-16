@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import TitleWithLine from "../../../utils/titleWithLine";
+import TitleWithLine from "../../elements/titleWithLine";
 import Flag from "react-flagkit";
 import retirementData from "../../../data/retirementData.json";
-import ResultsTitleLine from "../../../utils/ResultsTitleLine";
-import {TableCrew, TableCrewHeading} from "../../../utils/tableItems/TableCrew";
-import {TableNumber} from "../../../utils/tableItems/TableNumber";
-import TableFlag from "../../../utils/tableItems/TableFlag";
-import Table from "../../../utils/tableItems/Table";
-import TableHeading from "../../../utils/tableItems/TableHeading";
+import ResultsTitleLine from "../../elements/ResultsTitleLine";
+import {TableCrew, TableCrewHeading} from "../../elements/tableItems/TableCrew";
+import {TableNumber} from "../../elements/tableItems/TableNumber";
+import TableFlag from "../../elements/tableItems/TableFlag";
+import Table from "../../elements/tableItems/Table";
+import TableHeading from "../../elements/tableItems/TableHeading";
 
 const RetirementItem = ({ number, nationality, coNationality, driver, coDriver, car, retireReason, finishedStages, isOdd }) => {
     return (

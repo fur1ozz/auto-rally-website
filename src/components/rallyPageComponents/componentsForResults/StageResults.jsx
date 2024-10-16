@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import ResultsTitleLine from "../../../utils/ResultsTitleLine";
-import TitleWithLine from "../../../utils/titleWithLine";
+import ResultsTitleLine from "../../elements/ResultsTitleLine";
+import TitleWithLine from "../../elements/titleWithLine";
 import { useParams } from "react-router-dom";
-import StageSortBar from "../../../utils/sortingBars/StageSortBar";
+import StageSortBar from "../../elements/sortingBars/StageSortBar";
 import Flag from "react-flagkit";
 import { formatTimeForDifference } from "../../../utils/formatTime";
 import { calculateTimeDifferences } from "../../../utils/calculateTimeDiferences";
 import resultsData from "../../../data/stage1Results.json";
-import { TableStageHeading } from "../../../utils/tableItems/TableStageHeading";
+import { TableStageHeading } from "../../elements/tableItems/TableStageHeading";
 
 const StageOverallTimeItem = ({ place, number, nationality, coNationality, driver, coDriver, car, driveType, time, timeDifference, isOdd, isHighlighted, onMouseEnter, onMouseLeave, penalty_time }) => {
     return (

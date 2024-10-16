@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
-import TitleWithLine from "../../utils/titleWithLine";
-import documentsData from "../../data/documentData.json";
+import TitleWithLine from "../elements/titleWithLine";
+import {useParams} from "react-router-dom";
+import useFetchData from "../../hooks/useFetchData";
+import Loader from "../elements/Loader";
 
 const PDFItem = ({ title, link }) => {
     return(
@@ -46,19 +48,33 @@ const FolderItem = ({ number, title, files }) => {
     );
 };
 const DocumentContainer = () => {
+    const { year, rallyName } = useParams();
+    const url = `http://localhost/api/documents/${year}/${rallyName}`;
+
+    const { data: documentsData, loading, error } = useFetchData(url);
+
     return (
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px] w-full overflow-x-auto">
                 <TitleWithLine title="Dokumenti" />
                 <div className="flex flex-col mt-10 w-full text-[#4e4e4e] font-light">
-                    {documentsData.documents.map((document, index) => (
-                        <FolderItem
-                            key={index}
-                            number={document.number}
-                            title={document.title}
-                            files={document.files}
-                        />
-                    ))}
+                    {loading && <Loader />}
+                    {!loading && error && <div>Error loading data: {error.message}</div>}
+
+                    {!loading && !error && (
+                        documentsData.length > 0 ? (
+                            documentsData.map((document, index) => (
+                                <FolderItem
+                                    key={index}
+                                    number={document.number}
+                                    title={document.title}
+                                    files={document.documents}
+                                />
+                            ))
+                        ) : (
+                            <div>No documents available.</div>
+                        )
+                    )}
                 </div>
             </div>
         </section>
