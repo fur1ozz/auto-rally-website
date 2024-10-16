@@ -1,12 +1,14 @@
 import React from 'react';
 import TitleWithLine from "../../elements/titleWithLine";
-import penaltyData from '../../../data/penaltyData.json';
 import ResultsTitleLine from "../../elements/ResultsTitleLine";
 import {TableNumber} from "../../elements/tableItems/TableNumber";
 import TableFlag from "../../elements/tableItems/TableFlag";
 import {TableCrew, TableCrewHeading} from "../../elements/tableItems/TableCrew";
 import TableHeading from "../../elements/tableItems/TableHeading";
 import Table from "../../elements/tableItems/Table";
+import {useParams} from "react-router-dom";
+import useFetchData from "../../../hooks/useFetchData";
+import Loader from "../../elements/Loader";
 
 const PenaltyItem = ({ number, nationality, coNationality, driver, coDriver, team, car, driveType, penalties, isOdd }) => {
     return (
@@ -22,19 +24,25 @@ const PenaltyItem = ({ number, nationality, coNationality, driver, coDriver, tea
             </div>
             <div className="flex flex-col w-[30%] font-medium text-rally-accent">
                 {penalties.map((penalty, index) => (
-                    <div key={index} className="mb-1">{penalty.reason}</div>
+                    <div key={index} className="mb-1">{penalty.penalty_type}</div>
                 ))}
             </div>
             <div className="w-[12%] flex flex-col font-medium text-red-600 items-end pr-2">
                 {penalties.map((penalty, index) => (
-                    <div key={index} className="mb-1">{penalty.penaltyTime}</div>
+                    <div key={index} className="mb-1">{penalty.penalty_amount}</div>
                 ))}
             </div>
+
         </div>
     );
 };
 
 const PenaltyContainer = () => {
+    const { year, rallyName } = useParams();
+    const url = `http://localhost/api/rally-penalties/${year}/${rallyName}`;
+
+    const { data: penaltyData, loading, error } = useFetchData(url);
+
     return (
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px] overflow-x-auto">
@@ -53,17 +61,20 @@ const PenaltyContainer = () => {
                             <div className="flex flex-col w-[30%]">Iemesls</div>
                             <div className="w-[12%] flex justify-end pr-2">Soda laiks</div>
                         </TableHeading>
+                        {loading && <Loader />}
+                        {!loading && error && <div>Error loading data: {error.message}</div>}
+
                         {penaltyData.length > 0 ? (
                             penaltyData.map((penalty, index) => (
                                 <PenaltyItem
                                     key={index}
-                                    number={penalty.crewNumber}
-                                    nationality={penalty.nationality}
-                                    coNationality={penalty.coNationality}
-                                    driver={penalty.driver}
-                                    coDriver={penalty.coDriver}
-                                    team={penalty.team}
-                                    car={penalty.vehicle}
+                                    number={penalty.crew_number}
+                                    nationality={penalty.driver.nationality}
+                                    coNationality={penalty.co_driver.nationality}
+                                    driver={`${penalty.driver.name} ${penalty.driver.surname}`}
+                                    coDriver={`${penalty.co_driver.name} ${penalty.co_driver.surname}`}
+                                    team={penalty.team.team_name}
+                                    car={penalty.car}
                                     driveType={penalty.drive_type}
                                     penalties={penalty.penalties}
                                     isOdd={index % 2 !== 0}
@@ -74,7 +85,6 @@ const PenaltyContainer = () => {
                                 Pašlaik nav zināmu sodu.
                             </div>
                         )}
-
                         <div className="mt-6 text-[#4e4e4e] font-medium">
                             Kopējais sodāmo dalībnieku skaits: <span className="font-semibold text-red-600">{penaltyData.length}</span>
                         </div>
