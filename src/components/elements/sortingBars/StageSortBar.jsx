@@ -3,9 +3,9 @@ import {Link, useLocation, useNavigate, useParams} from 'react-router-dom';
 
 const StageSortBar = ({ resultLinkName, numberOfStage}) => {
     const navigate = useNavigate();
-    const { year, rallyName } = useParams();
+    const { lng, year, rallyName } = useParams();
 
-    const baseUrl = `/${year}/${rallyName}/${resultLinkName}/`;
+    const baseUrl = `/${lng}/${year}/${rallyName}/${resultLinkName}/`;
 
     const handleStageChange = (stage) => {
         const newUrl = `${baseUrl}${stage}`;

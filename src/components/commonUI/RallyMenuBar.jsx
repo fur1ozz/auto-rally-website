@@ -3,13 +3,13 @@ import {Link, useLocation, useParams} from "react-router-dom";
 
 const RallyMenuBar = () => {
     const location = useLocation().pathname;
-    const { year, rallyName } = useParams();
+    const { lng,  year, rallyName } = useParams();
 
     return (
         <div className="w-full min-h-14 bg-black/60 justify-center flex text-white">
             <div className="w-[1024px] justify-center items-center hidden lg:flex">
                 <Link
-                    to={`/${year}/${rallyName}/news`}
+                    to={`/${lng}/${year}/${rallyName}/news`}
                     className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location.includes('/news') ? 'bg-rally-primary text-white' : 'hover:bg-white hover:text-black'}`}
                 >
                     <div className="h-4 w-4 mr-1 flex items-center justify-center">
@@ -20,7 +20,7 @@ const RallyMenuBar = () => {
                     Jaunumi
                 </Link>
                 <Link
-                    to={`/${year}/${rallyName}/participants`}
+                    to={`/${lng}/${year}/${rallyName}/participants`}
                     className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location.includes('/participants') ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
                 >
                     <div className="h-4 w-4 mr-1 flex items-center justify-center">
@@ -31,7 +31,7 @@ const RallyMenuBar = () => {
                     Dalībnieki
                 </Link>
                 <Link
-                    to={`/${year}/${rallyName}/documents`}
+                    to={`/${lng}/${year}/${rallyName}/documents`}
                     className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location.includes('/documents') ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
                 >
                     <div className="h-4 w-4 mr-1 flex items-center justify-center">
@@ -42,7 +42,7 @@ const RallyMenuBar = () => {
                     Dokumenti
                 </Link>
                 <Link
-                    to={`/${year}/${rallyName}/spectators`}
+                    to={`/${lng}/${year}/${rallyName}/spectators`}
                     className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location.includes('/spectators') ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
                 >
                     <div className="h-4 w-4 mr-1 flex items-center justify-center">
@@ -54,7 +54,7 @@ const RallyMenuBar = () => {
                     Skatītājiem
                 </Link>
                 <Link
-                    to={`/${year}/${rallyName}/results`}
+                    to={`/${lng}/${year}/${rallyName}/results`}
                     className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location.includes('/results') ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
                 >
                     <div className="h-4 w-4 mr-1 flex items-center justify-center">
@@ -65,7 +65,7 @@ const RallyMenuBar = () => {
                     Rezultāti
                 </Link>
                 <Link
-                    to={`/${year}/${rallyName}/championship`}
+                    to={`/${lng}/${year}/${rallyName}/championship`}
                     className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location.includes('/championship') ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
                 >
                     <div className="h-4 w-4 mr-1 flex items-center justify-center">
@@ -76,7 +76,7 @@ const RallyMenuBar = () => {
                     Čempionāts
                 </Link>
                 <Link
-                    to={`/${year}/${rallyName}/gallery`}
+                    to={`/${lng}/${year}/${rallyName}/gallery`}
                     className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location.includes('/gallery') ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
                 >
                     <div className="h-4 w-4 mr-1 flex items-center justify-center">

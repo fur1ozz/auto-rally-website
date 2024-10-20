@@ -3,7 +3,7 @@ import {Link, useParams} from "react-router-dom";
 
 const ResultsTitleLine = () => {
     const [currentPath, setCurrentPath] = useState("");
-    const { year, rallyName } = useParams();
+    const { lng, year, rallyName } = useParams();
 
     useEffect(() => {
         const path = window.location.pathname;
@@ -19,7 +19,7 @@ const ResultsTitleLine = () => {
         <div className="flex items-center mb-10">
             <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
             <Link
-                to={`/${year}/${rallyName}/results`}
+                to={`/${lng}/${year}/${rallyName}/results`}
                 className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkActive(
                     "/results"
                 )}`}
@@ -28,7 +28,7 @@ const ResultsTitleLine = () => {
             </Link>
             <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
             <Link
-                to={`/${year}/${rallyName}/results/splits`}
+                to={`/${lng}/${year}/${rallyName}/results/splits`}
                 className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkActive(
                     "/splits"
                 )}`}
@@ -37,7 +37,7 @@ const ResultsTitleLine = () => {
             </Link>
             <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
             <Link
-                to={`/${year}/${rallyName}/results/penalties`}
+                to={`/${lng}/${year}/${rallyName}/results/penalties`}
                 className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkActive(
                     "/penalties"
                 )}`}
@@ -46,7 +46,7 @@ const ResultsTitleLine = () => {
             </Link>
             <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
             <Link
-                to={`/${year}/${rallyName}/results/retirements`}
+                to={`/${lng}/${year}/${rallyName}/results/retirements`}
                 className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkActive(
                     "/retirements"
                 )}`}
@@ -55,7 +55,7 @@ const ResultsTitleLine = () => {
             </Link>
             <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
             <Link
-                to={`/${year}/${rallyName}/results/stage-winners`}
+                to={`/${lng}/${year}/${rallyName}/results/stage-winners`}
                 className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkActive(
                     "/stage-winners"
                 )}`}

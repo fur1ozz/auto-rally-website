@@ -1,5 +1,4 @@
 import React from 'react';
-import participantData from '../../data/participantData.json';
 import TitleWithLine from "../elements/titleWithLine";
 import Table from "../elements/tableItems/Table";
 import TableHeading from "../elements/tableItems/TableHeading";
@@ -56,29 +55,6 @@ const ParticipantContainer = () => {
                             </div>
                             <div className="w-[12%]">Ieskaite</div>
                         </TableHeading>
-                        {/*{participants.length > 0 ? (*/}
-                        {/*    participants.map((participant, index) => (*/}
-                        {/*        <ParticipantItem*/}
-                        {/*            key={index}*/}
-                        {/*            number={participant.crew.crew_number}*/}
-                        {/*            nationality={participant.driver.nationality}*/}
-                        {/*            coNationality={participant.co_driver.nationality}*/}
-                        {/*            driver={`${participant.driver.name} ${participant.driver.surname}`}*/}
-                        {/*            coDriver={`${participant.co_driver.name} ${participant.co_driver.surname}`}*/}
-                        {/*            team={participant.team.team_name}*/}
-                        {/*            car={participant.crew.car}*/}
-                        {/*            group={participant.crew.drive_type}*/}
-                        {/*            className={participant.crew.drive_class}*/}
-                        {/*            eligibility={participant.crew.groups.map(group => group.group_name.toLowerCase())}*/}
-                        {/*            isOdd={index % 2 !== 0}*/}
-                        {/*        />*/}
-                        {/*    ))*/}
-                        {/*) : (*/}
-                        {/*    <div className="mt-10 text-[#4e4e4e] text-center">*/}
-                        {/*        Pašlaik nav zināmu dalībnieku.*/}
-                        {/*    </div>*/}
-                        {/*)}*/}
-
                         {loading && <Loader />}
                         {!loading && error && <div>Error loading data: {error.message}</div>}
 
@@ -109,7 +85,7 @@ const ParticipantContainer = () => {
 
                         {!loading &&
                             <div className="mt-6 text-[#4e4e4e] text-center font-bold">
-                                Kopējais dalībnieku skaits: {participantData.length}
+                                Kopējais dalībnieku skaits: {participants.length}
                             </div>
                         }
                     </Table>

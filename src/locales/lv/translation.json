@@ -1,0 +1,13 @@
+{
+  "documents": {
+    "no-documents": "Pašlaik nav pieejamu dokumentu."
+  },
+  "about": {
+    "title": "Par mums",
+    "description": "Šajā lapā ir sniegta informācija par mūsu lietojumprogrammu."
+  },
+  "contact": {
+    "title": "Sazinieties ar mums",
+    "description": "Šajā lapā ir kontaktinformācija."
+  }
+}

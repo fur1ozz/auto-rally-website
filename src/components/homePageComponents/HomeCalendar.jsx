@@ -1,16 +1,17 @@
 import React from 'react';
 import Flag from "react-flagkit";
 import calendarData from '../../data/calendarData.json';
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {getRallyStatus} from "../../utils/dateUtils";
 import {getColorsForSurfaceType} from "../../utils/colorUtils";
 
 const CalendarItem = ({ rally_name, date_from, date_to, location, rally_image_for_calendar, eng_name, road_surface }) => {
     const rallyStatus = getRallyStatus(date_from, date_to);
     const { backgroundColor, borderColor } = getColorsForSurfaceType(road_surface);
+    const { lng } = useParams();
 
     return (
-        <a href={`/2024/${eng_name.replace(/\s+/g, '-').toLowerCase()}/news`}>
+        <a href={`/${lng}/2024/${eng_name.replace(/\s+/g, '-').toLowerCase()}/news`}>
             <div className="w-[300px] h-[300px] rounded-md mb-10 mx-2 group cursor-pointer flex flex-col font-chakra shadow-[0_3px_8px_0_rgba(0,0,0,0.17)]">
                 <div className="overflow-hidden h-[55%] flex justify-center items-center rounded-t-md relative">
                     <img
