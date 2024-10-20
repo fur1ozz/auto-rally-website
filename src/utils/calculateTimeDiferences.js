@@ -1,10 +1,11 @@
 import {convertTimeToSeconds} from "./formatTime";
 
 export const calculateTimeDifferences = (results, timeField) => {
-    // if (!results || results.length === 0 || !results[0][timeField]) return [];
+    if (!results || results.length === 0 || !results[0][timeField]) return [];
 
     const timeDifferences = [];
     const firstDriverTime = convertTimeToSeconds(results[0][timeField]);
+
     timeDifferences.push({ differenceFromFirst: 0, differenceFromPrevious: null });
 
     for (let i = 1; i < results.length; i++) {

@@ -14,7 +14,20 @@ export const formatTimeForDifference = (seconds) => {
     const secs = (seconds % 60).toFixed(2);
     return `+${minutes > 0 ? `${minutes}.` : ''}${secs}`;
 };
+// export const convertTimeToSeconds = (time) => {
+//     const [minutes, seconds] = time.split(':');
+//     return parseInt(minutes) * 60 + parseFloat(seconds);
+// };
+
 export const convertTimeToSeconds = (time) => {
+    if (!time || typeof time !== 'string') {
+        return 0;
+    }
+
     const [minutes, seconds] = time.split(':');
-    return parseInt(minutes) * 60 + parseFloat(seconds);
+
+    const parsedMinutes = parseInt(minutes) || 0;
+    const parsedSeconds = parseFloat(seconds) || 0;
+
+    return parsedMinutes * 60 + parsedSeconds;
 };
