@@ -1,8 +1,10 @@
 import React from 'react';
+import {useParams} from "react-router-dom";
 
 const UpcomingEvent = () => {
+    const  {lng} = useParams()
     return (
-        <a href="/2024/samsonas-rally-utena/news">
+        <a href={`/${lng}/2024/samsonas-rally-utena/news`}>
             <div
                 className="bg-cover bg-center cursor-pointer"
                 style={{ backgroundImage: 'url(/images/parallax-backgrounds/gravel-3.jpg)' }}

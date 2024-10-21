@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import { Link, useLocation } from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 import {useCurrentTime} from "../../hooks/useCurrentTime";
 import {formatTime} from "../../utils/formatTime";
+import {findByRole} from "@testing-library/react";
+import LanguageSwitcher from "../elements/LanguageSwitcher";
 
 // TODO need to fix
 const LinkButtonPhone = ({ name, currentPath }) => {
@@ -22,6 +24,7 @@ const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
     const time = useCurrentTime();
+    const {lng} = useParams()
 
     const handleMobileMenuToggle = () => {
         setMobileMenuOpen(!mobileMenuOpen);
@@ -36,7 +39,7 @@ const Header = () => {
                         </a>
                         <div className="sm:flex hidden items-center">
                             <Link
-                                to="/"
+                                to={`/${lng}/home`}
                                 className="text-white font-medium mr-4"
                             >
                                 Home
@@ -48,6 +51,7 @@ const Header = () => {
                                 Calendar
                             </Link>
                         </div>
+                        <LanguageSwitcher />
                     </div>
 
                     <div className="sm:flex hidden">

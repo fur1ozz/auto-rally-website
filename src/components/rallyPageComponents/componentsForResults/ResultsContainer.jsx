@@ -1,16 +1,17 @@
 import React from 'react';
 import TitleWithLine from "../../elements/titleWithLine";
 import ResultsTitleLine from "../../elements/ResultsTitleLine";
-import resultsData from '../../../data/resultsData.json';
 import {TableNumber} from "../../elements/tableItems/TableNumber";
 import TableFlag from "../../elements/tableItems/TableFlag";
 import {TableCrew, TableCrewHeading} from "../../elements/tableItems/TableCrew";
 import TableHeading from "../../elements/tableItems/TableHeading";
 import Table from "../../elements/tableItems/Table";
-import {useNavigate, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import StageSortBar from "../../elements/sortingBars/StageSortBar";
 import {formatTimeForDifference} from "../../../utils/formatTime";
 import {calculateTimeDifferences} from "../../../utils/calculateTimeDiferences";
+import useFetchData from "../../../hooks/useFetchData";
+import Loader from "../../elements/Loader";
 
 const ResultsItem = ({ place, number, nationality, coNationality, driver, coDriver, car, team, driveType, groupClass, penalty, overallTime, timeDifference, isOdd }) => {
     return (
@@ -41,18 +42,14 @@ const ResultsItem = ({ place, number, nationality, coNationality, driver, coDriv
     );
 };
 const ResultsContainer = () => {
-    const timeDifferences = calculateTimeDifferences(resultsData, 'overall_time');
-    const navigate = useNavigate();
-    const { year, rallyName, stageNumber } = useParams();
+    const { lng, year, rallyName } = useParams();
+    const url = `http://localhost/api/overall-results/${year}/${rallyName}`;
 
-    const baseUrl = `/${year}/${rallyName}/results/`;
+    const { data: overallData, loading, error } = useFetchData(url);
 
-    // cant remember what this does
-    const handleStageChange = (stage) => {
-        const newUrl = `${baseUrl}${stage}`;
-        navigate(newUrl);
-    };
+    const resultsData = overallData?.overall_results || [];
 
+    const timeDifferences = calculateTimeDifferences(resultsData, 'total_time');
 
     return (
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
@@ -82,25 +79,36 @@ const ResultsContainer = () => {
                                 <div className="text-sm font-medium">No Iep.</div>
                             </div>
                         </TableHeading>
-                        {resultsData.map((result, index) => (
-                            <ResultsItem
-                                key={index}
-                                place={index + 1}
-                                number={result.crew_number}
-                                nationality={result.nationality}
-                                coNationality={result.co_driver_nationality}
-                                driver={result.driver}
-                                coDriver={result.co_driver}
-                                team={result.team}
-                                car={result.vehicle}
-                                driveType={result.drive_type}
-                                groupClass={result.class}
-                                penalty={result.penalty_time}
-                                overallTime={result.overall_time}
-                                timeDifference={timeDifferences[index]}
-                                isOdd={index % 2 !== 0}
-                            />
-                        ))}
+                        {loading && <Loader />}
+                        {!loading && error && <div>Error loading data: {error.message}</div>}
+
+                        {!loading && !error && (
+                            resultsData.length > 0 ? (
+                                resultsData.map((result, index) => (
+                                    <ResultsItem
+                                        key={index}
+                                        place={index + 1}
+                                        number={result.crew_number}
+                                        nationality={result.driver.nationality}
+                                        coNationality={result.co_driver.nationality}
+                                        driver={`${result.driver.name} ${result.driver.surname}`}
+                                        coDriver={`${result.co_driver.name} ${result.co_driver.surname}`}
+                                        team={result.team.name}
+                                        car={result.car}
+                                        driveType={result.drive_type}
+                                        groupClass={result.drive_class}
+                                        penalty={result.total_penalty_time.split('.')[0]}
+                                        overallTime={result.total_time}
+                                        timeDifference={timeDifferences[index]}
+                                        isOdd={index % 2 !== 0}
+                                    />
+                                ))
+                            ) : (
+                                <div className="mt-10 text-[#4e4e4e] text-center">
+                                    Pašlaik kopvērtējuma rezultātu nav.
+                                </div>
+                            )
+                        )}
                     </Table>
                 </div>
             </div>
