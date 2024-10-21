@@ -1,5 +1,14 @@
 {
   "documents": {
     "no-documents": ""
+  },
+  "rally-menu-bar": {
+    "news": "Uudised",
+    "participants": "Osalejad",
+    "documents": "Dokumendid",
+    "spectators": "Pealtvaatajad",
+    "results": "Tulemused",
+    "championship": "Meistrivõistlused",
+    "gallery": "Galerii"
   }
 }

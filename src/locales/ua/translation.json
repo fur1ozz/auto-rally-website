@@ -1,5 +1,14 @@
 {
   "documents": {
     "no-documents": ""
+  },
+  "rally-menu-bar": {
+    "news": "Новини",
+    "participants": "Учасники",
+    "documents": "Документи",
+    "spectators": "Глядачам",
+    "results": "Результати",
+    "championship": "Чемпіонат",
+    "gallery": "Галерея"
   }
 }

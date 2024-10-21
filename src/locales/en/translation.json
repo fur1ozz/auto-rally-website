@@ -1,5 +1,14 @@
 {
   "documents": {
     "no-documents": "No available documents."
+  },
+  "rally-menu-bar": {
+    "news": "News",
+    "participants": "Participants",
+    "documents": "Documents",
+    "spectators": "Spectators",
+    "results": "Results",
+    "championship": "Championship",
+    "gallery": "Gallery"
   }
 }

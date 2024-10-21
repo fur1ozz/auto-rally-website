@@ -3,6 +3,9 @@ import championshipData from '../../data/championshipData.json';
 import seasonData from '../../data/seasonEventsWithGroups.json';
 import groupClassData from '../../data/champGroupClassData.json';
 import TitleWithLine from "../elements/titleWithLine";
+import {useTranslation} from "react-i18next";
+import useLanguage from "../../hooks/useLanguage";
+import {useParams} from "react-router-dom";
 
 const ChampItem = ({ position, driver, coDriver, events, totalPoints }) => {
     const eventPoints = Object.values(events);
@@ -30,6 +33,10 @@ const ChampItem = ({ position, driver, coDriver, events, totalPoints }) => {
 
 const ChampContainer = () => {
     const [selectedClass, setSelectedClass] = useState(null);
+    const { lng, year, rallyName } = useParams();
+
+    const { t } = useTranslation();
+    useLanguage(lng);
 
     const handleClassClick = (className) => {
         setSelectedClass(className);
@@ -60,7 +67,7 @@ const ChampContainer = () => {
     return (
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px] overflow-x-auto">
-                <TitleWithLine title="Čempionāts" />
+                <TitleWithLine title={t('rally-menu-bar.championship')} />
 
                 <div className="flex flex-col flex-wrap my-5">
                     <div className="flex flex-col mr-10 justify-end">

@@ -8,6 +8,8 @@ import TableFlag from "../elements/tableItems/TableFlag";
 import {useParams} from "react-router-dom";
 import useFetchData from "../../hooks/useFetchData";
 import Loader from "../elements/Loader";
+import {useTranslation} from "react-i18next";
+import useLanguage from "../../hooks/useLanguage";
 
 const ParticipantItem = ({ number, nationality, coNationality, driver, coDriver, team, car, group, className, eligibility, isOdd }) => {
 
@@ -33,14 +35,17 @@ const ParticipantItem = ({ number, nationality, coNationality, driver, coDriver,
 
 
 const ParticipantContainer = () => {
-    const { year, rallyName } = useParams();
+    const { lng, year, rallyName } = useParams();
+    const { t } = useTranslation();
     const url = `http://localhost/api/participants/${year}/${rallyName}`;
 
     const { data: participants, loading, error } = useFetchData(url);
+    useLanguage(lng);
+
     return (
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px] overflow-x-auto">
-                <TitleWithLine title="Dalībnieki" />
+                <TitleWithLine title={t('rally-menu-bar.participants')}/>
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <Table>
                         <TableHeading>

@@ -2,6 +2,8 @@ import React from 'react';
 import {useParams} from "react-router-dom";
 import useFetchData from "../../hooks/useFetchData";
 import Loader from "../elements/Loader";
+import {useTranslation} from "react-i18next";
+import useLanguage from "../../hooks/useLanguage";
 
 const NewsItem = ({ date, title, paragraph, imgSrc }) => {
     return (
@@ -20,16 +22,18 @@ const NewsItem = ({ date, title, paragraph, imgSrc }) => {
     );
 };
 const NewsContainer = () => {
-    const { year, rallyName } = useParams();
+    const { lng, year, rallyName } = useParams();
+    const { t } = useTranslation();
     const url = `http://localhost/api/news/${year}/${rallyName}`;
 
     const { data: newsData, loading, error } = useFetchData(url);
 
+    useLanguage(lng);
     return (
         <section className="w-full min-h-20 bg-rally-primary sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px]">
                 <div className="flex items-center">
-                    <div className="font-containerHeading font-bold text-white text-4xl mr-4">Jaunumi</div>
+                    <div className="font-containerHeading font-bold text-white text-4xl mr-4">{t('rally-menu-bar.news')}</div>
                     <div className="flex-1 h-0.5 bg-white"></div>
                 </div>
                 {loading && <Loader />}

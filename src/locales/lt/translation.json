@@ -1,5 +1,14 @@
 {
   "documents": {
 
+  },
+  "rally-menu-bar": {
+    "news": "Naujienos",
+    "participants": "Dalyviai",
+    "documents": "Dokumentai",
+    "spectators": "Žiūrovams",
+    "results": "Rezultatai",
+    "championship": "Čempionatas",
+    "gallery": "Galerija"
   }
 }

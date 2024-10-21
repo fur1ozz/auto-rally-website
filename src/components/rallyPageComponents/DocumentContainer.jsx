@@ -56,13 +56,12 @@ const DocumentContainer = () => {
     const { data: documentsData, loading, error } = useFetchData(url);
 
     const { t } = useTranslation();
-
     useLanguage(lng);
 
     return (
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px] w-full overflow-x-auto">
-                <TitleWithLine title="Dokumenti" />
+                <TitleWithLine title={t('rally-menu-bar.documents')} />
                 <div className="flex flex-col mt-10 w-full text-[#4e4e4e] font-light">
                     {loading && <Loader />}
                     {!loading && error && <div>Error loading data: {error.message}</div>}

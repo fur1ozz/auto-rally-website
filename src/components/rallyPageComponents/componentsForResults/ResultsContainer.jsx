@@ -12,6 +12,8 @@ import {formatTimeForDifference} from "../../../utils/formatTime";
 import {calculateTimeDifferences} from "../../../utils/calculateTimeDiferences";
 import useFetchData from "../../../hooks/useFetchData";
 import Loader from "../../elements/Loader";
+import {useTranslation} from "react-i18next";
+import useLanguage from "../../../hooks/useLanguage";
 
 const ResultsItem = ({ place, number, nationality, coNationality, driver, coDriver, car, team, driveType, groupClass, penalty, overallTime, timeDifference, isOdd }) => {
     return (
@@ -51,11 +53,14 @@ const ResultsContainer = () => {
 
     const timeDifferences = calculateTimeDifferences(resultsData, 'total_time');
 
+    const { t } = useTranslation();
+    useLanguage(lng);
+
     return (
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px] overflow-x-auto">
                 <ResultsTitleLine />
-                <TitleWithLine title="Rezultāti" />
+                <TitleWithLine title={t('rally-menu-bar.results')} />
                 <StageSortBar numberOfStage={8} resultLinkName="results-stage" />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <Table>

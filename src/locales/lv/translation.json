@@ -1,5 +1,14 @@
 {
   "documents": {
     "no-documents": "Pašlaik nav pieejamu dokumentu."
+  },
+  "rally-menu-bar": {
+    "news": "Jaunumi",
+    "participants": "Dalībnieki",
+    "documents": "Dokumenti",
+    "spectators": "Skatītājiem",
+    "results": "Rezultāti",
+    "championship": "Čempionāts",
+    "gallery": "Galerija"
   }
 }
