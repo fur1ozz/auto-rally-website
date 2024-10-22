@@ -64,26 +64,28 @@ const PenaltyContainer = () => {
                         {loading && <Loader />}
                         {!loading && error && <div>Error loading data: {error.message}</div>}
 
-                        {penaltyData.length > 0 ? (
-                            penaltyData.map((penalty, index) => (
-                                <PenaltyItem
-                                    key={index}
-                                    number={penalty.crew_number}
-                                    nationality={penalty.driver.nationality}
-                                    coNationality={penalty.co_driver.nationality}
-                                    driver={`${penalty.driver.name} ${penalty.driver.surname}`}
-                                    coDriver={`${penalty.co_driver.name} ${penalty.co_driver.surname}`}
-                                    team={penalty.team.team_name}
-                                    car={penalty.car}
-                                    driveType={penalty.drive_type}
-                                    penalties={penalty.penalties}
-                                    isOdd={index % 2 !== 0}
-                                />
-                            ))
-                        ) : (
-                            <div className="mt-10 text-[#4e4e4e] text-center">
-                                Pašlaik nav zināmu sodu.
-                            </div>
+                        {!loading && !error && (
+                            penaltyData.length > 0 ? (
+                                penaltyData.map((penalty, index) => (
+                                    <PenaltyItem
+                                        key={index}
+                                        number={penalty.crew_number}
+                                        nationality={penalty.driver.nationality}
+                                        coNationality={penalty.co_driver.nationality}
+                                        driver={`${penalty.driver.name} ${penalty.driver.surname}`}
+                                        coDriver={`${penalty.co_driver.name} ${penalty.co_driver.surname}`}
+                                        team={penalty.team.team_name}
+                                        car={penalty.car}
+                                        driveType={penalty.drive_type}
+                                        penalties={penalty.penalties}
+                                        isOdd={index % 2 !== 0}
+                                    />
+                                ))
+                            ) : (
+                                <div className="mt-10 text-[#4e4e4e] text-center">
+                                    Pašlaik nav zināmu sodu.
+                                </div>
+                            )
                         )}
                         <div className="mt-6 text-[#4e4e4e] font-medium">
                             Kopējais sodāmo dalībnieku skaits: <span className="font-semibold text-red-600">{penaltyData.length}</span>

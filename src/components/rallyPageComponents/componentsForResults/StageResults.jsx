@@ -105,38 +105,38 @@ const StageResults = () => {
                             {loading && <Loader />}
                             {!loading && error && <div>Error loading data: {error.message}</div>}
 
-                            {results.length > 0 ? (
-                                results.map((result, index) => (
-                                    <StageOverallTimeItem
-                                        key={index}
-                                        place={index + 1}
-                                        number={result.crew_number}
-                                        nationality={result.driver.nationality}
-                                        coNationality={result.co_driver.nationality}
-                                        driver={`${result.driver.name} ${result.driver.surname}`}
-                                        coDriver={`${result.co_driver.name} ${result.co_driver.surname}`}
-                                        car={result.car}
-                                        driveType={result.drive_type}
-                                        time={result.time_taken}
-                                        timeDifference={timeDifferencesStage[index]}
-                                        isOdd={index % 2 !== 0}
-                                        isHighlighted={hoveredCrew === result.crew_number}
-                                        onMouseEnter={() => setHoveredCrew(result.crew_number)}
-                                        onMouseLeave={() => setHoveredCrew(null)}
-                                        penalty_time={
-                                            (result.penalties || []).length > 0
-                                                ? result.penalties.map(penalty => penalty.penalty_time.split('.')[0]).join(', ')
-                                                : null
-                                        }
-                                    />
-                                ))
-                            ) : (
-                                <div className="mt-10 text-[#4e4e4e] text-center">
-                                    Pašlaik nav pieejamu rezultātu.
-                                </div>
+                            {!loading && !error && (
+                                results.length > 0 ? (
+                                    results.map((result, index) => (
+                                        <StageOverallTimeItem
+                                            key={index}
+                                            place={index + 1}
+                                            number={result.crew_number}
+                                            nationality={result.driver.nationality}
+                                            coNationality={result.co_driver.nationality}
+                                            driver={`${result.driver.name} ${result.driver.surname}`}
+                                            coDriver={`${result.co_driver.name} ${result.co_driver.surname}`}
+                                            car={result.car}
+                                            driveType={result.drive_type}
+                                            time={result.time_taken}
+                                            timeDifference={timeDifferencesStage[index]}
+                                            isOdd={index % 2 !== 0}
+                                            isHighlighted={hoveredCrew === result.crew_number}
+                                            onMouseEnter={() => setHoveredCrew(result.crew_number)}
+                                            onMouseLeave={() => setHoveredCrew(null)}
+                                            penalty_time={
+                                                (result.penalties || []).length > 0
+                                                    ? result.penalties.map(penalty => penalty.penalty_time.split('.')[0]).join(', ')
+                                                    : null
+                                            }
+                                        />
+                                    ))
+                                ) : (
+                                    <div className="mt-10 text-[#4e4e4e] text-center">
+                                        Pašlaik nav pieejamu rezultātu.
+                                    </div>
+                                )
                             )}
-
-
                         </div>
                         {/* Overall Results */}
                         <div className="min-w-[500px] flex flex-col sm:items-center font-chakra">
@@ -145,31 +145,33 @@ const StageResults = () => {
                             {loading && <Loader />}
                             {!loading && error && <div>Error loading data: {error.message}</div>}
 
-                            {sortedResultsData.length > 0 ? (
-                                sortedResultsData.map((result, index) => (
-                                    <StageOverallTimeItem
-                                        key={index}
-                                        place={index + 1}
-                                        number={result.crew_number}
-                                        nationality={result.driver.nationality}
-                                        coNationality={result.co_driver.nationality}
-                                        driver={`${result.driver.name} ${result.driver.surname}`}
-                                        coDriver={`${result.co_driver.name} ${result.co_driver.surname}`}
-                                        car={result.car}
-                                        driveType={result.drive_type}
-                                        time={result.overall_time_with_penalties_until_stage}
-                                        timeDifference={timeDifferencesOverall[index]}
-                                        isOdd={index % 2 !== 0}
-                                        isHighlighted={hoveredCrew === result.crew_number}
-                                        onMouseEnter={() => setHoveredCrew(result.crew_number)}
-                                        onMouseLeave={() => setHoveredCrew(null)}
-                                        penalty_time={null}
-                                    />
-                                ))
-                            ) : (
-                                <div className="mt-10 text-[#4e4e4e] text-center">
-                                    Pašlaik nav pieejamu rezultātu.
-                                </div>
+                            {!loading && !error && (
+                                sortedResultsData.length > 0 ? (
+                                    sortedResultsData.map((result, index) => (
+                                        <StageOverallTimeItem
+                                            key={index}
+                                            place={index + 1}
+                                            number={result.crew_number}
+                                            nationality={result.driver.nationality}
+                                            coNationality={result.co_driver.nationality}
+                                            driver={`${result.driver.name} ${result.driver.surname}`}
+                                            coDriver={`${result.co_driver.name} ${result.co_driver.surname}`}
+                                            car={result.car}
+                                            driveType={result.drive_type}
+                                            time={result.overall_time_with_penalties_until_stage}
+                                            timeDifference={timeDifferencesOverall[index]}
+                                            isOdd={index % 2 !== 0}
+                                            isHighlighted={hoveredCrew === result.crew_number}
+                                            onMouseEnter={() => setHoveredCrew(result.crew_number)}
+                                            onMouseLeave={() => setHoveredCrew(null)}
+                                            penalty_time={null}
+                                        />
+                                    ))
+                                ) : (
+                                    <div className="mt-10 text-[#4e4e4e] text-center">
+                                        Pašlaik nav pieejamu rezultātu.
+                                    </div>
+                                )
                             )}
                         </div>
                     </div>

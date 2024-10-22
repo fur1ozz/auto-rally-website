@@ -48,26 +48,28 @@ const RetirementContainer = () => {
                         {loading && <Loader />}
                         {!loading && error && <div>Error loading data: {error.message}</div>}
 
-                        {retirementData.length > 0 ? (
-                            retirementData.map((retirement, index) => (
-                                <RetirementItem
-                                    key={index}
-                                    number={retirement.crew_number}
-                                    nationality={retirement.driver.nationality}
-                                    coNationality={retirement.co_driver.nationality}
-                                    driver={`${retirement.driver.name} ${retirement.driver.surname}`}
-                                    coDriver={`${retirement.co_driver.name} ${retirement.co_driver.surname}`}
-                                    car={retirement.car}
-                                    driveType={retirement.drive_type}
-                                    retireReason={retirement.retirement.retirement_reason}
-                                    finishedStages={retirement.retirement.finished_stages}
-                                    isOdd={index % 2 !== 0}
-                                />
-                            ))
-                        ) : (
-                            <div className="mt-10 text-[#4e4e4e] text-center">
-                                Pašlaik neviens nav izstājies.
-                            </div>
+                        {!loading && !error && (
+                            retirementData.length > 0 ? (
+                                retirementData.map((retirement, index) => (
+                                    <RetirementItem
+                                        key={index}
+                                        number={retirement.crew_number}
+                                        nationality={retirement.driver.nationality}
+                                        coNationality={retirement.co_driver.nationality}
+                                        driver={`${retirement.driver.name} ${retirement.driver.surname}`}
+                                        coDriver={`${retirement.co_driver.name} ${retirement.co_driver.surname}`}
+                                        car={retirement.car}
+                                        driveType={retirement.drive_type}
+                                        retireReason={retirement.retirement.retirement_reason}
+                                        finishedStages={retirement.retirement.finished_stages}
+                                        isOdd={index % 2 !== 0}
+                                    />
+                                ))
+                            ) : (
+                                <div className="mt-10 text-[#4e4e4e] text-center">
+                                    Pašlaik neviens nav izstājies.
+                                </div>
+                            )
                         )}
 
                         <div className="mt-6 text-[#4e4e4e] font-medium">
