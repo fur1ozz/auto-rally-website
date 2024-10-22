@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import TableHeading from "../../elements/tableItems/TableHeading";
 import Flag from "react-flagkit";
-import calculateCrewWinCount from "../../../utils/calculateCrewWinCount";
 
 const StageWinCountItem = ({ number, nationality, coNationality, driver, coDriver, car, driveType, place1, place2, place3, isOdd }) => {
     return (
@@ -47,15 +46,9 @@ const StageWinCountItem = ({ number, nationality, coNationality, driver, coDrive
 };
 
 const StageWinCountContainer = ({ data }) => {
-    const [driverResults, setDriverResults] = useState([]);
-
-    useEffect(() => {
-        const results = calculateCrewWinCount(data);
-        setDriverResults(results);
-    }, [data]);
 
     return (
-        <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
+        <section className="w-full min-h-20 bg-white sm:p-14 p-10 pt-0 sm:pt-0 flex justify-center">
             <div className="lg:w-[1024px] overflow-x-auto flex justify-center">
                 <div className="flex  text-[#4e4e4e] overflow-x-auto">
                     <div className="min-w-[700px] flex flex-col sm:items-center font-chakra">
@@ -69,20 +62,19 @@ const StageWinCountContainer = ({ data }) => {
                                 <div className="w-1/3 flex justify-center">P3</div>
                             </div>
                         </TableHeading>
-
-                        {driverResults.map((driver, index) => (
+                        {data.map((driver, index) => (
                             <StageWinCountItem
                                 key={index}
-                                number={driver.crewNumber}
-                                nationality={driver.nationality}
-                                coNationality={driver.coNationality}
+                                number={driver.crew_number}
+                                nationality={driver.driver_nationality}
+                                coNationality={driver.co_driver_nationality}
                                 driver={driver.driver}
-                                coDriver={driver.coDriver}
-                                car={driver.car}
-                                driveType={driver.driveType}
-                                place1={driver.place1}
-                                place2={driver.place2}
-                                place3={driver.place3}
+                                coDriver={driver.co_driver}
+                                car={driver.vehicle}
+                                driveType={driver.drive_type}
+                                place1={driver.total_stage_wins}
+                                place2={driver.total_second_places}
+                                place3={driver.total_third_places}
                                 isOdd={index % 2 !== 0}
                             />
                         ))}

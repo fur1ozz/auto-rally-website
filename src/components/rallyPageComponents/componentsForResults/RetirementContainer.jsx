@@ -63,7 +63,8 @@ const RetirementContainer = () => {
                                     finishedStages={retirement.retirement.finished_stages}
                                     isOdd={index % 2 !== 0}
                                 />
-                            ))                        ) : (
+                            ))
+                        ) : (
                             <div className="mt-10 text-[#4e4e4e] text-center">
                                 Pašlaik neviens nav izstājies.
                             </div>
