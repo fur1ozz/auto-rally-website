@@ -9,9 +9,10 @@ const RallyMenuBar = () => {
     const { t } = useTranslation();
 
     useLanguage(lng);
+
     return (
         <div className="w-full min-h-14 bg-black/60 justify-center flex text-white">
-            <div className="w-[1024px] justify-center items-center hidden lg:flex">
+            <div className="w-[1024px] lg:justify-center items-center flex overflow-x-auto">
                 <Link
                     to={`/${lng}/${year}/${rallyName}/news`}
                     className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location.includes('/news') ? 'bg-rally-primary text-white' : 'hover:bg-white hover:text-black'}`}
@@ -84,7 +85,7 @@ const RallyMenuBar = () => {
                     className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location.includes('/gallery') ? 'bg-white text-black' : 'hover:bg-white hover:text-black'}`}
                 >
                     <div className="h-4 w-4 mr-1 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="md:size-10 size-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                         </svg>
                     </div>

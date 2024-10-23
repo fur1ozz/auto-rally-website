@@ -7,48 +7,6 @@ import {useTranslation} from "react-i18next";
 import Sidebar from "./Sidebar";
 
 // TODO need to fix
-// const LinkButtonPhone = ({ name, currentPath }) => {
-//     const path = `/${name}`;
-//     const isActive = currentPath === path;
-//
-//     return (
-//         <li>
-//             <Link
-//                 to={path}
-//                 className={`flex items-center ${isActive ? ' underline decoration-pj-400 decoration-dotted' : ''} hover:bg-low-200 justify-center mx-2 transition-all duration-100 ease-in`}
-//             >
-//                 <span className="text-lg uppercase font-medium whitespace-nowrap text-pj-400">{name}</span>
-//             </Link>
-//         </li>
-//     );
-// };
-const LinkButtonPhone = ({ name, path, currentPath}) => {
-    const isActive = currentPath === path;
-
-    return (
-        <li className="h-10 flex items-center capitalize text-black text-lg">
-            <Link
-                to={path}
-                className={`flex items-center ${isActive ? 'text-rally-primary' : ''}`}
-            >
-                {name}
-            </Link>
-        </li>
-    );
-};
-const LinkButtonPhoneRallyInfo = ({ name, path, currentPath, tag}) => {
-    return (
-        <li className="h-10 pl-4 flex items-center capitalize text-black text-lg">
-            <Link
-                to={path}
-                className={`flex items-center ${currentPath.includes(`/${tag}`) ? 'text-rally-primary' : ''}`}
-            >
-                {name}
-            </Link>
-        </li>
-    );
-};
-
 const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
@@ -110,7 +68,6 @@ const Header = () => {
                         <svg className="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                     </button>
                 </ul>
-                {/*TODO phone header*/}
                 <Sidebar
                     mobileMenuOpen={mobileMenuOpen}
                     handleMobileMenuToggle={handleMobileMenuToggle}
