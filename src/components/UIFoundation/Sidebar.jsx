@@ -44,7 +44,7 @@ const LinkButtonPhoneRallies = ({ name, path, lng }) => {
 
 const Sidebar = ({ mobileMenuOpen, handleMobileMenuToggle, location, lng, year, rallyName, t }) => {
     return (
-        <ul className={`sm:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-[250px]"} flex flex-col justify-start w-[250px] h-screen bg-white/55 backdrop-blur fixed top-0 right-0 px-5 py-3 transition-all duration-200 ease-in-out z-10 shadow-[-10px_0_10px_rgba(0,0,0,0.1)]`}>
+        <ul className={`sm:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-full min-[400px]:translate-x-[250px]"} flex flex-col justify-start w-full min-[400px]:w-[250px] h-screen bg-white/55 backdrop-blur fixed top-0 right-0 px-5 py-3 transition-all duration-200 ease-in-out z-10 shadow-[-10px_0_10px_rgba(0,0,0,0.1)]`}>
             <li className="h-10 flex items-center capitalize text-black">
                 <button onClick={handleMobileMenuToggle}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="size-7">

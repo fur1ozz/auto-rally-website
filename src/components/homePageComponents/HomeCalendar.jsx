@@ -45,7 +45,7 @@ const CalendarItem = ({ rally_name, date_from, date_to, location, rally_image_fo
 
 const HomeCalendar = () => {
     return (
-        <section className="w-full min-h-screen bg-white sm:px-14 px-10 pt-10 flex justify-center">
+        <section className="w-full min-h-screen bg-white sm:px-14 px-10 pt-10 flex justify-center" id="calendar-section">
             <div className="lg:w-[1024px]">
                 <div className="flex items-center">
                     <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>

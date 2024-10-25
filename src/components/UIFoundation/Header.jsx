@@ -1,21 +1,37 @@
 import React, {useState} from 'react';
-import {Link, useLocation, useParams} from "react-router-dom";
+import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
 import {useCurrentTime} from "../../hooks/useCurrentTime";
 import {formatTime} from "../../utils/formatTime";
-import LanguageSwitcher from "../elements/LanguageSwitcher";
+import LanguageSwitcherHeader from "../elements/languageItems/LanguageSwitcherHeader";
 import {useTranslation} from "react-i18next";
 import Sidebar from "./Sidebar";
 
-// TODO need to fix
 const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
     const time = useCurrentTime();
     const {lng, year, rallyName} = useParams()
     const { t } = useTranslation();
 
     const handleMobileMenuToggle = () => {
         setMobileMenuOpen(!mobileMenuOpen);
+    };
+    const handleCalendarClick = () => {
+        if (location.pathname === `/${lng}/home`) {
+            const calendarSection = document.getElementById("calendar-section");
+            if (calendarSection) {
+                calendarSection.scrollIntoView({ behavior: "smooth" });
+            }
+        } else {
+            navigate(`/${lng}/home`);
+            setTimeout(() => {
+                const calendarSection = document.getElementById("calendar-section");
+                if (calendarSection) {
+                    calendarSection.scrollIntoView({ behavior: "smooth" });
+                }
+            }, 300);
+        }
     };
     return (
         <div className="w-full bg-black/60">
@@ -32,29 +48,26 @@ const Header = () => {
                             >
                                 Home
                             </Link>
-                            <Link
-                                to="/"
+                            <button
+                                onClick={handleCalendarClick}
                                 className="text-white font-medium mr-4"
                             >
                                 Calendar
-                            </Link>
+                            </button>
                         </div>
-                        <LanguageSwitcher />
                     </div>
 
-                    <div className="sm:flex hidden">
+                    <div className="sm:flex hidden items-center">
+                        <LanguageSwitcherHeader />
+
                         <div className="text-white font-medium mr-3 cursor-default">{formatTime(time)}</div>
+
                         <Link
                             to="#"
                             className="text-white font-medium mr-3"
                         >
                             Ienākt
                         </Link>
-                        <button className="text-rally-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
-                            </svg>
-                        </button>
                     </div>
 
                     <button
