@@ -95,7 +95,7 @@ const StageResults = () => {
             <div className="lg:w-[1024px] overflow-x-auto">
                 <ResultsTitleLine />
                 <TitleWithLine title={`Stage - ${resultsData?.stage_number || stageNumber}`} />
-                <StageSortBar numberOfStage={resultsData.stage_count} resultLinkName="results-stage" />
+                <StageSortBar numberOfStage={resultsData?.stage_count} resultLinkName="results-stage" />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <div className="min-w-[1024px] flex justify-between">
                         {/* Stage Results */}
