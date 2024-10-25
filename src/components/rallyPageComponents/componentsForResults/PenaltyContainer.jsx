@@ -8,7 +8,7 @@ import TableHeading from "../../elements/tableItems/TableHeading";
 import Table from "../../elements/tableItems/Table";
 import {useParams} from "react-router-dom";
 import useFetchData from "../../../hooks/useFetchData";
-import Loader from "../../elements/Loader";
+import Loader from "../../elements/loaders/Loader";
 
 const PenaltyItem = ({ number, nationality, coNationality, driver, coDriver, team, car, driveType, penalties, isOdd }) => {
     return (

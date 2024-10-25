@@ -10,5 +10,13 @@
     "results": "Tulemused",
     "championship": "Meistrivõistlused",
     "gallery": "Galerii"
+  },
+  "home-upcoming-event": {
+    "event": "Eelseisev üritus",
+    "days": "päev/ad",
+    "after": "Pärast",
+    "tomorrow": "Homme",
+    "happening": "Toimub",
+    "forecast": "Ilmaprognoos"
   }
 }

@@ -10,5 +10,13 @@
     "results": "Rezultāti",
     "championship": "Čempionāts",
     "gallery": "Galerija"
+  },
+  "home-upcoming-event": {
+    "event": "Nākamais pasākums",
+    "days": "dienas/ām",
+    "after": "Pēc",
+    "tomorrow": "Rīt",
+    "happening": "Notiek",
+    "forecast": "Laika prognoze"
   }
 }

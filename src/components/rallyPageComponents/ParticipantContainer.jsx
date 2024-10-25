@@ -7,7 +7,7 @@ import {TableNumberLarger} from "../elements/tableItems/TableNumber";
 import TableFlag from "../elements/tableItems/TableFlag";
 import {useParams} from "react-router-dom";
 import useFetchData from "../../hooks/useFetchData";
-import Loader from "../elements/Loader";
+import Loader from "../elements/loaders/Loader";
 import {useTranslation} from "react-i18next";
 import useLanguage from "../../hooks/useLanguage";
 
@@ -40,6 +40,7 @@ const ParticipantContainer = () => {
     const url = `http://localhost/api/participants/${year}/${rallyName}`;
 
     const { data: participants, loading, error } = useFetchData(url);
+
     useLanguage(lng);
 
     return (

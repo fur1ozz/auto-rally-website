@@ -11,10 +11,10 @@ const PreviousWinner = () => {
                 </div>
                 <div className="flex w-full text-[#4e4e4e] md:flex-row flex-col items-center">
                     <div className="flex flex-col md:flex-row w-[300px] md:w-full items-center font-chakra mt-10 mx-2">
-                        <div className="flex mr-4 mb-4 md:mb-0">
-                            <img src="https://cdn-1.motorsport.com/images/amp/0L1EJya2/s1000/winners-ott-tanak-martin-jarve.jpg" alt="" className="h-52 w-96 rounded-sm object-cover shadow-[0_3px_8px_0_rgba(0,0,0,0.24)]"/>
+                        <div className="flex md:mr-4 mb-4 md:mb-0 min-w-72">
+                            <img src="/images/rally-cesis-winner.jpg" alt="" className="h-52 w-72 md:w-96 rounded-sm object-cover shadow-[0_3px_8px_0_rgba(0,0,0,0.24)]"/>
                         </div>
-                        <div className="flex flex-col justify-between min-h-52">
+                        <div className="flex flex-col justify-between min-h-52 w-fit">
                             <h3 className="text-2xl font-bold">Rallijs Cēsis</h3>
                             <div className="text-xl font-normal mb-2 md:mb-0">
                                 <div>Tomass Vēveris</div>

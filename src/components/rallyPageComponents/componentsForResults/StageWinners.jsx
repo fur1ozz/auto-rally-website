@@ -9,7 +9,7 @@ import TableHeading from "../../elements/tableItems/TableHeading";
 import StageWinCountContainer from "./StageWinCountContainer";
 import {useParams} from "react-router-dom";
 import useFetchData from "../../../hooks/useFetchData";
-import Loader from "../../elements/Loader";
+import Loader from "../../elements/loaders/Loader";
 
 const WinnerItem = ({ stageNumber, stageName, stageDistance, crewNumber, nationality, coNationality, driver, coDriver, car, team, driveType, stageTime, averageSpeed, isOdd }) => {
     return (

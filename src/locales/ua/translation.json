@@ -10,5 +10,13 @@
     "results": "Результати",
     "championship": "Чемпіонат",
     "gallery": "Галерея"
+  },
+  "home-upcoming-event": {
+    "event": "Наступна подія",
+    "days": "день/дні",
+    "after": "Після",
+    "tomorrow": "Завтра",
+    "happening": "Відбувається",
+    "forecast": "Прогноз погоди"
   }
 }

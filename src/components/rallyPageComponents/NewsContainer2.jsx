@@ -1,7 +1,7 @@
 import React from 'react';
 import {useParams} from "react-router-dom";
 import useFetchData from "../../hooks/useFetchData";
-import Loader from "../elements/Loader";
+import Loader from "../elements/loaders/Loader";
 import {useTranslation} from "react-i18next";
 import useLanguage from "../../hooks/useLanguage";
 

@@ -8,7 +8,7 @@ import Table from "../../elements/tableItems/Table";
 import TableHeading from "../../elements/tableItems/TableHeading";
 import {useParams} from "react-router-dom";
 import useFetchData from "../../../hooks/useFetchData";
-import Loader from "../../elements/Loader";
+import Loader from "../../elements/loaders/Loader";
 
 const RetirementItem = ({ number, nationality, coNationality, driver, coDriver, car, driveType, retireReason, finishedStages, isOdd }) => {
     return (

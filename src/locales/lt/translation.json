@@ -10,5 +10,13 @@
     "results": "Rezultatai",
     "championship": "Čempionatas",
     "gallery": "Galerija"
+  },
+  "home-upcoming-event": {
+    "event": "Artėjantis renginys",
+    "days": "diena/s",
+    "after": "Po",
+    "tomorrow": "Rytoj",
+    "happening": "Įvyksta",
+    "forecast": "Oro prognozė"
   }
 }

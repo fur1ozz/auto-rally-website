@@ -8,7 +8,7 @@ import { formatTimeForDifference } from "../../../utils/formatTime";
 import { calculateTimeDifferences } from "../../../utils/calculateTimeDiferences";
 import { TableStageHeading } from "../../elements/tableItems/TableStageHeading";
 import useFetchData from "../../../hooks/useFetchData";
-import Loader from "../../elements/Loader";
+import Loader from "../../elements/loaders/Loader";
 
 const StageOverallTimeItem = ({ place, number, nationality, coNationality, driver, coDriver, car, driveType, time, timeDifference, isOdd, isHighlighted, onMouseEnter, onMouseLeave, penalty_time }) => {
     return (

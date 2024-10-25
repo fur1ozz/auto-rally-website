@@ -11,7 +11,7 @@ import StageSortBar from "../../elements/sortingBars/StageSortBar";
 import {formatTimeForDifference} from "../../../utils/formatTime";
 import {calculateTimeDifferences} from "../../../utils/calculateTimeDiferences";
 import useFetchData from "../../../hooks/useFetchData";
-import Loader from "../../elements/Loader";
+import Loader from "../../elements/loaders/Loader";
 import {useTranslation} from "react-i18next";
 import useLanguage from "../../../hooks/useLanguage";
 

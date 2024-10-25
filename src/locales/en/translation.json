@@ -10,5 +10,13 @@
     "results": "Results",
     "championship": "Championship",
     "gallery": "Gallery"
+  },
+  "home-upcoming-event": {
+    "event": "Upcoming Event",
+    "days": "day/s",
+    "after": "After",
+    "tomorrow": "Tomorrow",
+    "happening": "Happening",
+    "forecast": "Weather Forecast"
   }
 }
