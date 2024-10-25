@@ -69,16 +69,14 @@ const LanguageSwitcherHeader = () => {
 
                 <div className="py-1 w-full">
                     {Object.entries(languages).map(([lng, { name, country }]) => (
-                        lng !== currentLang && (
-                            <button
-                                key={lng}
-                                onClick={() => changeLanguage(lng)}
-                                className="flex py-2 px-2 text-sm text-black items-center hover:bg-gray-200 w-full rounded"
-                            >
-                                <Flag country={country} className="rounded-sm mr-1" />
-                                {name}
-                            </button>
-                        )
+                        <button
+                            key={lng}
+                            onClick={() => changeLanguage(lng)}
+                            className={`flex py-2 px-2 text-sm items-center w-full rounded ${lng === currentLang ? 'bg-gray-300' : 'hover:bg-gray-200'}`}
+                        >
+                            <Flag country={country} className="rounded-sm mr-1" />
+                            {name}
+                        </button>
                     ))}
                 </div>
             </div>

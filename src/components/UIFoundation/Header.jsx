@@ -39,7 +39,7 @@ const Header = () => {
                 <ul className="flex justify-between items-center mx-auto">
                     <div className="flex">
                         <a href="/" className="flex mr-0 sm:mr-20 items-center">
-                            <img src="/icons/LRC-1.png" alt="LRC" className="mr-3 w-12" />
+                            <img src="/icons/LRC_fresh_no_bg.png" alt="LRC" className="mr-3 w-12" />
                         </a>
                         <div className="sm:flex hidden items-center">
                             <Link
