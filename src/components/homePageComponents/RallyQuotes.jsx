@@ -19,7 +19,7 @@ const RallyQuotes = () => {
                     <h2 className="font-containerHeading font-bold text-[#4e4e4e] text-4xl mx-4">Rally Cēsis Quotes</h2>
                     <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
                 </div>
-                <div className="flex w-full text-[#4e4e4e] justify-around flex-wrap ">
+                <div className="flex w-full text-[#4e4e4e] justify-between flex-wrap max-[1060px]:justify-evenly ">
                     <QuoteItem />
                     <div className="w-[300px] rounded-sm mt-10 mx-2 p-4 flex flex-col font-chakra shadow-[0_3px_8px_0_rgba(0,0,0,0.17)]">
                         <div className="text-5xl font-bold">"</div>

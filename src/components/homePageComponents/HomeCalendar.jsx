@@ -52,7 +52,7 @@ const HomeCalendar = () => {
                     <h2 className="font-containerHeading font-bold text-[#4e4e4e] text-4xl mx-4">2024</h2>
                     <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
                 </div>
-                <div className="flex mt-10 w-full text-[#4e4e4e] justify-center md:justify-between flex-wrap">
+                <div className="flex mt-10 w-full text-[#4e4e4e] justify-between flex-wrap max-[1060px]:justify-evenly">
                     {calendarData.map((rally, index) => (
                         <CalendarItem
                             key={index}
