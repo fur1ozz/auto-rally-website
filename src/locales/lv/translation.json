@@ -13,6 +13,7 @@
   },
   "home-upcoming-event": {
     "event": "Nākamais pasākums",
+    "previous": "Iepriekšējais pasākums",
     "days": "dienas/ām",
     "after": "Pēc",
     "tomorrow": "Rīt",

@@ -13,6 +13,7 @@
   },
   "home-upcoming-event": {
     "event": "Upcoming Event",
+    "previous": "Previous Event",
     "days": "day/s",
     "after": "After",
     "tomorrow": "Tomorrow",
