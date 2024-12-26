@@ -1,0 +1,107 @@
+[
+  {
+    "place": 1,
+    "number": 1,
+    "nationality": "lv",
+    "coNationality": "lv",
+    "driver": "Tomass Vēveris",
+    "coDriver": "Reinis Artimovičs",
+    "team": "Riz ballz",
+    "car": "BMW 325",
+    "startTime": "16:10",
+    "splits": [
+      {
+        "distance": 2.1,
+        "split": { "time": "0:58.0", "dif": null }
+      },
+      {
+        "distance": 4.7,
+        "split": { "time": "2:05.0", "dif": null }
+      },
+      {
+        "distance": 6.4,
+        "split": { "time": "2:55.0", "dif": null }
+      },
+      {
+        "distance": 8.4,
+        "split": { "time": "3:56.0", "dif": null }
+      },
+      {
+        "distance": 10.7,
+        "split": { "time": "5:18.0", "dif": null }
+      }
+    ],
+    "stageTime": "6:18.0",
+    "stageDif": null
+  },
+  {
+    "place": 2,
+    "number": 12,
+    "nationality": "lv",
+    "coNationality": "lv",
+    "driver": "Andris Bērziņš",
+    "coDriver": "Jānis Kalniņš",
+    "team": "Speed Stars",
+    "car": "Mitsubishi Lancer",
+    "startTime": "16:11",
+    "splits": [
+      {
+        "distance": 2.1,
+        "split": { "time": "0:58.5", "dif": "+0.5" }
+      },
+      {
+        "distance": 4.7,
+        "split": { "time": "2:06.0", "dif": "+1.0" }
+      },
+      {
+        "distance": 6.4,
+        "split": { "time": "2:56.9", "dif": "+1.9" }
+      },
+      {
+        "distance": 8.4,
+        "split": { "time": "3:55.7", "dif": "-0.3" }
+      },
+      {
+        "distance": 10.7,
+        "split": { "time": "5:19.5", "dif": "+1.5" }
+      }
+    ],
+    "stageTime": "6:19.50",
+    "stageDif": "+1.50"
+  },
+  {
+    "place": 3,
+    "number": 24,
+    "nationality": "ee",
+    "coNationality": "lv",
+    "driver": "Marko Mägi",
+    "coDriver": "Kārlis Ozoliņš",
+    "team": "Fast Falcons",
+    "car": "Ford Fiesta",
+    "startTime": "16:12",
+    "splits": [
+      {
+        "distance": 2.1,
+        "split": { "time": "0:57.0", "dif": "-1.0" }
+      },
+      {
+        "distance": 4.7,
+        "split": { "time": "2:09.5", "dif": "+4.5" }
+      },
+      {
+        "distance": 6.4,
+        "split": { "time": "2:58.0", "dif": "+3.0" }
+      },
+      {
+        "distance": 8.4,
+        "split": { "time": "3:59.0", "dif": "+3.0" }
+      },
+      {
+        "distance": 10.7,
+        "split": { "time": "5:20.0", "dif": "+2.0" }
+      }
+    ],
+    "stageTime": "6:20.00",
+    "stageDif": "+2.00"
+  }
+]

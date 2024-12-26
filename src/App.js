@@ -13,6 +13,7 @@ import RetirementPage from "./Pages/PagesAboutRally/PagesForRallyResults/Retirem
 import StageResultPage from "./Pages/PagesAboutRally/PagesForRallyResults/StageResultPage";
 import StageWinnersPage from "./Pages/PagesAboutRally/PagesForRallyResults/StageWinnersPage";
 import LangParamValidator from "./utils/langParamValidator";
+import SplitTimePage from "./Pages/PagesAboutRally/PagesForRallyResults/SplitTimePage";
 
 function App() {
     return (
@@ -37,6 +38,7 @@ function App() {
 
                         <Route path=":year/:rallyName/results" element={<ResultsPage />} />
                         <Route path=":year/:rallyName/results-stage/:stageNumber" element={<StageResultPage />} />
+                        <Route path=":year/:rallyName/results/splits" element={<SplitTimePage />} />
                         <Route path=":year/:rallyName/results/retirements" element={<RetirementPage />} />
                         <Route path=":year/:rallyName/results/penalties" element={<PenaltyPage />} />
                         <Route path=":year/:rallyName/results/stage-winners" element={<StageWinnersPage />} />
