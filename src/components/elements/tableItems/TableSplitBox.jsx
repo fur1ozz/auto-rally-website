@@ -27,7 +27,7 @@ export const TableSplitStageTime = ({ stageTime, stageDif }) => {
             <div className="flex flex-col items-end">
                 <div className="font-medium">{stageTime}</div>
                 <div className={`text-sm font-normal ${stageDif > 0 ? 'text-[#af2c2c]' : stageDif < 0 ? 'text-[#2caf2c]' : ''}`}>
-                    {stageDif ? stageDif : '-'}
+                    {stageDif ? stageDif : '\u00A0'}
                 </div>
             </div>
         </div>
@@ -39,9 +39,9 @@ export const TableSplitTime = ({ split }) => {
             <div className="flex flex-col items-end">
                 {split ? (
                     <>
-                        <div className="font-normal">{split.time ? split.time : '-'}</div>
-                        <div className={`text-sm font-normal ${split.dif > 0 ? '' : split.dif < 0 ? 'text-[#2caf2c]' : ''}`}>
-                            {split.dif ? split.dif : '-'}
+                        <div className="font-normal text-[16px]">{split.split_time ? split.split_time : '-'}</div>
+                        <div className={`text-sm font-normal ${split.split_dif > 0 ? '' : split.split_dif < 0 ? 'text-[#2caf2c]' : ''}`}>
+                            {split.split_dif ? split.split_dif : '\u00A0'}
                         </div>
                     </>
                 ) : (

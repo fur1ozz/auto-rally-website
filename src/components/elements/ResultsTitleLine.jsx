@@ -3,7 +3,7 @@ import {Link, useParams} from "react-router-dom";
 
 const ResultsTitleLine = () => {
     const [currentPath, setCurrentPath] = useState("");
-    const { lng, year, rallyName } = useParams();
+    const { lng, year, rallyName, stageNumber } = useParams();
 
     useEffect(() => {
         const path = window.location.pathname;
@@ -14,6 +14,17 @@ const ResultsTitleLine = () => {
     const checkActive = (link) => {
         const lastPartOfLink = link.substring(link.lastIndexOf("/") + 1);
         return currentPath === lastPartOfLink ? "text-4xl text-rally-primary" : "text-xl";
+    };
+    const checkSplitActive = () => {
+        const pathParts = window.location.pathname.split("/").filter(Boolean);
+        const lastTwoParts = pathParts.slice(-2);
+
+        if (lastTwoParts.length >= 2 && lastTwoParts[0] === "results-splits") {
+            const currentStageNumber = lastTwoParts[1];
+            return currentStageNumber === stageNumber ? "text-4xl text-rally-primary" : "text-xl";
+        }
+
+        return "text-xl";
     };
     return (
         <div className="flex items-center mb-10">
@@ -28,10 +39,8 @@ const ResultsTitleLine = () => {
             </Link>
             <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
             <Link
-                to={`/${lng}/${year}/${rallyName}/results/splits`}
-                className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkActive(
-                    "/splits"
-                )}`}
+                to={`/${lng}/${year}/${rallyName}/results-splits/1`}
+                className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkSplitActive()}`}
             >
                 Starplaiki
             </Link>

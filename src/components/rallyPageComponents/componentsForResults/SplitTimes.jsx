@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import ResultsTitleLine from "../../elements/ResultsTitleLine";
 import TitleWithLine from "../../elements/titleWithLine";
 import Table from "../../elements/tableItems/Table";
@@ -14,6 +14,9 @@ import {
 import {TableNumber} from "../../elements/tableItems/TableNumber";
 import TableFlag from "../../elements/tableItems/TableFlag";
 import data from "../../../data/splitData.json";
+import {useNavigate, useParams} from "react-router-dom";
+import useFetchData from "../../../hooks/useFetchData";
+import Loader from "../../elements/loaders/Loader";
 
 const SplitItem = ({ place, number, nationality, coNationality, driver, coDriver, car, team, startTime, splits, stageTime, stageDif, isOdd }) => {
     return (
@@ -30,19 +33,29 @@ const SplitItem = ({ place, number, nationality, coNationality, driver, coDriver
             </div>
             <TableSplitStartTime startTime={startTime} />
             {splits.map((split, index) => (
-                <TableSplitTime key={index} split={split.split} />
+                <TableSplitTime key={index} split={split} />
             ))}
             <TableSplitStageTime stageTime={stageTime} stageDif={stageDif} />
         </div>
     );
 };
 const SplitTimes = () => {
+    const { year, rallyName, stageNumber } = useParams();
+    const url = `http://localhost/api/stage-splits/${year}/${rallyName}/${stageNumber}`;
+    const navigate = useNavigate();
 
-    const split1 = { time: '0:58.5', dif: '-0.4' };
-    const split2 = { time: '2:06.0', dif: '-2.8' };
-    const split3 = { time: '2:56.9', dif: '+1.3' };
-    const split4 = { time: '3:57.7', dif: '+3.5' };
-    const split5 = { time: '5:19.5', dif: '+1.9' };
+    const { data: splitsData, loading, error } = useFetchData(url);
+
+    useEffect(() => {
+        if (error) {
+            navigate('/');
+        }
+    }, [error, navigate]);
+
+    const splitInfo = splitsData?.splits || [];
+    const splitDistances = splitInfo.map(split => split.split_distance);
+
+    const crewSplits = splitsData?.crew_times || [];
 
 
     return (
@@ -51,7 +64,7 @@ const SplitTimes = () => {
                 <ResultsTitleLine />
                 <TitleWithLine title="Starplaiki" />
                 {/*TODO change the stage logic, maybe new sort bar with diferent link name*/}
-                <StageSortBar numberOfStage="8" resultLinkName="results-stage" />
+                <StageSortBar numberOfStage="8" resultLinkName="results-splits" />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <Table>
                         <TableHeading>
@@ -64,31 +77,42 @@ const SplitTimes = () => {
                                 <div>Automašīna</div>
                             </div>
                             <TableSplitName type="Start" />
-                            <TableSplitBox distance="2.1"/>
-                            <TableSplitBox distance="4.7"/>
-                            <TableSplitBox distance="6.4"/>
-                            <TableSplitBox distance="8.4"/>
-                            <TableSplitBox distance="10.7"/>
+                            {[...splitInfo.slice(0, 5), ...new Array(5 - splitInfo.length).fill(null)].map((split, index) => (
+                                <TableSplitBox key={index} distance={split ? split.split_distance : ''} />
+                            ))}
                             <TableSplitName type="Stage" />
                         </TableHeading>
-                        {data.map((item, index) => (
-                            <SplitItem
-                                key={index}
-                                place={item.place}
-                                number={item.number}
-                                nationality={item.nationality}
-                                coNationality={item.coNationality}
-                                driver={item.driver}
-                                coDriver={item.coDriver}
-                                car={item.car}
-                                team={item.team}
-                                startTime={item.startTime}
-                                splits={item.splits}
-                                stageTime={item.stageTime}
-                                stageDif={item.stageDif}
-                                isOdd={index % 2 === 1}
-                            />
-                        ))}
+                        {loading && <Loader />}
+                        {!loading && error && <div>Error loading data: {error.message}</div>}
+
+                        {!loading && !error && (
+                            crewSplits.length > 0 ? (
+                                crewSplits.map((crewResult, index) => (
+                                    <SplitItem
+                                        key={index}
+                                        place={index+1}
+                                        number={crewResult.crew_number}
+                                        nationality={crewResult.driver.nationality}
+                                        coNationality={crewResult.co_driver.nationality}
+                                        driver={`${crewResult.driver.name} ${crewResult.driver.surname}`}
+                                        coDriver={`${crewResult.co_driver.name} ${crewResult.co_driver.surname}`}
+                                        car={crewResult.car}
+                                        team={crewResult.team.name}
+                                        {/*TODO crate start time table and include it in split time controller*/}
+                                        // startTime={crewResult.startTime}
+                                        startTime="16:10"
+                                        splits={crewResult.splits}
+                                        stageTime={crewResult.stage_time}
+                                        stageDif={crewResult.stage_time_dif}
+                                        isOdd={index % 2 === 1}
+                                    />
+                                ))
+                            ) : (
+                                <div className="mt-10 text-[#4e4e4e] text-center">
+                                    Pašlaik nav starplaiku rezultāti.
+                                </div>
+                            )
+                        )}
                     </Table>
                 </div>
             </div>

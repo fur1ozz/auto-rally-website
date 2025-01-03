@@ -38,7 +38,7 @@ function App() {
 
                         <Route path=":year/:rallyName/results" element={<ResultsPage />} />
                         <Route path=":year/:rallyName/results-stage/:stageNumber" element={<StageResultPage />} />
-                        <Route path=":year/:rallyName/results/splits" element={<SplitTimePage />} />
+                        <Route path=":year/:rallyName/results-splits/:stageNumber" element={<SplitTimePage />} />
                         <Route path=":year/:rallyName/results/retirements" element={<RetirementPage />} />
                         <Route path=":year/:rallyName/results/penalties" element={<PenaltyPage />} />
                         <Route path=":year/:rallyName/results/stage-winners" element={<StageWinnersPage />} />
