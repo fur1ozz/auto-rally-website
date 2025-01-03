@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import useFetchData from "../../hooks/useFetchData";
 import useLanguage from "../../hooks/useLanguage";
@@ -17,7 +17,7 @@ const UpcomingEvent = () => {
 
     const daysUntilEvent = nextEvent?.date_from ? calculateDaysUntilEvent(nextEvent.date_from) : null;
 
-    // remove later
+    //TODO remove later
     console.log(daysUntilEvent);
 
     let eventMessage;
@@ -28,6 +28,18 @@ const UpcomingEvent = () => {
     } else {
         eventMessage = `${t('home-upcoming-event.after')} ${daysUntilEvent} ${t('home-upcoming-event.days')}`;
     }
+
+    const [headerImage, setHeaderImage] = useState(`/images/headers/${nextEvent?.tag}-${nextEvent?.year}.png`);
+
+    useEffect(() => {
+        if (nextEvent?.tag && nextEvent?.year) {
+            setHeaderImage(`/images/headers/${nextEvent.tag}-${nextEvent.year}.png`);
+        }
+    }, [loading, nextEvent]);
+
+    const handleImageError = () => {
+        setHeaderImage('/images/headers/default-header.png');
+    };
 
     return (
         <a href={`/${lng}/${nextEvent.year}/${nextEvent.tag}/news`}>
@@ -46,17 +58,26 @@ const UpcomingEvent = () => {
                                 <div className="flex-1 h-0.5 bg-white"></div>
                             </div>
                             <h2 className="flex items-center justify-center md:text-3xl sm:text-2xl text-lg font-semibold py-4">{nextEvent.name}</h2>
-                            <img src={`/images/headers/${nextEvent.tag}-${nextEvent.year}.png`} alt="" className="w-full shadow-[0_3px_8px_0_rgba(0,0,0,0.24)]" />
+                            <img
+                                src={headerImage}
+                                onError={handleImageError} // If the image fails to load, use the default image
+                                alt="Rally Header"
+                                className="w-full shadow-[0_3px_8px_0_rgba(0,0,0,0.24)]"
+                            />
                             <div className="flex justify-between font-medium sm:text-lg text-[10px] sm:px-6 py-4 pb-10">
                                 <div className="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="sm:size-5 size-4">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         strokeWidth={1.5} stroke="currentColor" className="sm:size-5 size-4">
+                                        <path strokeLinecap="round" strokeLinejoin="round"
+                                              d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"/>
                                     </svg>
                                     <div className="ml-2">{nextEvent.date_from} - {nextEvent.date_to}</div>
                                 </div>
                                 <div className="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="sm:size-5 size-4">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         strokeWidth={1.5} stroke="currentColor" className="sm:size-5 size-4">
+                                        <path strokeLinecap="round" strokeLinejoin="round"
+                                              d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"/>
                                     </svg>
                                     <div className="ml-2">{eventMessage}</div>
                                 </div>

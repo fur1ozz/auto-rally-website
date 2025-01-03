@@ -54,6 +54,12 @@ const Header = () => {
                             >
                                 Calendar
                             </button>
+                            <Link
+                                to={`/${lng}/seasons`}
+                                className="text-white font-medium mr-4"
+                            >
+                                Seasons
+                            </Link>
                         </div>
                     </div>
 

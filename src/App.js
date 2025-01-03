@@ -14,6 +14,8 @@ import StageResultPage from "./Pages/PagesAboutRally/PagesForRallyResults/StageR
 import StageWinnersPage from "./Pages/PagesAboutRally/PagesForRallyResults/StageWinnersPage";
 import LangParamValidator from "./utils/langParamValidator";
 import SplitTimePage from "./Pages/PagesAboutRally/PagesForRallyResults/SplitTimePage";
+import AllSeasonsPage from "./Pages/AllSeasonsPage";
+import SeasonPage from "./Pages/SeasonPage";
 
 function App() {
     return (
@@ -30,6 +32,9 @@ function App() {
                     />
                     <Route path="/:lng" element={<LangParamValidator />}>
                         <Route path="home" element={<HomePage />} />
+
+                        <Route path="seasons" element={<AllSeasonsPage />} />
+                        <Route path=":year" element={<SeasonPage />} />
 
                         <Route path=":year/:rallyName/news" element={<NewsPage />} />
                         <Route path=":year/:rallyName/participants" element={<ParticipantPage />} />
