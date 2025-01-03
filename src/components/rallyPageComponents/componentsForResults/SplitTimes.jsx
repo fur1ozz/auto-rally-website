@@ -53,9 +53,8 @@ const SplitTimes = () => {
     }, [error, navigate]);
 
     const splitInfo = splitsData?.splits || [];
-    const splitDistances = splitInfo.map(split => split.split_distance);
-
     const crewSplits = splitsData?.crew_times || [];
+    const isStageError = splitsData?.type === 'stage' && splitsData?.message === 'No such stage exists';
 
 
     return (
@@ -84,8 +83,12 @@ const SplitTimes = () => {
                         </TableHeading>
                         {loading && <Loader />}
                         {!loading && error && <div>Error loading data: {error.message}</div>}
-
-                        {!loading && !error && (
+                        {!loading && !error && isStageError && (
+                        <div className="mt-10 text-[#4e4e4e] text-center">
+                            Nav atrasts ātrumposms.
+                        </div>
+                        )}
+                        {!loading && !error && !isStageError && (
                             crewSplits.length > 0 ? (
                                 crewSplits.map((crewResult, index) => (
                                     <SplitItem
