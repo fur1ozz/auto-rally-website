@@ -98,7 +98,7 @@ const SplitTimes = () => {
                                         coDriver={`${crewResult.co_driver.name} ${crewResult.co_driver.surname}`}
                                         car={crewResult.car}
                                         team={crewResult.team.name}
-                                        {/*TODO crate start time table and include it in split time controller*/}
+                                        //TODO create start time table and include it in split time controller
                                         // startTime={crewResult.startTime}
                                         startTime="16:10"
                                         splits={crewResult.splits}

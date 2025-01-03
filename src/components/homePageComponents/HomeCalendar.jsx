@@ -5,8 +5,8 @@ import {Link, useParams} from "react-router-dom";
 import {getRallyStatus} from "../../utils/dateUtils";
 import {getColorsForSurfaceType} from "../../utils/colorUtils";
 
-const CalendarItem = ({ rally_name, date_from, date_to, location, rally_image_for_calendar, eng_name, road_surface }) => {
-    const rallyStatus = getRallyStatus(date_from, date_to);
+const CalendarItem = ({ rally_name, date_from, date_to, location, rally_image_for_calendar, eng_name, road_surface, year }) => {
+    const rallyStatus = getRallyStatus(date_from, date_to, year);
     const { backgroundColor, borderColor } = getColorsForSurfaceType(road_surface);
     const { lng } = useParams();
 
@@ -44,6 +44,10 @@ const CalendarItem = ({ rally_name, date_from, date_to, location, rally_image_fo
 };
 
 const HomeCalendar = () => {
+
+    const year = 2024;
+    const ralliesForYear = calendarData[year] || [];
+
     return (
         <section className="w-full min-h-screen bg-white sm:px-14 px-10 pt-10 flex justify-center" id="calendar-section">
             <div className="lg:w-[1024px]">
@@ -53,7 +57,7 @@ const HomeCalendar = () => {
                     <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
                 </div>
                 <div className="flex mt-10 w-full text-[#4e4e4e] justify-between flex-wrap max-[1060px]:justify-evenly">
-                    {calendarData.map((rally, index) => (
+                    {ralliesForYear.map((rally, index) => (
                         <CalendarItem
                             key={index}
                             rally_name={rally.rally_name}
@@ -63,6 +67,7 @@ const HomeCalendar = () => {
                             rally_image_for_calendar={rally.rally_image_for_calendar}
                             eng_name={rally.eng_name}
                             road_surface={rally.road_surface}
+                            year={year}
                         />
                     ))}
                 </div>

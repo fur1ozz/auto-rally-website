@@ -74,7 +74,6 @@ const StageResults = () => {
         }
     }, [error, navigate]);
 
-
     const results = resultsData?.results || [];
 
     const sortedResultsData = [...results].sort((a, b) => {

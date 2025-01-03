@@ -72,7 +72,8 @@ const Sidebar = ({ mobileMenuOpen, handleMobileMenuToggle, location, lng, year, 
                     <li className="mt-5 h-10 flex items-center capitalize text-black text-lg">
                         <a className="flex items-center font-medium">2024</a>
                     </li>
-                    {calendarData.map((rally, index) => (
+                    {/*TODO have to change to have dynamic year selection not a specific 2024*/}
+                    {calendarData[2024].map((rally, index) => (
                         <LinkButtonPhoneRallies
                             key={index}
                             name={rally.rally_name}
