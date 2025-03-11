@@ -41,7 +41,7 @@ const SplitItem = ({ place, number, nationality, coNationality, driver, coDriver
 };
 const SplitTimes = () => {
     const { year, rallyName, stageNumber } = useParams();
-    const url = `http://localhost/api/stage-splits/${year}/${rallyName}/${stageNumber}`;
+    const url = `/stage-splits/${year}/${rallyName}/${stageNumber}`;
     const navigate = useNavigate();
 
     const { data: splitsData, loading, error } = useFetchData(url);

@@ -9,7 +9,7 @@ import {useTranslation} from "react-i18next";
 const UpcomingEvent = () => {
     const { lng } = useParams();
     const { t } = useTranslation();
-    const url = `http://localhost/api/next-event`;
+    const url = `/next-event`;
 
     const { data: nextEvent, loading, error } = useFetchData(url);
 

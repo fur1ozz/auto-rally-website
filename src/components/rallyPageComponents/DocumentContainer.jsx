@@ -55,7 +55,7 @@ const FolderItem = ({ number, title, files }) => {
 };
 const DocumentContainer = () => {
     const { lng, year, rallyName } = useParams();
-    const url = `http://localhost/api/documents/${year}/${rallyName}`;
+    const url = `/documents/${year}/${rallyName}`;
 
     const { data: documentsData, loading, error } = useFetchData(url);
 

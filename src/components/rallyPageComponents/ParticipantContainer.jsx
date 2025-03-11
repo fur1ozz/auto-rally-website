@@ -37,7 +37,7 @@ const ParticipantItem = ({ number, nationality, coNationality, driver, coDriver,
 const ParticipantContainer = () => {
     const { lng, year, rallyName } = useParams();
     const { t } = useTranslation();
-    const url = `http://localhost/api/participants/${year}/${rallyName}`;
+    const url = `/participants/${year}/${rallyName}`;
 
     const { data: participants, loading, error } = useFetchData(url);
 

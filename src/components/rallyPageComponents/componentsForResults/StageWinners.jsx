@@ -39,7 +39,7 @@ const WinnerItem = ({ stageNumber, stageName, stageDistance, crewNumber, nationa
 };
 const StageWinners = () => {
     const { year, rallyName } = useParams();
-    const url = `http://localhost/api/rally-winner-results/${year}/${rallyName}`;
+    const url = `/rally-winner-results/${year}/${rallyName}`;
 
     const { data: winnerData, loading, error } = useFetchData(url);
 

@@ -8,7 +8,7 @@ import Loader from "../elements/loaders/Loader";
 const PreviousWinner = () => {
     const { lng } = useParams();
     const { t } = useTranslation();
-    const url = `http://localhost/api/previousWinner`;
+    const url = `/previousWinner`;
 
     const { data: prevWinner, loading, error } = useFetchData(url);
 

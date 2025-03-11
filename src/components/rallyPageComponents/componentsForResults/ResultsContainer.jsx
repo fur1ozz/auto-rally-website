@@ -45,7 +45,7 @@ const ResultsItem = ({ place, number, nationality, coNationality, driver, coDriv
 };
 const ResultsContainer = () => {
     const { lng, year, rallyName } = useParams();
-    const url = `http://localhost/api/overall-results/${year}/${rallyName}`;
+    const url = `/overall-results/${year}/${rallyName}`;
 
     const { data: overallData, loading, error } = useFetchData(url);
 

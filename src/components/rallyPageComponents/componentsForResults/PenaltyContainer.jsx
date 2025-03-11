@@ -39,7 +39,7 @@ const PenaltyItem = ({ number, nationality, coNationality, driver, coDriver, tea
 
 const PenaltyContainer = () => {
     const { year, rallyName } = useParams();
-    const url = `http://localhost/api/rally-penalties/${year}/${rallyName}`;
+    const url = `/rally-penalties/${year}/${rallyName}`;
 
     const { data: penaltyData, loading, error } = useFetchData(url);
 

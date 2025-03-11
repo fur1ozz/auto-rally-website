@@ -24,7 +24,7 @@ const NewsItem = ({ date, title, paragraph, imgSrc }) => {
 const NewsContainer = () => {
     const { lng, year, rallyName } = useParams();
     const { t } = useTranslation();
-    const url = `http://localhost/api/news/${year}/${rallyName}`;
+    const url = `/news/${year}/${rallyName}`;
 
     const { data: newsData, loading, error } = useFetchData(url);
 

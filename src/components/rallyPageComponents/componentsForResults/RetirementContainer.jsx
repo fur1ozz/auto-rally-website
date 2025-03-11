@@ -26,7 +26,7 @@ const RetirementItem = ({ number, nationality, coNationality, driver, coDriver, 
 };
 const RetirementContainer = () => {
     const { year, rallyName } = useParams();
-    const url = `http://localhost/api/rally-retirements/${year}/${rallyName}`;
+    const url = `/rally-retirements/${year}/${rallyName}`;
 
     const { data: retirementData, loading, error } = useFetchData(url);
 

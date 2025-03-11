@@ -61,7 +61,7 @@ const StageOverallTimeItem = ({ place, number, nationality, coNationality, drive
 
 const StageResults = () => {
     const { year, rallyName, stageNumber } = useParams();
-    const url = `http://localhost/api/stage-results/${year}/${rallyName}/${stageNumber}`;
+    const url = `/stage-results/${year}/${rallyName}/${stageNumber}`;
     const navigate = useNavigate();
 
     const { data: resultsData, loading, error } = useFetchData(url);
