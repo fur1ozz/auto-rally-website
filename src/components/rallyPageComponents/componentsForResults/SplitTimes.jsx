@@ -62,7 +62,6 @@ const SplitTimes = () => {
             <div className="lg:w-[1024px] overflow-x-auto">
                 <ResultsTitleLine />
                 <TitleWithLine title="Starplaiki" />
-                {/*TODO change the stage logic, maybe new sort bar with diferent link name*/}
                 <StageSortBar numberOfStage={splitsData?.stage_count} resultLinkName="results-splits" />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <Table>

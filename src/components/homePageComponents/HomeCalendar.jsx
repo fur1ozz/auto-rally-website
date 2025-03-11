@@ -54,7 +54,7 @@ const HomeCalendar = () => {
                         ));
                     })()}
                 </div>
-                <a href={`/${lng}/seasons`} className="flex items-center justify-center hover:scale-95 transition duration-200 mb-10 bg-black hover:bg-rally-accent rounded-sm px-4 py-2">
+                <a href={`/${lng}/seasons`} className="flex items-center justify-center hover:scale-95 transition duration-200 mb-10 bg-black/80 hover:bg-rally-accent rounded px-4 py-2">
                     <h2 className="font-containerHeading font-bold text-white text-4xl mx-4">All Seasons</h2>
                 </a>
             </div>
