@@ -9,6 +9,7 @@ const PreviousWinner = () => {
     const { lng } = useParams();
     const { t } = useTranslation();
     const url = `/previousWinner`;
+    const STORAGE_URL = process.env.REACT_APP_STORAGE_URL;
 
     const { data: prevWinner, loading, error } = useFetchData(url);
 
@@ -31,7 +32,7 @@ const PreviousWinner = () => {
                             prevWinner? (
                                 <>
                                     <div className="flex md:mr-4 mb-4 md:mb-0 min-w-72">
-                                        <img src="/images/rally-cesis-winner.jpg" alt="" className="h-52 w-80 rounded-sm object-cover shadow-[0_3px_8px_0_rgba(0,0,0,0.24)]"/>
+                                        <img src={STORAGE_URL+prevWinner.image} alt="" className="h-52 w-80 rounded-sm object-cover shadow-[0_3px_8px_0_rgba(0,0,0,0.24)]"/>
                                     </div>
                                     <div className="flex flex-col justify-between min-h-52 w-full">
                                         <h3 className="text-2xl font-bold">{prevWinner.rally_name}</h3>
@@ -47,18 +48,6 @@ const PreviousWinner = () => {
                                 <div></div>
                             )
                         )}
-                        {/*<div className="flex md:mr-4 mb-4 md:mb-0 min-w-72">*/}
-                        {/*    <img src="/images/rally-cesis-winner.jpg" alt="" className="h-52 w-72 md:w-96 rounded-sm object-cover shadow-[0_3px_8px_0_rgba(0,0,0,0.24)]"/>*/}
-                        {/*</div>*/}
-                        {/*<div className="flex flex-col justify-between min-h-52 w-fit">*/}
-                        {/*    <h3 className="text-2xl font-bold">Rallijs Cēsis</h3>*/}
-                        {/*    <div className="text-xl font-normal mb-2 md:mb-0">*/}
-                        {/*        <div>Tomass Vēveris</div>*/}
-                        {/*        <div>Reinis Artimovičs</div>*/}
-                        {/*    </div>*/}
-                        {/*    <div className="text-lg font-medium"><span className="font-semibold">Car:</span> Mitsubishi Lancer Evo IX</div>*/}
-                        {/*    <p className="font-light indent-4">Šīs bija tiešam labas sajūtas, paldies manam sturmanim par idealu sniegumu, bez viņa mēs šeit uz pjedestāļa nestāvētu.</p>*/}
-                        {/*</div>*/}
                     </div>
                 </div>
             </div>
