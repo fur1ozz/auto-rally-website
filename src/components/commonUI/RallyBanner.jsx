@@ -24,7 +24,7 @@ const RallyBanner = ({ rallyData }) => {
         setHeaderImage(defaultImage);
     };
     return (
-        <div className="w-screen flex justify-center py-20">
+        <div className="w-full flex justify-center py-20">
             <div className="w-[1024px]">
                 <div className="relative text-white font-chakra">
                     <img
