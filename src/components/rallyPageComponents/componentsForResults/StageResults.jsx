@@ -4,13 +4,13 @@ import TitleWithLine from "../../elements/titleWithLine";
 import {useNavigate, useParams} from "react-router-dom";
 import StageSortBar from "../../elements/sortingBars/StageSortBar";
 import Flag from "react-flagkit";
-import { formatTimeForDifference } from "../../../utils/formatTime";
-import { calculateTimeDifferences } from "../../../utils/calculateTimeDiferences";
+import {formatMillisecondsAdaptive} from "../../../utils/formatTime";
 import { TableStageHeading } from "../../elements/tableItems/TableStageHeading";
 import useFetchData from "../../../hooks/useFetchData";
 import Loader from "../../elements/loaders/Loader";
+import {calculateTimeDifMs} from "../../../utils/calculateTimeDifMs";
 
-const StageOverallTimeItem = ({ place, number, nationality, coNationality, driver, coDriver, car, driveType, time, timeDifference, isOdd, isHighlighted, onMouseEnter, onMouseLeave, penalty_time }) => {
+const StageOverallTimeItem = ({ place, number, nationality, coNationality, driver, coDriver, car, driveType, time, timeDifferenceStage = null, timeDifferenceOverall = null, isOdd, isHighlighted, onMouseEnter, onMouseLeave, penalty_time }) => {
     return (
         <div
             className={`flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words cursor-pointer
@@ -50,9 +50,15 @@ const StageOverallTimeItem = ({ place, number, nationality, coNationality, drive
                     <div className="text-xs text-white font-normal bg-rose-600 rounded h-fit px-1 mr-1">
                         {penalty_time || ""}
                     </div>
-                    <div className="text-sm text-[#af2c2c] font-normal">
-                        {place === 1 ? '-' : formatTimeForDifference(timeDifference?.differenceFromFirst || 0)}
-                    </div>
+                    {timeDifferenceStage ? (
+                        <div className="text-sm text-[#af2c2c] font-normal">
+                            {timeDifferenceStage}
+                        </div>
+                    ) : (
+                        <div className="text-sm text-[#af2c2c] font-normal">
+                            {place === 1 ? '-' : '+' + formatMillisecondsAdaptive(timeDifferenceOverall?.differenceFromFirst || 0)}
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
@@ -77,17 +83,13 @@ const StageResults = () => {
     const results = resultsData?.results || [];
 
     const sortedResultsData = [...results].sort((a, b) => {
-        const timeA = a?.overall_time_with_penalties_until_stage?.split(':').map(Number) || [];
-        const timeB = b?.overall_time_with_penalties_until_stage?.split(':').map(Number) || [];
+        const timeA = a?.overall_time_with_penalties_until_stage_ms || 0;
+        const timeB = b?.overall_time_with_penalties_until_stage_ms || 0;
 
-        const totalSecondsA = (timeA[0] || 0) * 3600 + (timeA[1] || 0) * 60 + (timeA[2] || 0);
-        const totalSecondsB = (timeB[0] || 0) * 3600 + (timeB[1] || 0) * 60 + (timeB[2] || 0);
-
-        return totalSecondsA - totalSecondsB;
+        return timeA - timeB;
     });
 
-    const timeDifferencesOverall = calculateTimeDifferences(sortedResultsData, 'overall_time_with_penalties_until_stage');
-    const timeDifferencesStage = calculateTimeDifferences(results, 'time_taken');
+    const timeDifferencesOverall = calculateTimeDifMs(sortedResultsData, 'overall_time_with_penalties_until_stage_ms');
 
     return (
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
@@ -118,7 +120,7 @@ const StageResults = () => {
                                             car={result.car}
                                             driveType={result.drive_type}
                                             time={result.time_taken}
-                                            timeDifference={timeDifferencesStage[index]}
+                                            timeDifferenceStage={result.time_dif_from_first}
                                             isOdd={index % 2 !== 0}
                                             isHighlighted={hoveredCrew === result.crew_number}
                                             onMouseEnter={() => setHoveredCrew(result.crew_number)}
@@ -158,7 +160,7 @@ const StageResults = () => {
                                             car={result.car}
                                             driveType={result.drive_type}
                                             time={result.overall_time_with_penalties_until_stage}
-                                            timeDifference={timeDifferencesOverall[index]}
+                                            timeDifferenceOverall={timeDifferencesOverall[index]}
                                             isOdd={index % 2 !== 0}
                                             isHighlighted={hoveredCrew === result.crew_number}
                                             onMouseEnter={() => setHoveredCrew(result.crew_number)}
