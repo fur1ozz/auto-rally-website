@@ -8,14 +8,12 @@ import TableHeading from "../../elements/tableItems/TableHeading";
 import Table from "../../elements/tableItems/Table";
 import {useParams} from "react-router-dom";
 import StageSortBar from "../../elements/sortingBars/StageSortBar";
-import {formatTimeForDifference} from "../../../utils/formatTime";
-import {calculateTimeDifferences} from "../../../utils/calculateTimeDiferences";
 import useFetchData from "../../../hooks/useFetchData";
 import Loader from "../../elements/loaders/Loader";
 import {useTranslation} from "react-i18next";
 import useLanguage from "../../../hooks/useLanguage";
 
-const ResultsItem = ({ place, number, nationality, coNationality, driver, coDriver, car, team, driveType, groupClass, penalty, overallTime, timeDifference, isOdd }) => {
+const ResultsItem = ({ place, number, nationality, coNationality, driver, coDriver, car, team, driveType, groupClass, penalty, overallTime, difFromFirst, difFromPrev, isOdd }) => {
     return (
         <div
             className={`flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words ${isOdd ? 'bg-[#f9f9f9]' : ''}`}
@@ -36,9 +34,9 @@ const ResultsItem = ({ place, number, nationality, coNationality, driver, coDriv
             <div className="w-[12%] font-medium text-black">{overallTime}</div>
             <div className="flex flex-col w-[10%] items-end pr-2 text-[#af2c2c] font-medium">
                 <div>
-                    {place === 1 ? '-' : formatTimeForDifference(timeDifference.differenceFromFirst)}
+                    {difFromFirst}
                 </div>
-                <div className="text-sm">{timeDifference.differenceFromPrevious !== null ? formatTimeForDifference(timeDifference.differenceFromPrevious) : '-'}</div>
+                <div className="text-sm">{difFromPrev}</div>
             </div>
         </div>
     );
@@ -48,10 +46,7 @@ const ResultsContainer = () => {
     const url = `/overall-results/${year}/${rallyName}`;
 
     const { data: overallData, loading, error } = useFetchData(url);
-
     const resultsData = overallData?.overall_results || [];
-
-    const timeDifferences = calculateTimeDifferences(resultsData, 'total_time');
 
     const { t } = useTranslation();
     useLanguage(lng);
@@ -104,7 +99,8 @@ const ResultsContainer = () => {
                                         groupClass={result.drive_class}
                                         penalty={result.total_penalty_time.split('.')[0]}
                                         overallTime={result.total_time}
-                                        timeDifference={timeDifferences[index]}
+                                        difFromFirst={result.dif_from_first}
+                                        difFromPrev={result.dif_from_previous}
                                         isOdd={index % 2 !== 0}
                                     />
                                 ))
