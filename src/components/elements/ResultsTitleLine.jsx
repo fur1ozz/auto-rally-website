@@ -15,25 +15,34 @@ const ResultsTitleLine = () => {
         const lastPartOfLink = link.substring(link.lastIndexOf("/") + 1);
         return currentPath === lastPartOfLink ? "text-4xl text-rally-primary" : "text-xl";
     };
+
     const checkSplitActive = () => {
         const pathParts = window.location.pathname.split("/").filter(Boolean);
         const lastTwoParts = pathParts.slice(-2);
 
         if (lastTwoParts.length >= 2 && lastTwoParts[0] === "results-splits") {
-            const currentStageNumber = lastTwoParts[1];
-            return currentStageNumber === stageNumber ? "text-4xl text-rally-primary" : "text-xl";
+            return "text-4xl text-rally-primary";
         }
 
         return "text-xl";
     };
+
+    const checkResultsActive = () => {
+        const pathParts = window.location.pathname.split("/").filter(Boolean);
+        const lastTwoParts = pathParts.slice(-2);
+
+        if (lastTwoParts.length >= 2 && (lastTwoParts[0] === "results-stage" || lastTwoParts[1] === "results")) {
+            return "text-4xl text-rally-primary";
+        }
+        return "text-xl";
+    };
+
     return (
         <div className="flex items-center mb-10">
             <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
             <Link
                 to={`/${lng}/${year}/${rallyName}/results`}
-                className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkActive(
-                    "/results"
-                )}`}
+                className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkResultsActive()}`}
             >
                 Rezultāti
             </Link>
