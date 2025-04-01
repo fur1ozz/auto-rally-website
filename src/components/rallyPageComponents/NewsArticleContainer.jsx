@@ -1,5 +1,5 @@
 import React from 'react';
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import useFetchData from "../../hooks/useFetchData";
 import useLanguage from "../../hooks/useLanguage";
@@ -22,20 +22,22 @@ const NewsArticleContainer = () => {
                     {!loading && error && <div>Error loading data: {error.message}</div>}
                     {!loading && !error && articleData && (
                         <>
-                            <h1 className="font-containerHeading font-bold text-black text-4xl mr-4 text-center w-full">{articleData.title}</h1>
+                            <h1 className=" font-bold text-black text-3xl mr-4 w-full mb-5">{articleData.title}</h1>
+                            <div className="w-full flex sm:items-center sm:flex-row flex-col">
+                                <div className="sm:w-1/3 sm:mr-5 overflow-hidden mb-4 sm:mb-0 shadow-[0_3px_8px_0_rgba(0,0,0,0.24)]">
+                                    <img src={ STORAGE_URL + articleData.img_src} alt="" className="w-full h-48 object-cover"/>
+                                </div>
+                                <div className="sm:w-2/3 mb-6">
+                                    <div className="font-light text-sm opacity-60 ">{new Date(articleData.pub_date_time).toLocaleString()}</div>
+                                    <p>{articleData.paragraph}</p>
+                                </div>
+                            </div>
 
-                            {/* Publication Date */}
-                            <p className=" text-center mb-6 font-light text-sm opacity-60">
-                                {new Date(articleData.pub_date_time).toLocaleDateString()}
-                            </p>
-                            {/* Article Body (Rendering HTML safely) */}
-                            <div
-                                className="prose prose-lg prose-invert max-w-none "
-                                dangerouslySetInnerHTML={{ __html: articleData.body }}
-                            />
+                            <div className="border-b-2 w-full border-[#e5e7eb] my-7"></div>
+
                             <div className="w-full flex justify-center">
                                 <div
-                                    className="prose prose-lg max-w-full"
+                                    className="prose max-w-full"
                                     dangerouslySetInnerHTML={{ __html: articleData.body }}
                                 />
                             </div>
