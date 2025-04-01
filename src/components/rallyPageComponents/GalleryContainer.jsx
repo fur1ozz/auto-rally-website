@@ -26,8 +26,8 @@ const GalleryContainer = () => {
                         {!loading && !error && (
                             photos.length > 0 ? (
                                 photos.map((photo, index) => (
-                                    <div key={index}  className="sm:w-[300px] w-[250px] mb-10 mx-4 hover:scale-[1.02] transition-all duration-150 cursor-pointer">
-                                        <img src={photo.image_url} alt="" className="rounded-sm shadow-[0_3px_8px_0_rgba(0,0,0,0.17)]" title={`Photo by - ${photo.created_by}`}/>
+                                    <div key={index}  className="w-[300px] h-[200px] mb-10 mx-4 hover:scale-[1.02] transition-all duration-150 cursor-pointer">
+                                        <img src={photo.image_url} alt="" className="rounded-sm shadow-[0_3px_8px_0_rgba(0,0,0,0.17)] w-full h-full object-cover" title={`Photo by - ${photo.created_by}`}/>
                                     </div>
                                 ))
                             ) : (
