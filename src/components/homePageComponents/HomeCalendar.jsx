@@ -1,9 +1,9 @@
 import React from 'react';
-import calendarData from '../../data/calendarData.json';
 import CalendarItem from "../elements/CalendarItem";
-import {Link, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import useFetchData from "../../hooks/useFetchData";
 import Loader from "../elements/loaders/Loader";
+import {addPlaceholdersToRallies} from "../../utils/rallyUtils";
 
 const HomeCalendar = () => {
     const {lng} = useParams()
@@ -16,14 +16,7 @@ const HomeCalendar = () => {
     const seasonYear = currentYearRalliesData?.season_year;
     const rallies = currentYearRalliesData?.rallies || [];
 
-    // creates fake container that would add up the space
-    const ralliesWithPlaceholders = [...rallies];
-    const remainder = ralliesWithPlaceholders.length % 3;
-    if (remainder !== 0) {
-        for (let i = 0; i < 3 - remainder; i++) {
-            ralliesWithPlaceholders.push({ invisible: true });
-        }
-    }
+    const ralliesWithPlaceholders = addPlaceholdersToRallies(rallies);
 
     return (
         <section className="w-full min-h-screen bg-white sm:px-14 px-10 pt-10 flex justify-center" id="calendar-section">
@@ -71,7 +64,7 @@ const HomeCalendar = () => {
                 )}
 
                 <a href={`/${lng}/seasons`} className="flex items-center justify-center hover:scale-95 transition duration-200 mb-10 bg-black/80 hover:bg-rally-accent rounded px-4 py-2">
-                    <h2 className="font-containerHeading font-bold text-white text-4xl mx-4">All Seasons</h2>
+                    <h2 className="font-containerHeading font-bold text-white text-4xl mx-4">All Rallies</h2>
                 </a>
             </div>
         </section>

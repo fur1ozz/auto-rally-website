@@ -10,7 +10,7 @@ const CalendarItem = ({ rally_name, date_from, date_to, location, rally_img, ral
     const { lng } = useParams();
 
     return (
-        <a href={`/${lng}/${year}/${rally_tag.replace(/\s+/g, '-').toLowerCase()}/news`}>
+        <a href={`/${lng}/${year}/${rally_tag}/news`}>
             <div className="w-[300px] h-[300px] rounded-md mb-10 mx-2 group cursor-pointer flex flex-col font-chakra shadow-[0_3px_8px_0_rgba(0,0,0,0.17)]">
                 <div className="overflow-hidden h-[55%] flex justify-center items-center rounded-t-md relative">
                     <img

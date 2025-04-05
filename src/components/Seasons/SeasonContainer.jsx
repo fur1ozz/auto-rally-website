@@ -1,23 +1,29 @@
 import React, {useEffect} from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
-import calendarData from '../../data/calendarData.json';
 import CalendarItem from "../elements/CalendarItem";
+import Loader from "../elements/loaders/Loader";
+import useFetchData from "../../hooks/useFetchData";
+import {addPlaceholdersToRallies} from "../../utils/rallyUtils";
 
 const SeasonContainer = () => {
     const { year } = useParams();
+
+    const url = `/ralliesBySeasonYear/${year}`;
+    const STORAGE_URL = process.env.REACT_APP_STORAGE_URL;
+
+    const { data: currentYearRalliesData, loading, error, status } = useFetchData(url);
     const navigate = useNavigate();
 
-    const rallies = calendarData[year] || [];
-
     useEffect(() => {
-        if (!calendarData[year]) {
+        if (status === 404) {
             navigate('/');
         }
-    }, [year, navigate]);
+    }, [status, navigate]);
 
-    if (rallies.length === 0) {
-        return null;
-    }
+    const seasonYear = currentYearRalliesData?.season_year;
+    const rallies = currentYearRalliesData?.rallies || [];
+
+    const ralliesWithPlaceholders = addPlaceholdersToRallies(rallies);
 
     return (
         <section className="w-full bg-white sm:px-14 px-10 pt-10 flex justify-center">
@@ -27,38 +33,42 @@ const SeasonContainer = () => {
                     <h2 className="font-containerHeading font-bold text-[#4e4e4e] text-4xl mx-4">{year}</h2>
                     <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
                 </div>
-                <div className="flex mt-10 w-full text-[#4e4e4e] justify-between flex-wrap max-[1060px]:justify-evenly">
-                    {(() => {
-                        const ralliesWithPlaceholders = [...rallies];
-                        const remainder = ralliesWithPlaceholders.length % 3;
+                {loading && <Loader />}
+                {!loading && error && <div>Error loading data: {error.message}</div>}
 
-                        if (remainder !== 0) {
-                            for (let i = 0; i < 3 - remainder; i++) {
-                                ralliesWithPlaceholders.push({invisible: true});
-                            }
-                        }
-
-                        return ralliesWithPlaceholders.map((rally, index) => (
-                            <div
-                                key={index}
-                                className={`${rally.invisible ? "invisible w-[300px] h-[300px] mx-2 max-[1060px]:hidden" : ""}`}
-                            >
-                                {!rally.invisible && (
-                                    <CalendarItem
-                                        rally_name={rally.rally_name}
-                                        date_from={rally.date_from}
-                                        date_to={rally.date_to}
-                                        location={rally.location}
-                                        rally_image_for_calendar={rally.rally_image_for_calendar}
-                                        eng_name={rally.eng_name}
-                                        road_surface={rally.road_surface}
-                                        year={year}
-                                    />
-                                )}
-                            </div>
-                        ));
-                    })()}
-                </div>
+                {!loading && !error && (
+                    ralliesWithPlaceholders.length > 0 ? (
+                        <div className="flex mt-10 w-full text-[#4e4e4e] justify-between flex-wrap max-[1060px]:justify-evenly">
+                            {ralliesWithPlaceholders.map((rally, index) => (
+                                <div
+                                    key={index}
+                                    className={`${
+                                        rally.invisible
+                                            ? "invisible w-[300px] h-[300px] mx-2 max-[1060px]:hidden"
+                                            : ""
+                                    }`}
+                                >
+                                    {!rally.invisible && (
+                                        <CalendarItem
+                                            rally_name={rally.rally_name}
+                                            date_from={rally.date_from}
+                                            date_to={rally.date_to}
+                                            location={rally.location}
+                                            rally_img={`${STORAGE_URL}/${rally.rally_img}`}
+                                            rally_tag={rally.rally_tag}
+                                            road_surface={rally.road_surface}
+                                            year={seasonYear}
+                                        />
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="my-10 text-center text-gray-500">
+                            Paslaik nav publicetu ralliju, saja sezona.
+                        </div>
+                    )
+                )}
             </div>
         </section>
     );
