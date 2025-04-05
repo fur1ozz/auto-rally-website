@@ -11,6 +11,7 @@ const AllSeasonsContainer = () => {
     const { data: allRallies, loading, error } = useFetchData(url);
 
     const years = Object.keys(allRallies).sort((a, b) => b - a);
+    const fallbackImg = '/images/headers/default-header.png';
 
     return (
         <section className="w-full bg-white sm:px-14 px-10 pt-10 flex justify-center">
@@ -37,25 +38,29 @@ const AllSeasonsContainer = () => {
                                 {(() => {
                                     const ralliesWithPlaceholders = addPlaceholdersToRallies(rallies);
 
-                                    return ralliesWithPlaceholders.map((rally, index) => (
-                                        <div
-                                            key={index}
-                                            className={`${rally.invisible ? "invisible w-[300px] h-[300px] mx-2 max-[1060px]:hidden" : ""}`}
-                                        >
-                                            {!rally.invisible && (
-                                                <CalendarItem
-                                                    rally_name={rally.rally_name}
-                                                    date_from={rally.date_from}
-                                                    date_to={rally.date_to}
-                                                    location={rally.location}
-                                                    rally_img={`${STORAGE_URL}/${rally.rally_img}`}
-                                                    rally_tag={rally.rally_tag}
-                                                    road_surface={rally.road_surface}
-                                                    year={year}
-                                                />
-                                            )}
-                                        </div>
-                                    ));
+                                    return ralliesWithPlaceholders.map((rally, index) => {
+                                        const rallyImg = rally.rally_img ? `${STORAGE_URL}/${rally.rally_img}` : fallbackImg;
+
+                                        return (
+                                            <div
+                                                key={index}
+                                                className={`${rally.invisible ? "invisible w-[300px] h-[300px] mx-2 max-[1060px]:hidden" : ""}`}
+                                            >
+                                                {!rally.invisible && (
+                                                    <CalendarItem
+                                                        rally_name={rally.rally_name}
+                                                        date_from={rally.date_from}
+                                                        date_to={rally.date_to}
+                                                        location={rally.location}
+                                                        rally_img={rallyImg}
+                                                        rally_tag={rally.rally_tag}
+                                                        road_surface={rally.road_surface}
+                                                        year={year}
+                                                    />
+                                                )}
+                                            </div>
+                                        );
+                                    });
                                 })()}
                             </div>
                         </div>

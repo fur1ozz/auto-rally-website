@@ -58,7 +58,7 @@ const Header = () => {
                                 to={`/${lng}/seasons`}
                                 className="text-white font-medium mr-4"
                             >
-                                Seasons
+                                All Rallies
                             </Link>
                         </div>
                     </div>
