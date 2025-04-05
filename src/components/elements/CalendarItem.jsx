@@ -1,20 +1,20 @@
 import React from 'react';
-import {getRallyStatus} from "../../utils/dateUtils";
+import {formatDateForCalendar, getRallyStatus} from "../../utils/dateUtils";
 import {getColorsForSurfaceType} from "../../utils/colorUtils";
 import {useParams} from "react-router-dom";
 import Flag from "react-flagkit";
 
-const CalendarItem = ({ rally_name, date_from, date_to, location, rally_image_for_calendar, eng_name, road_surface, year }) => {
-    const rallyStatus = getRallyStatus(date_from, date_to, year);
+const CalendarItem = ({ rally_name, date_from, date_to, location, rally_img, rally_tag, road_surface, year }) => {
+    const rallyStatus = getRallyStatus(date_from, date_to);
     const { backgroundColor, borderColor } = getColorsForSurfaceType(road_surface);
     const { lng } = useParams();
 
     return (
-        <a href={`/${lng}/${year}/${eng_name.replace(/\s+/g, '-').toLowerCase()}/news`}>
+        <a href={`/${lng}/${year}/${rally_tag.replace(/\s+/g, '-').toLowerCase()}/news`}>
             <div className="w-[300px] h-[300px] rounded-md mb-10 mx-2 group cursor-pointer flex flex-col font-chakra shadow-[0_3px_8px_0_rgba(0,0,0,0.17)]">
                 <div className="overflow-hidden h-[55%] flex justify-center items-center rounded-t-md relative">
                     <img
-                        src={`/images/rally-images-for-calendar/${year}/${rally_image_for_calendar}`}
+                        src={rally_img}
                         alt=""
                         className="w-full h-48 object-cover group-hover:scale-110 transition-all duration-200"
                     />
@@ -24,7 +24,7 @@ const CalendarItem = ({ rally_name, date_from, date_to, location, rally_image_fo
                 </div>
                 <div className="h-[45%] flex flex-col p-4">
                     <div className="flex justify-between">
-                        <div>{date_from} - {date_to}</div>
+                        <div>{formatDateForCalendar(date_from)} - {formatDateForCalendar(date_to)}</div>
                         <div
                             className="flex items-center capitalize text-sm border-[1px] rounded-xl px-2 text-black"
                             style={{ backgroundColor, borderColor }}

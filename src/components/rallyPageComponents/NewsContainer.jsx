@@ -15,7 +15,7 @@ const NewsItem = ({ id, date, title, paragraph, imgSrc }) => {
                     <img src={imgSrc} alt="" className="w-full h-48 object-cover group-hover:scale-110 transition-all duration-200"/>
                 </div>
                 <div className="sm:w-2/3 mb-6">
-                    <div className="font-light text-sm opacity-60">{date}</div>
+                    <div className="font-light text-sm opacity-60">{new Date(date).toLocaleString()}</div>
                     <h3 className="relative font-medium text-[#f0f2fe] cursor-pointer text-xl tracking-wide after:content-[''] after:absolute after:left-0 after:bottom-[-1px] after:w-0 after:h-[2px] after:bg-[#f0f2fe] after:transition-all after:duration-200 group-hover:after:w-full">
                         {title}
                     </h3>
