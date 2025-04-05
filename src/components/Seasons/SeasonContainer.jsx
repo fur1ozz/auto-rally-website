@@ -7,12 +7,12 @@ import {addPlaceholdersToRallies} from "../../utils/rallyUtils";
 
 const SeasonContainer = () => {
     const { year } = useParams();
+    const navigate = useNavigate();
 
     const url = `/ralliesBySeasonYear/${year}`;
     const STORAGE_URL = process.env.REACT_APP_STORAGE_URL;
 
     const { data: currentYearRalliesData, loading, error, status } = useFetchData(url);
-    const navigate = useNavigate();
 
     useEffect(() => {
         if (status === 404) {

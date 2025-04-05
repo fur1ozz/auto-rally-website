@@ -1,15 +1,27 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Header from "../../components/UIFoundation/Header";
 import RallyBanner from "../../components/commonUI/RallyBanner";
 import RallyMenuBar from "../../components/commonUI/RallyMenuBar";
 import Footer from "../../components/UIFoundation/Footer";
-import rallyData from "../../data/AllrallySeasons.json";
-import {useParams} from "react-router-dom";
+import rallyDatass from "../../data/AllrallySeasons.json";
+import {useNavigate, useParams} from "react-router-dom";
+import useFetchData from "../../hooks/useFetchData";
 
 const RallyPageLayout = ({ children }) => {
     const { year, rallyName } = useParams();
+    const navigate = useNavigate();
 
-    const selectedRally = rallyData.find(
+    const url = `/rally/${year}/${rallyName}`;
+
+    const { data: rallyData, loading, error, status } = useFetchData(url);
+
+    useEffect(() => {
+        if (status === 404) {
+            navigate('/');
+        }
+    }, [status, navigate]);
+
+    const selectedRally = rallyDatass.find(
         rally => rally.rally_tag === rallyName && rally.year === parseInt(year)
     );
 
