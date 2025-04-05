@@ -10,11 +10,14 @@ const UpcomingEvent = () => {
     const { lng } = useParams();
     const { t } = useTranslation();
     const url = `/next-event`;
+    const STORAGE_URL = process.env.REACT_APP_STORAGE_URL;
 
     const { data: nextEvent, loading, error } = useFetchData(url);
 
     useLanguage(lng);
 
+    const defaultImage = '/images/headers/default-header.png';
+    const headerImage = nextEvent?.rally_banner ? `${STORAGE_URL}/${nextEvent.rally_banner}` : defaultImage;
     const daysUntilEvent = nextEvent?.date_from ? calculateDaysUntilEvent(nextEvent.date_from) : null;
 
     //TODO remove later
@@ -29,17 +32,18 @@ const UpcomingEvent = () => {
         eventMessage = `${t('home-upcoming-event.after')} ${daysUntilEvent} ${t('home-upcoming-event.days')}`;
     }
 
-    const [headerImage, setHeaderImage] = useState(`/images/headers/${nextEvent?.tag}-${nextEvent?.year}.png`);
+    const [backgroundImage, setBackgroundImage] = useState('url(/images/parallax-backgrounds/default-bg.jpg)');
 
     useEffect(() => {
-        if (nextEvent?.tag && nextEvent?.year) {
-            setHeaderImage(`/images/headers/${nextEvent.tag}-${nextEvent.year}.png`);
-        }
-    }, [loading, nextEvent]);
+        if (!nextEvent?.road_surface || !nextEvent?.sequence) return;
 
-    const handleImageError = () => {
-        setHeaderImage('/images/headers/default-header.png');
-    };
+        const customBg = `/images/parallax-backgrounds/${nextEvent.road_surface}-${nextEvent.sequence}.jpg`;
+        const img = new Image();
+        img.src = customBg;
+
+        img.onload = () => setBackgroundImage(`url(${customBg})`);
+        img.onerror = () => setBackgroundImage('url(/images/parallax-backgrounds/rally-road-1.jpg)');
+    }, [nextEvent]);
 
     return (
         <a href={`/${lng}/${nextEvent.year}/${nextEvent.tag}/news`}>
@@ -49,7 +53,7 @@ const UpcomingEvent = () => {
             {!loading && !error && (
                 <div
                     className="bg-cover bg-center cursor-pointer"
-                    style={{ backgroundImage: `url(/images/parallax-backgrounds/${nextEvent.road_surface}-${nextEvent.sequence}.jpg)` }}
+                    style={{ backgroundImage }}
                 >
                     <div className="w-full backdrop-blur-sm bg-black/20 flex justify-center items-center text-white sm:px-14 px-4 overflow-hidden">
                         <div className="w-[1024px] font-chakra hover:scale-[1.02] transition-all duration-300">
@@ -60,8 +64,7 @@ const UpcomingEvent = () => {
                             <h2 className="flex items-center justify-center md:text-3xl sm:text-2xl text-lg font-semibold py-4">{nextEvent.name}</h2>
                             <img
                                 src={headerImage}
-                                onError={handleImageError} // If the image fails to load, use the default image
-                                alt="Rally Header"
+                                alt={nextEvent.rally_name ?? ''}
                                 className="w-full shadow-[0_3px_8px_0_rgba(0,0,0,0.24)]"
                             />
                             <div className="flex justify-between font-medium sm:text-lg text-[10px] sm:px-6 py-4 pb-10">
