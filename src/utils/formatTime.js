@@ -8,26 +8,19 @@ export const formatTime = (date) => {
     );
 };
 
-// results table formatting
-export const formatTimeForDifference = (seconds) => {
-    const minutes = Math.floor(seconds / 60);
-    const secs = (seconds % 60).toFixed(2);
-    return `+${minutes > 0 ? `${minutes}.` : ''}${secs}`;
-};
-// export const convertTimeToSeconds = (time) => {
-//     const [minutes, seconds] = time.split(':');
-//     return parseInt(minutes) * 60 + parseFloat(seconds);
-// };
+export const formatMillisecondsAdaptive = (milliseconds, msPrecision = 2) => {
+    const totalSeconds = Math.floor(milliseconds / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
 
-export const convertTimeToSeconds = (time) => {
-    if (!time || typeof time !== 'string') {
-        return 0;
+    const ms = Math.floor((milliseconds % 1000) / Math.pow(10, 3 - msPrecision));
+
+    if (totalSeconds < 60) {
+        return `${seconds}.${ms.toString().padStart(msPrecision, '0')}`;
+    } else if (totalSeconds < 3600) {
+        return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}.${ms.toString().padStart(msPrecision, '0')}`;
+    } else {
+        return `${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}.${ms.toString().padStart(msPrecision, '0')}`;
     }
-
-    const [minutes, seconds] = time.split(':');
-
-    const parsedMinutes = parseInt(minutes) || 0;
-    const parsedSeconds = parseFloat(seconds) || 0;
-
-    return parsedMinutes * 60 + parsedSeconds;
 };

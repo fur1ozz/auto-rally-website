@@ -16,6 +16,7 @@ import LangParamValidator from "./utils/langParamValidator";
 import SplitTimePage from "./Pages/PagesAboutRally/PagesForRallyResults/SplitTimePage";
 import AllSeasonsPage from "./Pages/AllSeasonsPage";
 import SeasonPage from "./Pages/SeasonPage";
+import NewsArticlePage from "./Pages/PagesAboutRally/NewsArticlePage";
 
 function App() {
     return (
@@ -37,6 +38,7 @@ function App() {
                         <Route path=":year" element={<SeasonPage />} />
 
                         <Route path=":year/:rallyName/news" element={<NewsPage />} />
+                        <Route path=":year/:rallyName/news/:articleId" element={<NewsArticlePage />} />
                         <Route path=":year/:rallyName/participants" element={<ParticipantPage />} />
                         <Route path=":year/:rallyName/documents" element={<DocumentPage />} />
                         <Route path=":year/:rallyName/spectators" element={<SpectatorsPage />} />

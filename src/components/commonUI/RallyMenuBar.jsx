@@ -10,12 +10,24 @@ const RallyMenuBar = () => {
 
     useLanguage(lng);
 
+    const lastPart = location.substring(location.lastIndexOf("/") + 1);
+
+    const checkNewsPath = (path) => {
+        if (path === "news" && lastPart === "news") {
+            return 'bg-rally-primary text-white';
+        } else if (path === "news" && location.includes("/news")) {
+            return 'bg-white text-black';
+        } else {
+            return 'hover:bg-white hover:text-black';
+        }
+    }
+
     return (
         <div className="w-full min-h-14 bg-black/60 justify-center flex text-white">
             <div className="w-[1024px] lg:justify-center items-center flex overflow-x-auto">
                 <Link
                     to={`/${lng}/${year}/${rallyName}/news`}
-                    className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${location.includes('/news') ? 'bg-rally-primary text-white' : 'hover:bg-white hover:text-black'}`}
+                    className={`cursor-pointer h-14 p-5 font-semibold transition items-center justify-center flex ${checkNewsPath('news')}`}
                 >
                     <div className="h-4 w-4 mr-1 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">

@@ -13,12 +13,11 @@ import {
 } from "../../elements/tableItems/TableSplitBox";
 import {TableNumber} from "../../elements/tableItems/TableNumber";
 import TableFlag from "../../elements/tableItems/TableFlag";
-import data from "../../../data/splitData.json";
 import {useNavigate, useParams} from "react-router-dom";
 import useFetchData from "../../../hooks/useFetchData";
 import Loader from "../../elements/loaders/Loader";
 
-const SplitItem = ({ place, number, nationality, coNationality, driver, coDriver, car, team, startTime, splits, stageTime, stageDif, isOdd }) => {
+const SplitItem = ({ place, number, nationality, coNationality, driver, coDriver, car, team, startTime, splits, stageTime, stageDif, stageDifMs, isOdd }) => {
     return (
         <div
             className={`flex w-full justify-between py-2 border-b border-gray-300 items-center font-light break-words ${isOdd ? 'bg-[#f9f9f9]' : ''}`}
@@ -32,10 +31,10 @@ const SplitItem = ({ place, number, nationality, coNationality, driver, coDriver
                 <div>{car}</div>
             </div>
             <TableSplitStartTime startTime={startTime} />
-            {splits.map((split, index) => (
-                <TableSplitTime key={index} split={split} />
+            {[...splits.slice(0, 5), ...new Array(5 - splits.length).fill(null)].map((split, index) => (
+                <TableSplitTime key={index} split={split || ''} />
             ))}
-            <TableSplitStageTime stageTime={stageTime} stageDif={stageDif} />
+            <TableSplitStageTime stageTime={stageTime} stageDif={stageDif} stageDifMs={stageDifMs} />
         </div>
     );
 };
@@ -61,7 +60,7 @@ const SplitTimes = () => {
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 sm:pb-10 pb-10 flex justify-center">
             <div className="lg:w-[1024px] overflow-x-auto">
                 <ResultsTitleLine />
-                <TitleWithLine title="Starplaiki" />
+                <TitleWithLine title={`Stage - ${stageNumber}`} />
                 <StageSortBar numberOfStage={splitsData?.stage_count} resultLinkName="results-splits" />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <Table>
@@ -100,12 +99,11 @@ const SplitTimes = () => {
                                         coDriver={`${crewResult.co_driver.name} ${crewResult.co_driver.surname}`}
                                         car={crewResult.car}
                                         team={crewResult.team.name}
-                                        //TODO create start time table and include it in split time controller
-                                        // startTime={crewResult.startTime}
-                                        startTime="16:10"
+                                        startTime={crewResult.start_time}
                                         splits={crewResult.splits}
                                         stageTime={crewResult.stage_time}
                                         stageDif={crewResult.stage_time_dif}
+                                        stageDifMs={crewResult.stage_time_dif_ms}
                                         isOdd={index % 2 === 1}
                                     />
                                 ))

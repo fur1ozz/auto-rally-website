@@ -1,12 +1,11 @@
 import React from 'react';
-import NewsContainer from "../../components/rallyPageComponents/NewsContainer";
 import RallyPageLayout from "./RallyPageLayout";
-import NewsContainer2 from "../../components/rallyPageComponents/NewsContainer2";
+import NewsContainer from "../../components/rallyPageComponents/NewsContainer";
 
 const NewsPage = () => {
     return (
         <RallyPageLayout>
-            <NewsContainer2 />
+            <NewsContainer />
         </RallyPageLayout>
     );
 };

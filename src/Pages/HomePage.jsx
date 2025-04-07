@@ -14,7 +14,8 @@ const HomePage = () => {
             </div>
             <UpcomingEvent />
             <PreviousWinner />
-            <RallyQuotes />
+            {/*todo probably remove all rally quotes*/}
+            {/*<RallyQuotes />*/}
             <HomeCalendar />
             <Footer />
         </>
