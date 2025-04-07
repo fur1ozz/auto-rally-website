@@ -3,12 +3,14 @@ import Header from "../../components/UIFoundation/Header";
 import RallyBanner from "../../components/commonUI/RallyBanner";
 import RallyMenuBar from "../../components/commonUI/RallyMenuBar";
 import Footer from "../../components/UIFoundation/Footer";
-import {useNavigate, useParams} from "react-router-dom";
+import {useLocation, useNavigate, useParams} from "react-router-dom";
 import useFetchData from "../../hooks/useFetchData";
+import Sponsors from "../../components/commonUI/Sponsors";
 
 const RallyPageLayout = ({ children }) => {
     const { year, rallyName } = useParams();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const url = `/rally/${year}/${rallyName}`;
 
@@ -33,6 +35,11 @@ const RallyPageLayout = ({ children }) => {
         img.onerror = () => setBackgroundImage('url(/images/parallax-backgrounds/default-bg.jpg)');
     }, [rallyData]);
 
+    const isNewsDetailsPage = /^.*\/news\/[^/]+$/.test(location.pathname);
+    const isChampionshipPage = /\/championship(\/|$)/.test(location.pathname);
+
+    const shouldShowSponsors = !isNewsDetailsPage && !isChampionshipPage;
+
     return (
         <>
             <div
@@ -45,6 +52,7 @@ const RallyPageLayout = ({ children }) => {
             </div>
             <main>
                 {children}
+                {shouldShowSponsors && <Sponsors />}
             </main>
             <Footer />
         </>
