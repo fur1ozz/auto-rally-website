@@ -56,7 +56,7 @@ const ResultsContainer = () => {
             <div className="lg:w-[1024px] overflow-x-auto">
                 <ResultsTitleLine />
                 <TitleWithLine title={t('rally-menu-bar.results')} />
-                <StageSortBar numberOfStage={overallData?.stage_count} resultLinkName="results-stage" />
+                <StageSortBar numberOfStage={overallData?.stage_count} resultLinkName="results-stage" showFinish={true} />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <Table>
                         <TableHeading>
