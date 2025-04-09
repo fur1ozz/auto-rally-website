@@ -82,12 +82,13 @@ const StageResults = () => {
 
     const results = resultsData?.results || [];
 
-    const sortedResultsData = [...results].sort((a, b) => {
-        const timeA = a?.overall_time_with_penalties_until_stage_ms || 0;
-        const timeB = b?.overall_time_with_penalties_until_stage_ms || 0;
-
-        return timeA - timeB;
-    });
+    const sortedResultsData = results
+        .filter(result => result?.overall_time_with_penalties_until_stage_ms !== null)
+        .sort((a, b) => {
+            const timeA = a?.overall_time_with_penalties_until_stage_ms || 0;
+            const timeB = b?.overall_time_with_penalties_until_stage_ms || 0;
+            return timeA - timeB;
+        });
 
     const timeDifferencesOverall = calculateTimeDifMs(sortedResultsData, 'overall_time_with_penalties_until_stage_ms');
 
