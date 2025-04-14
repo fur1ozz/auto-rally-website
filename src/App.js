@@ -44,6 +44,7 @@ function App() {
                         <Route path=":year/:rallyName/spectators" element={<SpectatorsPage />} />
 
                         <Route path=":year/:rallyName/results" element={<ResultsPage />} />
+                        <Route path=":year/:rallyName/results/:classId" element={<ResultsPage />} />
                         <Route path=":year/:rallyName/results-stage/:stageNumber" element={<StageResultPage />} />
                         <Route path=":year/:rallyName/results-splits/:stageNumber" element={<SplitTimePage />} />
                         <Route path=":year/:rallyName/results/retirements" element={<RetirementPage />} />

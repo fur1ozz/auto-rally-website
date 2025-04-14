@@ -12,6 +12,7 @@ import useFetchData from "../../../hooks/useFetchData";
 import Loader from "../../elements/loaders/Loader";
 import {useTranslation} from "react-i18next";
 import useLanguage from "../../../hooks/useLanguage";
+import ClassSortBar from "../../elements/sortingBars/ClassSortBar";
 
 const ResultsItem = ({ place, number, nationality, coNationality, driver, coDriver, car, team, driveType, groupClass, penalty, overallTime, difFromFirst, difFromPrev, isOdd }) => {
     return (
@@ -42,11 +43,16 @@ const ResultsItem = ({ place, number, nationality, coNationality, driver, coDriv
     );
 };
 const ResultsContainer = () => {
-    const { lng, year, rallyName } = useParams();
-    const url = `/overall-results/${year}/${rallyName}`;
+    const { lng, year, rallyName, classId } = useParams();
+
+    let url = `/overall-results/${year}/${rallyName}`;
+    if (classId) {
+        url = `/overall-results/${year}/${rallyName}/${classId}`;
+    }
 
     const { data: overallData, loading, error } = useFetchData(url);
     const resultsData = overallData?.overall_results || [];
+    const rallyClasses = overallData?.rally_classes || [];
 
     const { t } = useTranslation();
     useLanguage(lng);
@@ -57,6 +63,7 @@ const ResultsContainer = () => {
                 <ResultsTitleLine />
                 <TitleWithLine title={t('rally-menu-bar.results')} />
                 <StageSortBar numberOfStage={overallData?.stage_count} resultLinkName="results-stage" showFinish={true} />
+                <ClassSortBar resultLinkName="results" groupClassData={rallyClasses} />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <Table>
                         <TableHeading>
