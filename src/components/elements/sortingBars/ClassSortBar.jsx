@@ -1,61 +1,85 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useParams } from "react-router-dom";
+import { motion, AnimatePresence } from 'framer-motion';
 
 const ClassSortBar = ({ resultLinkName, groupClassData }) => {
     const { lng, year, rallyName } = useParams();
     const location = useLocation();
+    const [activeTab, setActiveTab] = useState(null);
 
-    const baseUrl = `/${lng}/${year}/${rallyName}/${resultLinkName}/`;
-
+    const baseUrl = `/${lng}/${year}/${rallyName}/${resultLinkName}`;
     const currentClassId = location.pathname.split('/').filter(Boolean).pop();
 
-    const selectedClass = null;
-
     return (
-        <div>
-            <div className="flex items-center">
-                <h2 className="font-containerHeading font-bold text-[#4e4e4e] text-4xl mr-4 capitalize">Rally Classes</h2>
-                <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
+        <div className="w-full">
+            <div className="flex items-center mb-3">
+                <h2 className="font-containerHeading font-bold text-[#4e4e4e] text-2xl sm:text-3xl mr-4 capitalize">
+                    Groups and Classes
+                </h2>
+                <div className="flex-1 h-0.5 bg-[#4e4e4e]" />
             </div>
-            <div className="flex flex-wrap my-5">
-                <div className="flex flex-col mr-10 justify-end">
-                    <div className="flex flex-wrap text-sm">
-                        <Link
-                            to={baseUrl}
-                            className={`mr-2 mb-2 px-4 py-1 rounded font-light ${
-                                selectedClass === null ? 'bg-rally-primary font-normal text-white' : 'bg-gray-200'
-                            }`}
-                        >
-                            Radit visus
-                        </Link>
-                    </div>
-                </div>
+
+            <div className="flex gap-2 overflow-x-auto pb-1 mb-4 border-b">
+                <Link
+                    to={baseUrl}
+                    className={`whitespace-nowrap px-3 py-2 text-sm border-b-2 transition-colors ${
+                        !currentClassId && !activeTab
+                            ? 'border-rally-primary text-rally-primary font-medium'
+                            : 'border-transparent text-gray-500 hover:text-black'
+                    }`}
+                    onClick={() => setActiveTab(null)}
+                >
+                    Radit visus
+                </Link>
+
                 {groupClassData.map((group) => (
-                    <div key={group.group_id} className="flex flex-col mr-10 mb-4">
-                        <h4 className="font-semibold mb-2">{group.group_name}</h4>
-                        <div className="flex flex-wrap text-sm">
-                            {group.classes.map((classItem) => {
-                                const classPath = `${baseUrl}${classItem.id}`;
+                    <button
+                        key={group.group_id}
+                        className={`whitespace-nowrap px-3 py-2 text-sm border-b-2 transition-colors ${
+                            activeTab === group.group_id
+                                ? 'border-rally-primary text-rally-primary font-medium'
+                                : 'border-transparent text-gray-500 hover:text-black'
+                        }`}
+                        onClick={() => setActiveTab(group.group_id)}
+                    >
+                        {group.group_name}
+                    </button>
+                ))}
+            </div>
+
+            <AnimatePresence mode="wait">
+                {activeTab && (
+                    <motion.div
+                        key={activeTab}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.25 }}
+                        className="flex flex-wrap gap-2 text-sm"
+                    >
+                        {groupClassData
+                            .find(group => group.group_id === activeTab)
+                            ?.classes.map((classItem) => {
+                                const classPath = `${baseUrl}/${classItem.id}`;
                                 const isActive = currentClassId === String(classItem.id);
 
                                 return (
                                     <Link
                                         key={classItem.id}
                                         to={classPath}
-                                        className={`mr-2 mb-2 px-4 flex items-center py-1 rounded font-light ${
+                                        className={`px-3 py-1 rounded font-light transition-colors ${
                                             isActive
                                                 ? 'bg-rally-primary text-white'
-                                                : 'bg-gray-200'
+                                                : 'bg-gray-200 hover:bg-gray-300'
                                         }`}
                                     >
                                         {classItem.name}
                                     </Link>
                                 );
                             })}
-                        </div>
-                    </div>
-                ))}
-            </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
