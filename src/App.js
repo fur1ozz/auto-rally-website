@@ -40,6 +40,7 @@ function App() {
                         <Route path=":year/:rallyName/news" element={<NewsPage />} />
                         <Route path=":year/:rallyName/news/:articleId" element={<NewsArticlePage />} />
                         <Route path=":year/:rallyName/participants" element={<ParticipantPage />} />
+                        <Route path=":year/:rallyName/participants/:classId" element={<ParticipantPage />} />
                         <Route path=":year/:rallyName/documents" element={<DocumentPage />} />
                         <Route path=":year/:rallyName/spectators" element={<SpectatorsPage />} />
 

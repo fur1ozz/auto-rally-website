@@ -59,7 +59,7 @@ const SplitTimes = () => {
     const splitInfo = splitsData?.splits || [];
     const crewSplits = splitsData?.crew_times || [];
     const isStageError = splitsData?.type === 'stage' && splitsData?.message === 'No such stage exists';
-    const rallyClasses = splitsData?.available_classes || [];
+    const rallyClasses = splitsData?.rally_classes || [];
 
     return (
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 sm:pb-10 pb-10 flex justify-center">

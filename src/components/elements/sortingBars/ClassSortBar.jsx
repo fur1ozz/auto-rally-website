@@ -13,14 +13,7 @@ const ClassSortBar = ({ resultLinkName, groupClassData }) => {
     const normalizedPathname = normalizeUrl(location.pathname);
 
     return (
-        <div className="w-full">
-            <div className="flex items-center mb-3">
-                <h2 className="font-containerHeading font-bold text-[#4e4e4e] text-2xl sm:text-3xl mr-4 capitalize">
-                    Groups and Classes
-                </h2>
-                <div className="flex-1 h-0.5 bg-[#4e4e4e]" />
-            </div>
-
+        <div className="w-full mt-5">
             <div className="flex gap-2 overflow-x-auto mb-4 border-b">
                 <Link
                     to={baseUrl}
