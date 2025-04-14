@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link, useLocation, useParams} from 'react-router-dom';
+import {normalizeUrl} from "../../../utils/urlUtils";
 
 const StageSortBar = ({ resultLinkName, numberOfStage, showFinish = false}) => {
     const { lng, year, rallyName } = useParams();
@@ -8,7 +9,7 @@ const StageSortBar = ({ resultLinkName, numberOfStage, showFinish = false}) => {
     const baseUrl = `/${lng}/${year}/${rallyName}/${resultLinkName}/`;
     const resultsUrl = `/${lng}/${year}/${rallyName}/results`;
 
-    const isActive = (path) => location.pathname === path;
+    const isActive = (path) => normalizeUrl(location.pathname) === path;
     return (
         <div className="flex flex-col flex-wrap my-5">
             <div className="flex flex-col mr-10">

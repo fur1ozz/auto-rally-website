@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useParams } from "react-router-dom";
 import { motion, AnimatePresence } from 'framer-motion';
+import {normalizeUrl} from "../../../utils/urlUtils";
 
 const ClassSortBar = ({ resultLinkName, groupClassData }) => {
     const { lng, year, rallyName } = useParams();
@@ -8,6 +9,8 @@ const ClassSortBar = ({ resultLinkName, groupClassData }) => {
     const [activeTab, setActiveTab] = useState(null);
 
     const baseUrl = `/${lng}/${year}/${rallyName}/${resultLinkName}`;
+    const normalizedBaseUrl = normalizeUrl(baseUrl);
+    const normalizedPathname = normalizeUrl(location.pathname);
     const currentClassId = location.pathname.split('/').filter(Boolean).pop();
 
     return (
@@ -19,17 +22,16 @@ const ClassSortBar = ({ resultLinkName, groupClassData }) => {
                 <div className="flex-1 h-0.5 bg-[#4e4e4e]" />
             </div>
 
-            <div className="flex gap-2 overflow-x-auto pb-1 mb-4 border-b">
+            <div className="flex gap-2 overflow-x-auto mb-4 border-b">
                 <Link
                     to={baseUrl}
                     className={`whitespace-nowrap px-3 py-2 text-sm border-b-2 transition-colors ${
-                        !currentClassId && !activeTab
+                        normalizedPathname === normalizedBaseUrl
                             ? 'border-rally-primary text-rally-primary font-medium'
                             : 'border-transparent text-gray-500 hover:text-black'
                     }`}
-                    onClick={() => setActiveTab(null)}
                 >
-                    Radit visus
+                    Rādit visus
                 </Link>
 
                 {groupClassData.map((group) => (
