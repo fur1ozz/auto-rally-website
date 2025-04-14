@@ -60,6 +60,12 @@ const Header = () => {
                             >
                                 All Rallies
                             </Link>
+                            <Link
+                                to={`/${lng}/championship`}
+                                className="text-white font-medium mr-4"
+                            >
+                                Championship
+                            </Link>
                         </div>
                     </div>
 

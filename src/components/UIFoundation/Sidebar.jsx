@@ -54,6 +54,8 @@ const Sidebar = ({ mobileMenuOpen, handleMobileMenuToggle, location, lng, year, 
             </li>
             <LinkButtonPhone name="Home" path={`/${lng}/home`} currentPath={location.pathname} />
             <LinkButtonPhone name="Calendar" path={`/${lng}/home#calendar`} currentPath={location.pathname} />
+            <LinkButtonPhone name="All Rallies" path={`/${lng}/seasons`} currentPath={location.pathname} />
+            <LinkButtonPhone name="Championship" path={`/${lng}/championship`} currentPath={location.pathname} />
             {year ? (
                 <div>
                     <div className="mt-5 h-10 flex items-center capitalize text-black text-lg">
