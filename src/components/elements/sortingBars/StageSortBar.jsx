@@ -9,7 +9,18 @@ const StageSortBar = ({ resultLinkName, numberOfStage, showFinish = false}) => {
     const baseUrl = `/${lng}/${year}/${rallyName}/${resultLinkName}/`;
     const resultsUrl = `/${lng}/${year}/${rallyName}/results`;
 
-    const isActive = (path) => normalizeUrl(location.pathname) === path;
+    const isActive = (path) => {
+        const current = normalizeUrl(location.pathname);
+        const target = normalizeUrl(path);
+
+        if (target === resultsUrl) {
+            const regex = new RegExp(`^${resultsUrl}(\\/\\d+)?$`);
+            return regex.test(current);
+        }
+
+        return current === target;
+    };
+
     return (
         <div className="flex flex-col flex-wrap my-5">
             <div className="flex flex-col mr-10">

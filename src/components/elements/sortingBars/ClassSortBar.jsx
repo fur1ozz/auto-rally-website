@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useParams } from "react-router-dom";
 import { motion, AnimatePresence } from 'framer-motion';
-import {normalizeUrl} from "../../../utils/urlUtils";
+import { normalizeUrl } from "../../../utils/urlUtils";
 
 const ClassSortBar = ({ resultLinkName, groupClassData }) => {
-    const { lng, year, rallyName } = useParams();
+    const { lng, year, rallyName, classId } = useParams();
     const location = useLocation();
     const [activeTab, setActiveTab] = useState(null);
 
     const baseUrl = `/${lng}/${year}/${rallyName}/${resultLinkName}`;
     const normalizedBaseUrl = normalizeUrl(baseUrl);
     const normalizedPathname = normalizeUrl(location.pathname);
-    const currentClassId = location.pathname.split('/').filter(Boolean).pop();
 
     return (
         <div className="w-full">
@@ -63,7 +62,8 @@ const ClassSortBar = ({ resultLinkName, groupClassData }) => {
                             .find(group => group.group_id === activeTab)
                             ?.classes.map((classItem) => {
                                 const classPath = `${baseUrl}/${classItem.id}`;
-                                const isActive = currentClassId === String(classItem.id);
+                                const isActive =
+                                    classId && classId === String(classItem.id);
 
                                 return (
                                     <Link

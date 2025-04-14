@@ -9,6 +9,7 @@ import { TableStageHeading } from "../../elements/tableItems/TableStageHeading";
 import useFetchData from "../../../hooks/useFetchData";
 import Loader from "../../elements/loaders/Loader";
 import {calculateTimeDifMs} from "../../../utils/calculateTimeDifMs";
+import ClassSortBar from "../../elements/sortingBars/ClassSortBar";
 
 const StageOverallTimeItem = ({ place, number, nationality, coNationality, driver, coDriver, car, driveType, time, timeDifferenceStage = null, timeDifferenceOverall = null, isOdd, isHighlighted, onMouseEnter, onMouseLeave, penalty_time }) => {
     return (
@@ -66,8 +67,12 @@ const StageOverallTimeItem = ({ place, number, nationality, coNationality, drive
 };
 
 const StageResults = () => {
-    const { year, rallyName, stageNumber } = useParams();
-    const url = `/stage-results/${year}/${rallyName}/${stageNumber}`;
+    const { year, rallyName, stageNumber, classId } = useParams();
+
+    let url = `/stage-results/${year}/${rallyName}/${stageNumber}`;
+    if (classId) {
+        url = `/stage-results/${year}/${rallyName}/${stageNumber}/${classId}`;
+    }
     const navigate = useNavigate();
 
     const { data: resultsData, loading, error } = useFetchData(url);
@@ -81,6 +86,7 @@ const StageResults = () => {
     }, [error, navigate]);
 
     const results = resultsData?.results || [];
+    const rallyClasses = resultsData?.rally_classes || [];
 
     const sortedResultsData = results
         .filter(result => result?.overall_time_with_penalties_until_stage_ms !== null)
@@ -98,6 +104,7 @@ const StageResults = () => {
                 <ResultsTitleLine />
                 <TitleWithLine title={`Stage - ${resultsData?.stage_number || stageNumber}`} />
                 <StageSortBar numberOfStage={resultsData?.stage_count} resultLinkName="results-stage" showFinish={true} />
+                <ClassSortBar resultLinkName={`results-stage/${stageNumber}`} groupClassData={rallyClasses} />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <div className="min-w-[1024px] flex justify-between">
                         {/* Stage Results */}
