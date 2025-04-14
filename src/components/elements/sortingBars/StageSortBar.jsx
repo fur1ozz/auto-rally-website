@@ -1,24 +1,31 @@
 import React from 'react';
-import {Link, useLocation, useParams} from 'react-router-dom';
-import {normalizeUrl} from "../../../utils/urlUtils";
+import { Link, useLocation, useParams } from 'react-router-dom';
+import { normalizeUrl } from "../../../utils/urlUtils";
 
-const StageSortBar = ({ resultLinkName, numberOfStage, showFinish = false}) => {
-    const { lng, year, rallyName } = useParams();
+const StageSortBar = ({ resultLinkName, numberOfStage, showFinish = false }) => {
+    const { lng, year, rallyName, classId } = useParams();
     const location = useLocation();
 
     const baseUrl = `/${lng}/${year}/${rallyName}/${resultLinkName}/`;
     const resultsUrl = `/${lng}/${year}/${rallyName}/results`;
 
-    const isActive = (path) => {
-        const current = normalizeUrl(location.pathname);
-        const target = normalizeUrl(path);
+    const isActive = (path, stageNumber) => {
+        const currentParts = normalizeUrl(location.pathname).split('/');
+        const targetParts = normalizeUrl(path).split('/');
 
-        if (target === resultsUrl) {
+        if (normalizeUrl(path) === resultsUrl) {
             const regex = new RegExp(`^${resultsUrl}(\\/\\d+)?$`);
-            return regex.test(current);
+            return regex.test(normalizeUrl(location.pathname));
         }
 
-        return current === target;
+        // If classId exists, check second-to-last part (stage number)
+        if (classId) {
+            const stageInUrl = currentParts[currentParts.length - 2];
+            return stageInUrl === String(stageNumber);
+        }
+
+        // Else fallback to direct match
+        return normalizeUrl(location.pathname) === normalizeUrl(path);
     };
 
     return (
@@ -42,18 +49,20 @@ const StageSortBar = ({ resultLinkName, numberOfStage, showFinish = false}) => {
                         </Link>
                     )}
                     {Array.from({ length: numberOfStage }, (_, index) => {
-                        const stageLink = `${baseUrl}${index + 1}`;
+                        const stageNum = index + 1;
+                        const stageLink = `${baseUrl}${stageNum}`;
+
                         return (
                             <Link
-                                key={index + 1}
+                                key={stageNum}
                                 to={stageLink}
                                 className={`mr-2 mb-2 px-4 flex items-center py-1 rounded font-light ${
-                                    isActive(stageLink)
+                                    isActive(stageLink, stageNum)
                                         ? 'bg-rally-primary text-white'
                                         : 'bg-gray-200'
                                 }`}
                             >
-                                {index + 1}
+                                {stageNum}
                             </Link>
                         );
                     })}
