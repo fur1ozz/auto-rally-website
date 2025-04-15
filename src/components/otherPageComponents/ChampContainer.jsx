@@ -6,6 +6,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import useFetchData from "../../hooks/useFetchData";
 import ChampClassSortBar from "../elements/sortingBars/ChampClassSortBar";
 import Loader from "../elements/loaders/Loader";
+import Tooltip from "../elements/Tooltip";
 
 const ChampItem = ({ position, driver, coDrivers, events, totalPoints, rallies }) => {
     return (
@@ -111,7 +112,11 @@ const ChampContainer = () => {
                                         >
                                             {rallies.map((rally) => (
                                                 <div key={rally.id} className="flex justify-center">
-                                                    {rally.name.split(" ").pop()}
+                                                    <Tooltip content={rally.name}>
+                                                        <div className="truncate max-w-[80px] cursor-help">
+                                                            {rally.name.split(" ").pop()}
+                                                        </div>
+                                                    </Tooltip>
                                                 </div>
                                             ))}
                                         </div>
