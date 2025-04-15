@@ -40,7 +40,7 @@ const ResultsTitleLine = () => {
     };
 
     return (
-        <div className="flex items-center mb-10 border-b-2 border-gray-200 justify-evenly max-[900px]:flex-col max-[900px]:items-start">
+        <div className="flex items-center mb-10 min-[900px]:border-b-[1px] border-gray-200 justify-evenly max-[900px]:flex-col max-[900px]:items-start">
             <Link
                 to={`/${lng}/${year}/${rallyName}/results`}
                 className={`font-containerHeading font-bold text-[#4e4e4e] min-[900px]:mx-4 max-[900px]:my-2 capitalize px-2 ${checkResultsActive()}`}
