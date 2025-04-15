@@ -68,13 +68,11 @@ const ChampContainer = () => {
 
     const { data: champData, loading, error } = useFetchData(url);
 
-    //todo remove the coment for this usefect after fixing the issue with null attributes in the route
-
-    // useEffect(() => {
-    //     if (error) {
-    //         navigate('/');
-    //     }
-    // }, [error, navigate]);
+    useEffect(() => {
+        if (error) {
+            navigate('/');
+        }
+    }, [error, navigate]);
 
     const rallyClasses = champData?.championship_classes || [];
     const rallies = champData?.rallies || [];
@@ -117,31 +115,37 @@ const ChampContainer = () => {
                                         </div>
                                         <div className="w-[10%] flex justify-center">Punkti</div>
                                     </div>
-                                    {classData.crews.map((crew, index) => {
-                                        const eventPoints = crew.results.reduce((acc, result) => {
-                                            acc[result.rally_id] = {
-                                                points: result.total_points ?? '',
-                                                place: result.place ?? ''
-                                            };
-                                            return acc;
-                                        }, {});
+                                    {classData.crews.length > 0 ? (
+                                        classData.crews.map((crew, index) => {
+                                            const eventPoints = crew.results.reduce((acc, result) => {
+                                                acc[result.rally_id] = {
+                                                    points: result.total_points ?? '',
+                                                    place: result.place ?? ''
+                                                };
+                                                return acc;
+                                            }, {});
 
-                                        const coDrivers = [
-                                            ...new Set(crew.results.map(result => result.co_driver).filter(Boolean))
-                                        ];
+                                            const coDrivers = [
+                                                ...new Set(crew.results.map(result => result.co_driver).filter(Boolean))
+                                            ];
 
-                                        return (
-                                            <ChampItem
-                                                key={crew.driver_id}
-                                                position={index + 1}
-                                                driver={crew.driver}
-                                                coDrivers={coDrivers}
-                                                events={eventPoints}
-                                                totalPoints={crew.total_points}
-                                                rallies={rallies}
-                                            />
-                                        );
-                                    })}
+                                            return (
+                                                <ChampItem
+                                                    key={crew.driver_id}
+                                                    position={index + 1}
+                                                    driver={crew.driver}
+                                                    coDrivers={coDrivers}
+                                                    events={eventPoints}
+                                                    totalPoints={crew.total_points}
+                                                    rallies={rallies}
+                                                />
+                                            );
+                                        })
+                                    ) : (
+                                        <div className="mt-10 text-[#4e4e4e] text-center">
+                                            Pašlaik šai klasei rezultāti vēl nav pieejami.
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </>
