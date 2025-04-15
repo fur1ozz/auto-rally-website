@@ -18,9 +18,8 @@ const ResultsTitleLine = () => {
 
     const checkSplitActive = () => {
         const pathParts = window.location.pathname.split("/").filter(Boolean);
-        const lastTwoParts = pathParts.slice(-2);
 
-        if (lastTwoParts.length >= 2 && lastTwoParts[0] === "results-splits") {
+        if (pathParts.includes("results-splits")) {
             return "text-4xl text-rally-primary border-b-2 border-rally-primary";
         }
 
@@ -29,11 +28,14 @@ const ResultsTitleLine = () => {
 
     const checkResultsActive = () => {
         const pathParts = window.location.pathname.split("/").filter(Boolean);
-        const lastTwoParts = pathParts.slice(-2);
 
-        if (lastTwoParts.length >= 2 && (lastTwoParts[0] === "results-stage" || lastTwoParts[1] === "results")) {
+        const isResultsPage = pathParts[pathParts.length - 1] === "results";
+        const isResultsStagePage = pathParts.includes("results-stage");
+
+        if (isResultsPage || isResultsStagePage) {
             return "text-4xl text-rally-primary border-b-2 border-rally-primary";
         }
+
         return "text-xl";
     };
 
