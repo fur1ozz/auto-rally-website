@@ -6,6 +6,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import ClassSortBar from "../elements/sortingBars/ClassSortBar";
 import useFetchData from "../../hooks/useFetchData";
 import ChampClassSortBar from "../elements/sortingBars/ChampClassSortBar";
+import Loader from "../elements/loaders/Loader";
 
 const ChampItem = ({ position, driver, coDriver, events, totalPoints }) => {
     const eventPoints = Object.values(events);
@@ -47,6 +48,9 @@ const ChampContainer = () => {
     // }, [error, navigate]);
 
     const rallyClasses = champData?.championship_classes || [];
+    const rallies = champData?.rallies || [];
+    const rallyCount = rallies.length;
+    const classData = champData?.championship || [];
 
     const { t } = useTranslation();
     useLanguage(lng);
@@ -58,45 +62,50 @@ const ChampContainer = () => {
                 <ChampClassSortBar groupClassData={rallyClasses}/>
 
                 <div className="mt-10">
-                    <h4 className="text-2xl font-semibold text-[#4e4e4e]">LRC1</h4>
+                    {loading && <Loader />}
+                    {!loading && error && <div>Error loading data: {error.message}</div>}
+                    {!loading && !error && (
+                        <>
+                            <h4 className="text-2xl font-semibold text-[#4e4e4e]">{classData.class}</h4>
 
-                    <div className="flex mb-10 w-full text-[#4e4e4e] overflow-x-auto">
-                        <div className="min-w-[1024px] flex flex-col sm:items-center font-chakra">
-                            <div className="flex w-full justify-between p-2 border-b border-gray-300 text-rally-primary font-medium items-end">
-                                <div className="w-[5%] flex justify-center">Pos.</div>
-                                <div className="flex flex-col w-[18%]">
-                                    <div>Pilots</div>
-                                    <div>Stūrmanis</div>
+                            <div className="flex mb-10 w-full text-[#4e4e4e] overflow-x-auto">
+                                <div className="min-w-[1024px] flex flex-col sm:items-center font-chakra">
+                                    <div className="flex w-full justify-between p-2 border-b border-gray-300 text-rally-primary font-medium items-end">
+                                        <div className="w-[5%] flex justify-center">Pos.</div>
+                                        <div className="flex flex-col w-[18%]">
+                                            <div>Pilots</div>
+                                            <div>Stūrmanis</div>
+                                        </div>
+                                        <div
+                                            className="w-[55%] capitalize grid"
+                                            style={{ gridTemplateColumns: `repeat(${rallyCount}, minmax(0, 1fr))` }}
+                                        >
+                                            {rallies.map((rally) => (
+                                                <div key={rally.id} className="flex justify-center">
+                                                    {rally.name.split(" ").pop()}
+                                                </div>
+                                            ))}
+                                        </div>
+                                        <div className="w-[10%] flex justify-center">Punkti</div>
+                                    </div>
+                                    <ChampItem
+                                        position="1"
+                                        driver="Janis Berzins"
+                                        coDriver="Karlis Ozolins"
+                                        events={{
+                                            alūksne: 10,
+                                            sarma: 5,
+                                            estonia: 6,
+                                            cēsis: 7,
+                                            paide: 13,
+                                            utena: 2,
+                                        }}
+                                        totalPoints="100"
+                                    />
                                 </div>
-                                <div
-                                    className={`w-[55%] capitalize grid`}
-                                    style={{ gridTemplateColumns: `repeat(6, minmax(0, 1fr))` }}
-                                >
-                                    <div className="flex justify-center">Cesis</div>
-                                    <div className="flex justify-center">Sarma </div>
-                                    <div className="flex justify-center">Latvia</div>
-                                    <div className="flex justify-center">Liepaja</div>
-                                    <div className="flex justify-center">Estonia</div>
-                                    <div className="flex justify-center">Burka</div>
-                                </div>
-                                <div className="w-[10%] flex justify-center">Punkti</div>
                             </div>
-                            <ChampItem
-                                position="1"
-                                driver="Janis Berzins"
-                                coDriver="Karlis Ozolins"
-                                events={{
-                                    alūksne: 10,
-                                    sarma: 5,
-                                    estonia: 6,
-                                    cēsis: 7,
-                                    paide: 13,
-                                    utena: 2,
-                                }}
-                                totalPoints="100"
-                            />
-                        </div>
-                    </div>
+                        </>
+                    )}
                 </div>
             </div>
         </section>
