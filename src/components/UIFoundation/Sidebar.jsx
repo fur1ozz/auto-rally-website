@@ -66,7 +66,6 @@ const Sidebar = ({ mobileMenuOpen, handleMobileMenuToggle, location, lng, year, 
                     <LinkButtonPhoneRallyInfo name={t('rally-menu-bar.documents')} path={`/${lng}/${year}/${rallyName}/documents`} currentPath={location.pathname} tag="documents" />
                     <LinkButtonPhoneRallyInfo name={t('rally-menu-bar.spectators')} path={`/${lng}/${year}/${rallyName}/spectators`} currentPath={location.pathname} tag="spectators" />
                     <LinkButtonPhoneRallyInfo name={t('rally-menu-bar.results')} path={`/${lng}/${year}/${rallyName}/results`} currentPath={location.pathname} tag="results" />
-                    <LinkButtonPhoneRallyInfo name={t('rally-menu-bar.championship')} path={`/${lng}/${year}/${rallyName}/championship`} currentPath={location.pathname} tag="championship" />
                     <LinkButtonPhoneRallyInfo name={t('rally-menu-bar.gallery')} path={`/${lng}/${year}/${rallyName}/gallery`} currentPath={location.pathname} tag="gallery" />
                 </div>
             ) : (

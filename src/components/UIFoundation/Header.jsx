@@ -74,12 +74,12 @@ const Header = () => {
 
                         <div className="text-white font-medium mr-3 cursor-default">{formatTime(time)}</div>
 
-                        <Link
-                            to="#"
-                            className="text-white font-medium mr-3"
-                        >
-                            Ienākt
-                        </Link>
+                        {/*<Link*/}
+                        {/*    to="#"*/}
+                        {/*    className="text-white font-medium mr-3"*/}
+                        {/*>*/}
+                        {/*    Ienākt*/}
+                        {/*</Link>*/}
                     </div>
 
                     <button

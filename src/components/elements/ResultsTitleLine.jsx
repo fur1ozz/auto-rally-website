@@ -13,7 +13,7 @@ const ResultsTitleLine = () => {
 
     const checkActive = (link) => {
         const lastPartOfLink = link.substring(link.lastIndexOf("/") + 1);
-        return currentPath === lastPartOfLink ? "text-4xl text-rally-primary" : "text-xl";
+        return currentPath === lastPartOfLink ? "text-4xl text-rally-primary border-b-2 border-rally-primary" : "text-xl";
     };
 
     const checkSplitActive = () => {
@@ -21,7 +21,7 @@ const ResultsTitleLine = () => {
         const lastTwoParts = pathParts.slice(-2);
 
         if (lastTwoParts.length >= 2 && lastTwoParts[0] === "results-splits") {
-            return "text-4xl text-rally-primary";
+            return "text-4xl text-rally-primary border-b-2 border-rally-primary";
         }
 
         return "text-xl";
@@ -32,55 +32,49 @@ const ResultsTitleLine = () => {
         const lastTwoParts = pathParts.slice(-2);
 
         if (lastTwoParts.length >= 2 && (lastTwoParts[0] === "results-stage" || lastTwoParts[1] === "results")) {
-            return "text-4xl text-rally-primary";
+            return "text-4xl text-rally-primary border-b-2 border-rally-primary";
         }
         return "text-xl";
     };
 
     return (
-        <div className="flex items-center mb-10">
-            <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
+        <div className="flex items-center mb-10 border-b-2 border-gray-200 justify-evenly max-[900px]:flex-col max-[900px]:items-start">
             <Link
                 to={`/${lng}/${year}/${rallyName}/results`}
-                className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkResultsActive()}`}
+                className={`font-containerHeading font-bold text-[#4e4e4e] min-[900px]:mx-4 max-[900px]:my-2 capitalize px-2 ${checkResultsActive()}`}
             >
                 Rezultāti
             </Link>
-            <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
             <Link
                 to={`/${lng}/${year}/${rallyName}/results-splits/1`}
-                className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkSplitActive()}`}
+                className={`font-containerHeading font-bold text-[#4e4e4e] min-[900px]:mx-4 max-[900px]:my-1 capitalize px-2 ${checkSplitActive()}`}
             >
                 Starplaiki
             </Link>
-            <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
             <Link
                 to={`/${lng}/${year}/${rallyName}/results/penalties`}
-                className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkActive(
+                className={`font-containerHeading font-bold text-[#4e4e4e] min-[900px]:mx-4 max-[900px]:my-1 capitalize px-2 ${checkActive(
                     "/penalties"
                 )}`}
             >
                 Sodi
             </Link>
-            <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
             <Link
                 to={`/${lng}/${year}/${rallyName}/results/retirements`}
-                className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkActive(
+                className={`font-containerHeading font-bold text-[#4e4e4e] min-[900px]:mx-4 max-[900px]:my-1 capitalize px-2 ${checkActive(
                     "/retirements"
                 )}`}
             >
                 Izstājušies
             </Link>
-            <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
             <Link
                 to={`/${lng}/${year}/${rallyName}/results/stage-winners`}
-                className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkActive(
+                className={`font-containerHeading font-bold text-[#4e4e4e] min-[900px]:mx-4 max-[900px]:my-1 capitalize px-2 ${checkActive(
                     "/stage-winners"
                 )}`}
             >
                 Posmu Uzvarētāji
             </Link>
-            <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
         </div>
     );
 };
