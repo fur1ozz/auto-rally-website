@@ -36,9 +36,8 @@ const RallyPageLayout = ({ children }) => {
     }, [rallyData]);
 
     const isNewsDetailsPage = /^.*\/news\/[^/]+$/.test(location.pathname);
-    const isChampionshipPage = /\/championship(\/|$)/.test(location.pathname);
 
-    const shouldShowSponsors = !isNewsDetailsPage && !isChampionshipPage;
+    const shouldShowSponsors = !isNewsDetailsPage;
 
     return (
         <>

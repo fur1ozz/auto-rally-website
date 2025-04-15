@@ -37,6 +37,7 @@ function App() {
                         <Route path="seasons" element={<AllSeasonsPage />} />
                         <Route path=":year" element={<SeasonPage />} />
                         <Route path="championship" element={<ChampionshipPage />} />
+                        <Route path="championship/:year/:classId" element={<ChampionshipPage />} />
 
                         <Route path=":year/:rallyName/news" element={<NewsPage />} />
                         <Route path=":year/:rallyName/news/:articleId" element={<NewsArticlePage />} />

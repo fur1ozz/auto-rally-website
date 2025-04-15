@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
-import championshipData from '../../data/championshipData.json';
-import seasonData from '../../data/seasonEventsWithGroups.json';
-import groupClassData from '../../data/champGroupClassData.json';
+import React, {useEffect, useState} from 'react';
 import TitleWithLine from "../elements/titleWithLine";
 import {useTranslation} from "react-i18next";
 import useLanguage from "../../hooks/useLanguage";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
+import ClassSortBar from "../elements/sortingBars/ClassSortBar";
+import useFetchData from "../../hooks/useFetchData";
+import ChampClassSortBar from "../elements/sortingBars/ChampClassSortBar";
 
 const ChampItem = ({ position, driver, coDriver, events, totalPoints }) => {
     const eventPoints = Object.values(events);
@@ -32,123 +32,72 @@ const ChampItem = ({ position, driver, coDriver, events, totalPoints }) => {
 };
 
 const ChampContainer = () => {
-    const [selectedClass, setSelectedClass] = useState(null);
-    const { lng, year, rallyName } = useParams();
+    const { lng, year, classId } = useParams();
+
+    let url = `/championship/${year}/${classId}`;
+
+    const navigate = useNavigate();
+
+    const { data: champData, loading, error } = useFetchData(url);
+
+    // useEffect(() => {
+    //     if (error) {
+    //         navigate('/');
+    //     }
+    // }, [error, navigate]);
+
+    const rallyClasses = champData?.championship_classes || [];
 
     const { t } = useTranslation();
     useLanguage(lng);
-
-    const handleClassClick = (className) => {
-        setSelectedClass(className);
-    };
-
-    const filteredChampionshipData = () => {
-        // If no class is selected, return all data
-        if (!selectedClass) return championshipData.groups;
-
-        // Otherwise, filter data by the selected class
-        const filteredGroups = {};
-        Object.entries(championshipData.groups).forEach(([groupName, groupData]) => {
-            const filteredClasses = {};
-            Object.entries(groupData.classes).forEach(([className, crews]) => {
-                if (className === selectedClass) {
-                    filteredClasses[className] = crews;  // Only include the selected class
-                }
-            });
-            if (Object.keys(filteredClasses).length > 0) {
-                filteredGroups[groupName] = { ...groupData, classes: filteredClasses };
-            }
-        });
-
-        return filteredGroups;
-    };
-
 
     return (
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px] overflow-x-auto">
                 <TitleWithLine title={t('rally-menu-bar.championship')} />
+                <ChampClassSortBar groupClassData={rallyClasses}/>
 
-                <div className="flex flex-col flex-wrap my-5">
-                    <div className="flex flex-col mr-10 justify-end">
-                        <div className="flex flex-wrap text-sm">
-                            <button
-                                className={`mr-2 mb-2 px-4 py-1 rounded font-light ${
-                                    selectedClass === null ? 'bg-rally-primary font-normal text-[#ededed]' : 'bg-gray-200'
-                                }`}
-                                onClick={() => setSelectedClass(null)}
-                            >
-                                Radit visus
-                            </button>
+                <div className="mt-10">
+                    <h4 className="text-2xl font-semibold text-[#4e4e4e]">LRC1</h4>
+
+                    <div className="flex mb-10 w-full text-[#4e4e4e] overflow-x-auto">
+                        <div className="min-w-[1024px] flex flex-col sm:items-center font-chakra">
+                            <div className="flex w-full justify-between p-2 border-b border-gray-300 text-rally-primary font-medium items-end">
+                                <div className="w-[5%] flex justify-center">Pos.</div>
+                                <div className="flex flex-col w-[18%]">
+                                    <div>Pilots</div>
+                                    <div>Stūrmanis</div>
+                                </div>
+                                <div
+                                    className={`w-[55%] capitalize grid`}
+                                    style={{ gridTemplateColumns: `repeat(6, minmax(0, 1fr))` }}
+                                >
+                                    <div className="flex justify-center">Cesis</div>
+                                    <div className="flex justify-center">Sarma </div>
+                                    <div className="flex justify-center">Latvia</div>
+                                    <div className="flex justify-center">Liepaja</div>
+                                    <div className="flex justify-center">Estonia</div>
+                                    <div className="flex justify-center">Burka</div>
+                                </div>
+                                <div className="w-[10%] flex justify-center">Punkti</div>
+                            </div>
+                            <ChampItem
+                                position="1"
+                                driver="Janis Berzins"
+                                coDriver="Karlis Ozolins"
+                                events={{
+                                    alūksne: 10,
+                                    sarma: 5,
+                                    estonia: 6,
+                                    cēsis: 7,
+                                    paide: 13,
+                                    utena: 2,
+                                }}
+                                totalPoints="100"
+                            />
                         </div>
                     </div>
-                    <div className="flex flex-wrap">
-                        {groupClassData.map((groupData, groupIndex) => (
-                            <div key={groupIndex} className="flex flex-col mr-10">
-                                <h4>{groupData.group}</h4>
-                                <div className="flex flex-wrap text-sm">
-                                    {groupData.classes.map((className, classIndex) => (
-                                        <button
-                                            key={classIndex}
-                                            className={`mr-2 mb-2 px-4 py-1 rounded font-light ${
-                                                selectedClass === className ? 'bg-rally-primary font-normal text-[#ededed]' : 'bg-gray-200'
-                                            }`}
-                                            onClick={() => handleClassClick(className)}
-                                        >
-                                            {className}
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
                 </div>
-
-                {Object.entries(filteredChampionshipData()).map(([groupName, groupData]) => (
-                    Object.entries(groupData.classes).map(([className, crews]) => {
-
-                        const groupEvents = seasonData.season.groups[groupName].events;
-                        const numberOfEvents = groupEvents.length;
-
-                        return (
-                            <div key={className} className="mt-10">
-                                <h4 className="text-2xl font-semibold text-[#4e4e4e]">{className}</h4>
-
-                                <div className="flex mb-10 w-full text-[#4e4e4e] overflow-x-auto">
-                                    <div className="min-w-[1024px] flex flex-col sm:items-center font-chakra">
-                                        <div className="flex w-full justify-between p-2 border-b border-gray-300 text-rally-primary font-medium items-end">
-                                            <div className="w-[5%] flex justify-center">Pos.</div>
-                                            <div className="flex flex-col w-[18%]">
-                                                <div>Pilots</div>
-                                                <div>Stūrmanis</div>
-                                            </div>
-                                            <div
-                                                className={`w-[55%] capitalize grid`}
-                                                style={{ gridTemplateColumns: `repeat(${numberOfEvents}, minmax(0, 1fr))` }}
-                                            >
-                                                {groupEvents.map((eventName, index) => (
-                                                    <div key={index} className="flex justify-center">{eventName}</div>
-                                                ))}
-                                            </div>
-                                            <div className="w-[10%] flex justify-center">Punkti</div>
-                                        </div>
-
-                                        {crews.map((crew) => (
-                                            <ChampItem
-                                                key={crew.driver}
-                                                position={crew.position}
-                                                driver={crew.driver}
-                                                coDriver={crew.co_driver}
-                                                events={crew.events}
-                                                totalPoints={crew.total_points}
-                                            />
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        );
-                    })
-                ))}
             </div>
         </section>
     );
