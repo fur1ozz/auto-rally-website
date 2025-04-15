@@ -30,13 +30,24 @@ const ChampItem = ({ position, driver, coDrivers, events, totalPoints, rallies }
                 style={{ gridTemplateColumns: `repeat(${rallies.length}, minmax(0, 1fr))` }}
             >
                 {rallies.map((rally) => {
-                    const points = events[rally.id];
+                    const { points, place } = events[rally.id] || {};
+
                     return (
                         <div
                             key={rally.id}
-                            className="text-center border-l border-gray-200 px-1"
+                            className="relative text-center border-l border-gray-200 px-1"
                         >
-                            {points ?? ''}
+                            <div className="relative inline-block">
+                                <div className="text-lg font-medium text-gray-700">{points ?? ''}</div>
+
+                                {place && (
+                                    <div
+                                        className={`absolute text-xs -bottom-2 -right-2 font-semibold ${place === 1 || place === 2 || place === 3 ? 'text-amber-500' : 'text-gray-500'}`}
+                                    >
+                                        {place}.
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     );
                 })}
@@ -108,7 +119,10 @@ const ChampContainer = () => {
                                     </div>
                                     {classData.crews.map((crew, index) => {
                                         const eventPoints = crew.results.reduce((acc, result) => {
-                                            acc[result.rally_id] = result.total_points ?? '';
+                                            acc[result.rally_id] = {
+                                                points: result.total_points ?? '',
+                                                place: result.place ?? ''
+                                            };
                                             return acc;
                                         }, {});
 
