@@ -103,7 +103,7 @@ const StageResults = () => {
             <div className="lg:w-[1024px] overflow-x-auto">
                 <ResultsTitleLine />
                 <TitleWithLine title={`Stage - ${resultsData?.stage_number || stageNumber}`} />
-                <StageSortBar numberOfStage={resultsData?.stage_count} resultLinkName="results-stage" showFinish={true} />
+                <StageSortBar availableStages={resultsData?.available_stage_numbers} resultLinkName="results-stage" showFinish={true} />
                 <ClassSortBar resultLinkName={`results-stage/${stageNumber}`} groupClassData={rallyClasses} />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <div className="min-w-[1024px] flex justify-between">

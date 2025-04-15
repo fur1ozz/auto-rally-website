@@ -66,7 +66,7 @@ const SplitTimes = () => {
             <div className="lg:w-[1024px] overflow-x-auto">
                 <ResultsTitleLine />
                 <TitleWithLine title={`Stage - ${stageNumber}`} />
-                <StageSortBar numberOfStage={splitsData?.stage_count} resultLinkName="results-splits" />
+                <StageSortBar availableStages={splitsData?.available_stage_numbers} resultLinkName="results-splits" />
                 <ClassSortBar resultLinkName={`results-splits/${stageNumber}`} groupClassData={rallyClasses} />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <Table>

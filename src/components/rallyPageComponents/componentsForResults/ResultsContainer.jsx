@@ -62,7 +62,7 @@ const ResultsContainer = () => {
             <div className="lg:w-[1024px] overflow-x-auto">
                 <ResultsTitleLine />
                 <TitleWithLine title="Kopvērtējums" />
-                <StageSortBar numberOfStage={overallData?.stage_count} resultLinkName="results-stage" showFinish={true} />
+                <StageSortBar availableStages={overallData?.available_stage_numbers}  resultLinkName="results-stage" showFinish={true} />
                 <ClassSortBar resultLinkName="results" groupClassData={rallyClasses} />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <Table>

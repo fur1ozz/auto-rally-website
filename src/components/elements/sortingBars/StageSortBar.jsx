@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { normalizeUrl } from "../../../utils/urlUtils";
 
-const StageSortBar = ({ resultLinkName, numberOfStage, showFinish = false }) => {
+const StageSortBar = ({ resultLinkName, availableStages = [], showFinish = false }) => {
     const { lng, year, rallyName, classId } = useParams();
     const location = useLocation();
 
@@ -48,8 +48,7 @@ const StageSortBar = ({ resultLinkName, numberOfStage, showFinish = false }) => 
                             />
                         </Link>
                     )}
-                    {Array.from({ length: numberOfStage }, (_, index) => {
-                        const stageNum = index + 1;
+                    {availableStages.map((stageNum) => {
                         const stageLink = `${baseUrl}${stageNum}`;
 
                         return (
