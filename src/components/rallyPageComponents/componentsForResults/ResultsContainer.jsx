@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import TitleWithLine from "../../elements/titleWithLine";
 import ResultsTitleLine from "../../elements/ResultsTitleLine";
 import {TableNumber} from "../../elements/tableItems/TableNumber";
@@ -6,7 +6,7 @@ import TableFlag from "../../elements/tableItems/TableFlag";
 import {TableCrew, TableCrewHeading} from "../../elements/tableItems/TableCrew";
 import TableHeading from "../../elements/tableItems/TableHeading";
 import Table from "../../elements/tableItems/Table";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import StageSortBar from "../../elements/sortingBars/StageSortBar";
 import useFetchData from "../../../hooks/useFetchData";
 import Loader from "../../elements/loaders/Loader";
@@ -44,6 +44,7 @@ const ResultsItem = ({ place, number, nationality, coNationality, driver, coDriv
 };
 const ResultsContainer = () => {
     const { lng, year, rallyName, classId } = useParams();
+    const navigate = useNavigate();
 
     let url = `/overall-results/${year}/${rallyName}`;
     if (classId) {
@@ -51,6 +52,13 @@ const ResultsContainer = () => {
     }
 
     const { data: overallData, loading, error } = useFetchData(url);
+
+    useEffect(() => {
+        if (error) {
+            navigate('/');
+        }
+    }, [error, navigate]);
+
     const resultsData = overallData?.overall_results || [];
     const rallyClasses = overallData?.rally_classes || [];
 
