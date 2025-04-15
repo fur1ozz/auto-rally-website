@@ -9,16 +9,24 @@ import Loader from "../elements/loaders/Loader";
 
 const ChampItem = ({ position, driver, coDrivers, events, totalPoints, rallies }) => {
     return (
-        <div className="flex w-full justify-between p-2 border-b border-gray-300 font-light items-center">
-            <div className="w-[5%] flex justify-center font-semibold text-xl">{position}</div>
-            <div className="flex flex-col w-[18%]">
-                <div className="font-bold">{driver}</div>
+        <div
+            className={`flex w-full justify-between items-center px-4 py-3 border-b border-gray-200 text-sm 
+                ${position % 2 === 0 ? 'bg-gray-50' : 'bg-white'}
+            `}
+        >
+            <div className="w-[5%] text-center text-lg font-semibold text-gray-700">
+                {position}
+            </div>
+            <div className="flex flex-col w-[18%] text-left">
+                <div className="font-semibold text-gray-800 text-base">{driver}</div>
                 {coDrivers.map((name, idx) => (
-                    <div key={idx} className="text-sm">{name}</div>
+                    <div key={idx} className="text-xs text-gray-500 italic">
+                        {name}
+                    </div>
                 ))}
             </div>
             <div
-                className={`w-[55%] font-normal grid`}
+                className="w-[55%] grid gap-1 font-medium"
                 style={{ gridTemplateColumns: `repeat(${rallies.length}, minmax(0, 1fr))` }}
             >
                 {rallies.map((rally) => {
@@ -26,14 +34,16 @@ const ChampItem = ({ position, driver, coDrivers, events, totalPoints, rallies }
                     return (
                         <div
                             key={rally.id}
-                            className="flex font-medium text-lg justify-center"
+                            className="text-center border-l border-gray-200 px-1"
                         >
                             {points ?? ''}
                         </div>
                     );
                 })}
             </div>
-            <div className="w-[10%] flex justify-center font-medium text-lg">{totalPoints}</div>
+            <div className="w-[10%] text-center text-lg font-semibold text-gray-800">
+                {totalPoints}
+            </div>
         </div>
     );
 };
@@ -46,6 +56,8 @@ const ChampContainer = () => {
     const navigate = useNavigate();
 
     const { data: champData, loading, error } = useFetchData(url);
+
+    //todo remove the coment for this usefect after fixing the issue with null attributes in the route
 
     // useEffect(() => {
     //     if (error) {
