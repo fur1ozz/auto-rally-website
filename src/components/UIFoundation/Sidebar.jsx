@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import calendarData from '../../data/calendarData.json';
+import LanguageSwitcherSidebar from "../elements/languageItems/LanguageSwitcherSidebar";
 
 const LinkButtonPhone = ({ name, path, currentPath }) => {
     const isActive = currentPath === path;
@@ -42,7 +43,7 @@ const LinkButtonPhoneRallies = ({ name, path, lng }) => {
     );
 };
 
-const Sidebar = ({ mobileMenuOpen, handleMobileMenuToggle, location, lng, year, rallyName, t }) => {
+const Sidebar = ({ mobileMenuOpen, handleMobileMenuToggle, location, lng, year, rallyName, t, currentYear }) => {
     return (
         <ul className={`sm:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-full min-[400px]:translate-x-[250px]"} flex flex-col justify-start w-full min-[400px]:w-[250px] h-screen bg-white/55 backdrop-blur fixed top-0 right-0 px-5 py-3 transition-all duration-200 ease-in-out z-10 shadow-[-10px_0_10px_rgba(0,0,0,0.1)]`}>
             <li className="h-10 flex items-center capitalize text-black">
@@ -52,11 +53,11 @@ const Sidebar = ({ mobileMenuOpen, handleMobileMenuToggle, location, lng, year, 
                     </svg>
                 </button>
             </li>
-            <LinkButtonPhone name="Home" path={`/${lng}/home`} currentPath={location.pathname} />
-            <LinkButtonPhone name="Calendar" path={`/${lng}/home#calendar`} currentPath={location.pathname} />
-            <LinkButtonPhone name="All Rallies" path={`/${lng}/seasons`} currentPath={location.pathname} />
-            <LinkButtonPhone name="Championship" path={`/${lng}/championship`} currentPath={location.pathname} />
-            {year ? (
+            <LinkButtonPhone name={t('header.home')} path={`/${lng}/home`} currentPath={location.pathname} />
+            <LinkButtonPhone name={t('header.calendar')} path={`/${lng}/home#calendar`} currentPath={location.pathname} />
+            <LinkButtonPhone name={t('header.all-rallies')} path={`/${lng}/seasons`} currentPath={location.pathname} />
+            <LinkButtonPhone name={t('header.championship')} path={`/${lng}/championship/${currentYear}/1`} currentPath={location.pathname} />
+            {rallyName ? (
                 <div>
                     <div className="mt-5 h-10 flex items-center capitalize text-black text-lg">
                         <div className="flex items-center font-medium">Rally Info</div>
@@ -70,20 +71,21 @@ const Sidebar = ({ mobileMenuOpen, handleMobileMenuToggle, location, lng, year, 
                 </div>
             ) : (
                 <div>
-                    <li className="mt-5 h-10 flex items-center capitalize text-black text-lg">
-                        <a className="flex items-center font-medium">2024</a>
-                    </li>
-                    {/*TODO have to change to have dynamic year selection not a specific 2024*/}
-                    {calendarData[2024].map((rally, index) => (
-                        <LinkButtonPhoneRallies
-                            key={index}
-                            name={rally.rally_name}
-                            path={rally.eng_name}
-                            lng={lng}
-                        />
-                    ))}
+                    {/*<li className="mt-5 h-10 flex items-center capitalize text-black text-lg">*/}
+                    {/*    <a className="flex items-center font-medium">2024</a>*/}
+                    {/*</li>*/}
+                    {/*/!*TODO have to change to have dynamic year selection not a specific 2024*!/*/}
+                    {/*{calendarData[2024].map((rally, index) => (*/}
+                    {/*    <LinkButtonPhoneRallies*/}
+                    {/*        key={index}*/}
+                    {/*        name={rally.rally_name}*/}
+                    {/*        path={rally.eng_name}*/}
+                    {/*        lng={lng}*/}
+                    {/*    />*/}
+                    {/*))}*/}
                 </div>
             )}
+            <LanguageSwitcherSidebar />
         </ul>
     );
 };

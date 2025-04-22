@@ -45,7 +45,7 @@ const Header = () => {
                         <a href="/" className="flex mr-0 sm:mr-20 items-center">
                             <img src="/icons/LRC-1.png" alt="LRC" className="mr-3 w-12" />
                         </a>
-                        <div className="sm:flex hidden items-center">
+                        <div className="sm:flex hidden items-center flex-wrap">
                             <Link
                                 to={`/${lng}/home`}
                                 className="text-white font-medium mr-4"
@@ -105,6 +105,7 @@ const Header = () => {
                     year={year}
                     rallyName={rallyName}
                     t={t}
+                    currentYear={currentYear}
                 />
             </nav>
         </div>
