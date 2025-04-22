@@ -50,25 +50,25 @@ const Header = () => {
                                 to={`/${lng}/home`}
                                 className="text-white font-medium mr-4"
                             >
-                                Home
+                                {t('header.home')}
                             </Link>
                             <button
                                 onClick={handleCalendarClick}
                                 className="text-white font-medium mr-4"
                             >
-                                Calendar
+                                {t('header.calendar')}
                             </button>
                             <Link
                                 to={`/${lng}/seasons`}
                                 className="text-white font-medium mr-4"
                             >
-                                All Rallies
+                                {t('header.all-rallies')}
                             </Link>
                             <Link
                                 to={`/${lng}/championship/${currentYear}/1`}
                                 className="text-white font-medium mr-4"
                             >
-                                Championship
+                                {t('header.championship')}
                             </Link>
                         </div>
                     </div>

@@ -4,9 +4,13 @@ import {useParams} from "react-router-dom";
 import useFetchData from "../../hooks/useFetchData";
 import Loader from "../elements/loaders/Loader";
 import {addPlaceholdersToRallies} from "../../utils/rallyUtils";
+import {useTranslation} from "react-i18next";
+import useLanguage from "../../hooks/useLanguage";
 
 const HomeCalendar = () => {
     const {lng} = useParams()
+    const { t } = useTranslation();
+    useLanguage(lng);
 
     const url = `/currentYearRallies`;
     const STORAGE_URL = process.env.REACT_APP_STORAGE_URL;
@@ -69,7 +73,7 @@ const HomeCalendar = () => {
                 )}
 
                 <a href={`/${lng}/seasons`} className="flex items-center justify-center hover:scale-95 transition duration-200 mb-10 bg-black/80 hover:bg-rally-accent rounded px-4 py-2">
-                    <h2 className="font-containerHeading font-bold text-white text-4xl mx-4">All Rallies</h2>
+                    <h2 className="font-containerHeading font-bold text-white text-4xl mx-4">{t('home-calendar.all-rallies')}</h2>
                 </a>
             </div>
         </section>

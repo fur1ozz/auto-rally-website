@@ -11,6 +11,16 @@
     "championship": "Čempionāts",
     "gallery": "Galerija"
   },
+  "results": {
+    "results": "Rezultāti",
+    "split-times": "Starplaiki",
+    "overall-results": "Kopvērtējums",
+    "stage-results": "Ātrumposma Rezultāti",
+    "stage": "Ātrumposms",
+    "penalties": "Sodi",
+    "retirements": "Iztājušies",
+    "stage-winners": "Posmu Uzvarētāji"
+  },
   "home-upcoming-event": {
     "event": "Nākamais pasākums",
     "previous": "Iepriekšējais pasākums",
@@ -19,5 +29,19 @@
     "tomorrow": "Rīt",
     "happening": "Notiek",
     "forecast": "Laika prognoze"
+  },
+  "header": {
+    "home": "Sākums",
+    "calendar": "Kalendārs",
+    "all-rallies": "Ralliji",
+    "championship": "Čempionāts"
+  },
+  "prev-winner": {
+    "prev-winner": "Iepriekšējie Uzvarētāji",
+    "car": "Auto"
+  },
+  "home-calendar": {
+    "all-rallies": "Visi Ralliji"
+
   }
 }

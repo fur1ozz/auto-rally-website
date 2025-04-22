@@ -10,6 +10,8 @@ import useFetchData from "../../../hooks/useFetchData";
 import Loader from "../../elements/loaders/Loader";
 import {calculateTimeDifMs} from "../../../utils/calculateTimeDifMs";
 import ClassSortBar from "../../elements/sortingBars/ClassSortBar";
+import {useTranslation} from "react-i18next";
+import useLanguage from "../../../hooks/useLanguage";
 
 const StageOverallTimeItem = ({ place, number, nationality, coNationality, driver, coDriver, car, driveType, time, timeDifferenceStage = null, timeDifferenceOverall = null, isOdd, isHighlighted, onMouseEnter, onMouseLeave, penalty_time }) => {
     return (
@@ -67,7 +69,9 @@ const StageOverallTimeItem = ({ place, number, nationality, coNationality, drive
 };
 
 const StageResults = () => {
-    const { year, rallyName, stageNumber, classId } = useParams();
+    const { lng, year, rallyName, stageNumber, classId } = useParams();
+    const { t } = useTranslation();
+    useLanguage(lng);
 
     let url = `/stage-results/${year}/${rallyName}/${stageNumber}`;
     if (classId) {
@@ -102,14 +106,14 @@ const StageResults = () => {
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px] overflow-x-auto">
                 <ResultsTitleLine />
-                <TitleWithLine title={`Stage - ${resultsData?.stage_number || stageNumber}`} />
+                <TitleWithLine title={`${t('results.stage')} - ${resultsData?.stage_number || stageNumber}`} />
                 <StageSortBar availableStages={resultsData?.available_stage_numbers} resultLinkName="results-stage" showFinish={true} />
                 <ClassSortBar resultLinkName={`results-stage/${stageNumber}`} groupClassData={rallyClasses} />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <div className="min-w-[1024px] flex justify-between">
                         {/* Stage Results */}
                         <div className="min-w-[500px] flex flex-col sm:items-center font-chakra">
-                            <div className="mb-4 text-xl font-bold text-rally-primary">Ātrumposma Rezultāti</div>
+                            <div className="mb-4 text-xl font-bold text-rally-primary">{t('results.stage-results')}</div>
                             <TableStageHeading />
                             {loading && <Loader />}
                             {!loading && error && <div>Error loading data: {error.message}</div>}
@@ -149,7 +153,7 @@ const StageResults = () => {
                         </div>
                         {/* Overall Results */}
                         <div className="min-w-[500px] flex flex-col sm:items-center font-chakra">
-                            <div className="mb-4 text-xl font-bold text-rally-primary">Kopvērtējums</div>
+                            <div className="mb-4 text-xl font-bold text-rally-primary">{t('results.overall-results')}</div>
                             <TableStageHeading />
                             {loading && <Loader />}
                             {!loading && error && <div>Error loading data: {error.message}</div>}

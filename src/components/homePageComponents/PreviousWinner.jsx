@@ -20,7 +20,7 @@ const PreviousWinner = () => {
             <div className="lg:w-[1024px] w-full">
                 <div className="flex items-center w-full">
                     <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
-                    <h2 className="font-containerHeading font-bold text-[#4e4e4e] text-4xl mx-4">Previous Winners</h2>
+                    <h2 className="font-containerHeading font-bold text-[#4e4e4e] text-4xl mx-4">{t('prev-winner.prev-winner')}</h2>
                     <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
                 </div>
                 <div className="flex w-full text-[#4e4e4e] md:flex-row flex-col items-center">
@@ -40,7 +40,7 @@ const PreviousWinner = () => {
                                             <div>{prevWinner.driver}</div>
                                             <div>{prevWinner.co_driver}</div>
                                         </div>
-                                        <div className="text-lg font-medium"><span className="font-semibold">Car: </span>{prevWinner.car}</div>
+                                        <div className="text-lg font-medium"><span className="font-semibold">{t('prev-winner.car')}: </span>{prevWinner.car}</div>
                                         <p className="font-light indent-4">{prevWinner.feedback}</p>
                                     </div>
                                 </>

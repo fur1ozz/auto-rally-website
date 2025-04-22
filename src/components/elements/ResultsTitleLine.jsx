@@ -1,9 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {Link, useParams} from "react-router-dom";
+import {useTranslation} from "react-i18next";
+import useLanguage from "../../hooks/useLanguage";
 
 const ResultsTitleLine = () => {
     const [currentPath, setCurrentPath] = useState("");
     const { lng, year, rallyName, stageNumber } = useParams();
+    const { t } = useTranslation();
+    useLanguage(lng);
 
     useEffect(() => {
         const path = window.location.pathname;
@@ -45,13 +49,13 @@ const ResultsTitleLine = () => {
                 to={`/${lng}/${year}/${rallyName}/results`}
                 className={`font-containerHeading font-bold text-[#4e4e4e] min-[900px]:mx-4 max-[900px]:my-2 capitalize px-2 ${checkResultsActive()}`}
             >
-                Rezultāti
+                {t('results.results')}
             </Link>
             <Link
                 to={`/${lng}/${year}/${rallyName}/results-splits/1`}
                 className={`font-containerHeading font-bold text-[#4e4e4e] min-[900px]:mx-4 max-[900px]:my-1 capitalize px-2 ${checkSplitActive()}`}
             >
-                Starplaiki
+                {t('results.split-times')}
             </Link>
             <Link
                 to={`/${lng}/${year}/${rallyName}/results/penalties`}
@@ -59,7 +63,7 @@ const ResultsTitleLine = () => {
                     "/penalties"
                 )}`}
             >
-                Sodi
+                {t('results.penalties')}
             </Link>
             <Link
                 to={`/${lng}/${year}/${rallyName}/results/retirements`}
@@ -67,7 +71,7 @@ const ResultsTitleLine = () => {
                     "/retirements"
                 )}`}
             >
-                Izstājušies
+                {t('results.retirements')}
             </Link>
             <Link
                 to={`/${lng}/${year}/${rallyName}/results/stage-winners`}
@@ -75,7 +79,7 @@ const ResultsTitleLine = () => {
                     "/stage-winners"
                 )}`}
             >
-                Posmu Uzvarētāji
+                {t('results.stage-winners')}
             </Link>
         </div>
     );
