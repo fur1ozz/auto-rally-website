@@ -1,12 +1,23 @@
 import React from 'react';
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import CopyText from "../elements/CopyText";
+
+const LinkButton = ({ name, path }) => {
+    return (
+        <Link
+            to={path}
+            className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">
+            {name}
+        </Link>
+    );
+};
 
 const Footer = () => {
     const {lng, year, rallyName} = useParams()
     const { t } = useTranslation();
 
+    const currentYear = new Date().getFullYear();
 
     return (
         <footer className="bg-black">
@@ -35,15 +46,24 @@ const Footer = () => {
                     </div>
                     <div className="flex flex-col mb-10 items-center sm:items-start">
                         <h2 className="text-base font-semibold leading-4 text-rally-primary">{t('footer.navigation')}</h2>
-                        <a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">{t('header.home')}</a>
+                        {rallyName ? (
+                            <>
+                                <LinkButton name={t('rally-menu-bar.news')} path={`/${lng}/${year}/${rallyName}/news`} />
+                                <LinkButton name={t('rally-menu-bar.participants')} path={`/${lng}/${year}/${rallyName}/participants`} />
+                                <LinkButton name={t('rally-menu-bar.documents')} path={`/${lng}/${year}/${rallyName}/documents`} />
+                                <LinkButton name={t('rally-menu-bar.spectators')} path={`/${lng}/${year}/${rallyName}/spectators`} />
+                                <LinkButton name={t('rally-menu-bar.results')} path={`/${lng}/${year}/${rallyName}/results`} />
+                                <LinkButton name={t('rally-menu-bar.gallery')} path={`/${lng}/${year}/${rallyName}/gallery`} />
 
-
-                        <a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">Jaunumi</a>
-                        <a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">Dalībniekiem</a>
-                        <a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">Dokumenti</a>
-                        <a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">Skatītājiem</a>
-                        <a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">Čempionāts</a>
-                        <a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">Rezultāti</a>
+                            </>
+                        ) : (
+                            <>
+                                <LinkButton name={t('header.home')} path={`/${lng}/home`} />
+                                <LinkButton name={t('header.calendar')} path={`/${lng}/home#calendar`} />
+                                <LinkButton name={t('header.all-rallies')} path={`/${lng}/seasons`} />
+                                <LinkButton name={t('header.championship')} path={`/${lng}/championship/${currentYear}/1`} />
+                            </>
+                        )}
                     </div>
                     <div className="flex flex-col mb-10 items-center sm:items-start">
                         <h2 className="text-base font-semibold leading-4 text-rally-primary">{t('footer.resources')}</h2>
