@@ -17,6 +17,7 @@ const Header = () => {
     const handleMobileMenuToggle = () => {
         setMobileMenuOpen(!mobileMenuOpen);
     };
+
     const handleCalendarClick = () => {
         if (location.pathname === `/${lng}/home`) {
             const calendarSection = document.getElementById("calendar-section");
@@ -33,6 +34,9 @@ const Header = () => {
             }, 300);
         }
     };
+
+    const currentYear = new Date().getFullYear();
+
     return (
         <div className="w-full bg-black/60">
             <nav className="py-2 px-10">
@@ -61,7 +65,7 @@ const Header = () => {
                                 All Rallies
                             </Link>
                             <Link
-                                to={`/${lng}/championship`}
+                                to={`/${lng}/championship/${currentYear}/1`}
                                 className="text-white font-medium mr-4"
                             >
                                 Championship

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import TitleWithLine from "../elements/titleWithLine";
 import {useTranslation} from "react-i18next";
 import useLanguage from "../../hooks/useLanguage";
-import {useNavigate, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import useFetchData from "../../hooks/useFetchData";
 import ChampClassSortBar from "../elements/sortingBars/ChampClassSortBar";
 import Loader from "../elements/loaders/Loader";
@@ -61,10 +61,13 @@ const ChampItem = ({ position, driver, coDrivers, events, totalPoints, rallies }
 
 const ChampContainer = () => {
     const { lng, year, classId } = useParams();
-
     let url = `/championship/${year}/${classId}`;
-
     const navigate = useNavigate();
+
+    const { t } = useTranslation();
+    useLanguage(lng);
+
+    const seasons = [{ season: 2024 }, { season: 2025 }]
 
     const { data: champData, loading, error } = useFetchData(url);
 
@@ -79,13 +82,27 @@ const ChampContainer = () => {
     const rallyCount = rallies.length;
     const classData = champData?.championship || [];
 
-    const { t } = useTranslation();
-    useLanguage(lng);
-
     return (
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px] overflow-x-auto">
-                <TitleWithLine title={t('rally-menu-bar.championship')} />
+                <TitleWithLine title={t('rally-menu-bar.championship') + ' - ' + year} />
+                <div className="w-full mt-5">
+                    <div className="flex gap-2 overflow-x-auto mb-4 border-b">
+                        {seasons.map((season, index) => (
+                            <Link
+                                key={index}
+                                to={`/${lng}/championship/${season.season}/1`}
+                                className={`whitespace-nowrap px-3 py-2 text-sm border-b-2 transition-colors ${
+                                    year === String(season.season)
+                                        ? 'border-rally-primary text-rally-primary font-medium'
+                                        : 'border-transparent text-gray-500 hover:text-black'
+                                }`}
+                            >
+                                {season.season}
+                            </Link>
+                        ))}
+                    </div>
+                </div>
                 <ChampClassSortBar groupClassData={rallyClasses}/>
 
                 <div className="mt-10">
