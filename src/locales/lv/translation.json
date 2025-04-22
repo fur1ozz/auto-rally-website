@@ -42,6 +42,10 @@
   },
   "home-calendar": {
     "all-rallies": "Visi Ralliji"
-
+  },
+  "footer": {
+    "navigation": "Navigācija",
+    "resources": "Resursi",
+    "contact": "Saziņa"
   }
 }

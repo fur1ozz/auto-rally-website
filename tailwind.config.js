@@ -31,10 +31,16 @@ module.exports = {
         flash: {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0.3' },
-        }
+        },
+        'quick-fade': {
+          '0%': { opacity: 1, transform: 'translate(-50%, -6px)' },
+          '80%': { opacity: 1, transform: 'translate(-50%, -6px)' },
+          '100%': { opacity: 0, transform: 'translate(-50%, -6px)' },
+        },
       },
       animation: {
         flash: 'flash 1.5s linear infinite',
+        'quick-fade': 'quick-fade 1.3s ease-out forwards',
       },
     },
   },

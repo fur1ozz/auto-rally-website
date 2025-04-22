@@ -42,5 +42,10 @@
   },
   "home-calendar": {
     "all-rallies": "All Rallies"
-
-  }}
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "resources": "Resources",
+    "contact": "Contact"
+  }
+}

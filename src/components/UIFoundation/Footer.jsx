@@ -1,6 +1,13 @@
 import React from 'react';
+import {useParams} from "react-router-dom";
+import {useTranslation} from "react-i18next";
+import CopyText from "../elements/CopyText";
 
 const Footer = () => {
+    const {lng, year, rallyName} = useParams()
+    const { t } = useTranslation();
+
+
     return (
         <footer className="bg-black">
             <div className="mx-auto sm:pt-16 pt-5 lg:w-[1024px] px-10 xl:px-0">
@@ -27,8 +34,10 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className="flex flex-col mb-10 items-center sm:items-start">
-                        <h2 className="text-base font-semibold leading-4 text-rally-primary">Navigācija</h2>
-                        <a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">Sākums</a>
+                        <h2 className="text-base font-semibold leading-4 text-rally-primary">{t('footer.navigation')}</h2>
+                        <a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">{t('header.home')}</a>
+
+
                         <a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">Jaunumi</a>
                         <a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">Dalībniekiem</a>
                         <a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">Dokumenti</a>
@@ -37,13 +46,13 @@ const Footer = () => {
                         <a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">Rezultāti</a>
                     </div>
                     <div className="flex flex-col mb-10 items-center sm:items-start">
-                        <h2 className="text-base font-semibold leading-4 text-rally-primary">Resursi</h2>
-                        <a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">Galerija</a>
+                        <h2 className="text-base font-semibold leading-4 text-rally-primary">{t('footer.resources')}</h2>
+                        {/*<a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">Galerija</a>*/}
                     </div>
                     <div className="flex flex-col mb-10 items-center sm:items-start">
-                        <h2 className="text-base font-semibold leading-4 text-rally-primary">Saziņa</h2>
-                        <a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">your@email.com</a>
-                        <a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">+371 23456789</a>
+                        <h2 className="text-base font-semibold leading-4 text-rally-primary">{t('footer.contact')}</h2>
+                        <CopyText text="your@email.com" className="hover:text-rally-primary text-base leading-4 mt-6 text-white"/>
+                        <CopyText text="+371 23456789" className="hover:text-rally-primary text-base leading-4 mt-6 text-white"/>
                         <a href="" className="hover:text-rally-primary text-base leading-4 mt-6 text-white cursor-pointer transition duration-100">Contact</a>
                     </div>
                 </div>
