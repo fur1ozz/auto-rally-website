@@ -16,6 +16,9 @@ import TableFlag from "../../elements/tableItems/TableFlag";
 import {useNavigate, useParams} from "react-router-dom";
 import useFetchData from "../../../hooks/useFetchData";
 import Loader from "../../elements/loaders/Loader";
+import ClassSortBar from "../../elements/sortingBars/ClassSortBar";
+import {useTranslation} from "react-i18next";
+import useLanguage from "../../../hooks/useLanguage";
 
 const SplitItem = ({ place, number, nationality, coNationality, driver, coDriver, car, team, startTime, splits, stageTime, stageDif, stageDifMs, isOdd }) => {
     return (
@@ -39,8 +42,14 @@ const SplitItem = ({ place, number, nationality, coNationality, driver, coDriver
     );
 };
 const SplitTimes = () => {
-    const { year, rallyName, stageNumber } = useParams();
-    const url = `/stage-splits/${year}/${rallyName}/${stageNumber}`;
+    const { lng, year, rallyName, stageNumber, classId } = useParams();
+    const { t } = useTranslation();
+    useLanguage(lng);
+
+    let url = `/stage-splits/${year}/${rallyName}/${stageNumber}`;
+    if (classId) {
+        url = `/stage-splits/${year}/${rallyName}/${stageNumber}/${classId}`;
+    }
     const navigate = useNavigate();
 
     const { data: splitsData, loading, error } = useFetchData(url);
@@ -54,14 +63,15 @@ const SplitTimes = () => {
     const splitInfo = splitsData?.splits || [];
     const crewSplits = splitsData?.crew_times || [];
     const isStageError = splitsData?.type === 'stage' && splitsData?.message === 'No such stage exists';
-
+    const rallyClasses = splitsData?.rally_classes || [];
 
     return (
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 sm:pb-10 pb-10 flex justify-center">
             <div className="lg:w-[1024px] overflow-x-auto">
                 <ResultsTitleLine />
-                <TitleWithLine title={`Stage - ${stageNumber}`} />
-                <StageSortBar numberOfStage={splitsData?.stage_count} resultLinkName="results-splits" />
+                <TitleWithLine title={`${t('results.stage')} - ${stageNumber}`} />
+                <StageSortBar availableStages={splitsData?.available_stage_numbers} resultLinkName="results-splits" />
+                <ClassSortBar resultLinkName={`results-splits/${stageNumber}`} groupClassData={rallyClasses} />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <Table>
                         <TableHeading>

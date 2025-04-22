@@ -11,6 +11,16 @@
     "championship": "Championship",
     "gallery": "Gallery"
   },
+  "results": {
+    "results": "Results",
+    "split-times": "Split Times",
+    "overall-results": "Overall Results",
+    "stage-results": "Stage Results",
+    "stage": "Stage",
+    "penalties": "Penalties",
+    "retirements": "Retirements",
+    "stage-winners": "Stage Winners"
+  },
   "home-upcoming-event": {
     "event": "Upcoming Event",
     "previous": "Previous Event",
@@ -19,5 +29,23 @@
     "tomorrow": "Tomorrow",
     "happening": "Happening",
     "forecast": "Weather Forecast"
+  },
+  "header": {
+    "home": "Home",
+    "calendar": "Calendar",
+    "all-rallies": "Rallies",
+    "championship": "Championship"
+  },
+  "prev-winner": {
+    "prev-winner": "Previous Winners",
+    "car": "Car"
+  },
+  "home-calendar": {
+    "all-rallies": "All Rallies"
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "resources": "Resources",
+    "contact": "Contact"
   }
 }

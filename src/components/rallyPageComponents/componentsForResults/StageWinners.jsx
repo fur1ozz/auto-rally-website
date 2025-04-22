@@ -10,6 +10,8 @@ import StageWinCountContainer from "./StageWinCountContainer";
 import {useParams} from "react-router-dom";
 import useFetchData from "../../../hooks/useFetchData";
 import Loader from "../../elements/loaders/Loader";
+import {useTranslation} from "react-i18next";
+import useLanguage from "../../../hooks/useLanguage";
 
 const WinnerItem = ({ stageNumber, stageName, stageDistance, crewNumber, nationality, coNationality, driver, coDriver, car, team, driveType, stageTime, averageSpeed, isOdd }) => {
     return (
@@ -38,7 +40,10 @@ const WinnerItem = ({ stageNumber, stageName, stageDistance, crewNumber, nationa
     );
 };
 const StageWinners = () => {
-    const { year, rallyName } = useParams();
+    const { lng, year, rallyName } = useParams();
+    const { t } = useTranslation();
+    useLanguage(lng);
+
     const url = `/rally-winner-results/${year}/${rallyName}`;
 
     const { data: winnerData, loading, error } = useFetchData(url);
@@ -51,7 +56,7 @@ const StageWinners = () => {
             <section className="w-full min-h-20 bg-white sm:p-14 p-10 sm:pb-10 pb-10 flex justify-center">
                 <div className="lg:w-[1024px] overflow-x-auto">
                     <ResultsTitleLine />
-                    <TitleWithLine title="Posmu Uzvarētāji" />
+                    <TitleWithLine title={t('results.stage-winners')} />
                     <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                         <Table>
                             <TableHeading>

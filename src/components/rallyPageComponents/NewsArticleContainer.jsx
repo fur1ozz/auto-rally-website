@@ -1,9 +1,10 @@
 import React from 'react';
-import {Link, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import useFetchData from "../../hooks/useFetchData";
 import useLanguage from "../../hooks/useLanguage";
 import Loader from "../elements/loaders/Loader";
+import NotFound from "../commonUI/NotFound";
 
 const NewsArticleContainer = () => {
     const { lng, year, rallyName, articleId} = useParams();
@@ -11,7 +12,7 @@ const NewsArticleContainer = () => {
     const url = `/news-article/${year}/${rallyName}/${articleId}`;
     const STORAGE_URL = process.env.REACT_APP_STORAGE_URL;
 
-    const { data: articleData, loading, error } = useFetchData(url);
+    const { data: articleData, loading, error, status } = useFetchData(url);
 
     useLanguage(lng);
     return (
@@ -19,7 +20,13 @@ const NewsArticleContainer = () => {
             <div className="lg:w-[1024px]">
                 <div className="flex items-center flex-col">
                     {loading && <Loader />}
-                    {!loading && error && <div>Error loading data: {error.message}</div>}
+                    {!loading && error && (
+                        status === 404 ? (
+                            <NotFound />
+                        ) : (
+                            <div>Error loading data: {error.message}</div>
+                        )
+                    )}
                     {!loading && !error && articleData && (
                         <>
                             <h1 className=" font-bold text-black text-3xl mr-4 w-full mb-5">{articleData.title}</h1>

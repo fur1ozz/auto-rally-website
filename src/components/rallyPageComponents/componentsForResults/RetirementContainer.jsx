@@ -9,6 +9,8 @@ import TableHeading from "../../elements/tableItems/TableHeading";
 import {useParams} from "react-router-dom";
 import useFetchData from "../../../hooks/useFetchData";
 import Loader from "../../elements/loaders/Loader";
+import {useTranslation} from "react-i18next";
+import useLanguage from "../../../hooks/useLanguage";
 
 const RetirementItem = ({ number, nationality, coNationality, driver, coDriver, car, driveType, retireReason, finishedStages, isOdd }) => {
     return (
@@ -25,7 +27,10 @@ const RetirementItem = ({ number, nationality, coNationality, driver, coDriver, 
     );
 };
 const RetirementContainer = () => {
-    const { year, rallyName } = useParams();
+    const { lng, year, rallyName } = useParams();
+    const { t } = useTranslation();
+    useLanguage(lng);
+
     const url = `/rally-retirements/${year}/${rallyName}`;
 
     const { data: retirementData, loading, error } = useFetchData(url);
@@ -34,7 +39,7 @@ const RetirementContainer = () => {
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px] overflow-x-auto">
                 <ResultsTitleLine />
-                <TitleWithLine title="Izstājušies" />
+                <TitleWithLine title={t('results.retirements')} />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <Table>
                         <TableHeading>

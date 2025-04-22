@@ -17,6 +17,7 @@ const Header = () => {
     const handleMobileMenuToggle = () => {
         setMobileMenuOpen(!mobileMenuOpen);
     };
+
     const handleCalendarClick = () => {
         if (location.pathname === `/${lng}/home`) {
             const calendarSection = document.getElementById("calendar-section");
@@ -33,6 +34,9 @@ const Header = () => {
             }, 300);
         }
     };
+
+    const currentYear = new Date().getFullYear();
+
     return (
         <div className="w-full bg-black/60">
             <nav className="py-2 px-10">
@@ -41,24 +45,30 @@ const Header = () => {
                         <a href="/" className="flex mr-0 sm:mr-20 items-center">
                             <img src="/icons/LRC-1.png" alt="LRC" className="mr-3 w-12" />
                         </a>
-                        <div className="sm:flex hidden items-center">
+                        <div className="sm:flex hidden items-center flex-wrap">
                             <Link
                                 to={`/${lng}/home`}
                                 className="text-white font-medium mr-4"
                             >
-                                Home
+                                {t('header.home')}
                             </Link>
                             <button
                                 onClick={handleCalendarClick}
                                 className="text-white font-medium mr-4"
                             >
-                                Calendar
+                                {t('header.calendar')}
                             </button>
                             <Link
                                 to={`/${lng}/seasons`}
                                 className="text-white font-medium mr-4"
                             >
-                                All Rallies
+                                {t('header.all-rallies')}
+                            </Link>
+                            <Link
+                                to={`/${lng}/championship/${currentYear}/1`}
+                                className="text-white font-medium mr-4"
+                            >
+                                {t('header.championship')}
                             </Link>
                         </div>
                     </div>
@@ -68,12 +78,12 @@ const Header = () => {
 
                         <div className="text-white font-medium mr-3 cursor-default">{formatTime(time)}</div>
 
-                        <Link
-                            to="#"
-                            className="text-white font-medium mr-3"
-                        >
-                            Ienākt
-                        </Link>
+                        {/*<Link*/}
+                        {/*    to="#"*/}
+                        {/*    className="text-white font-medium mr-3"*/}
+                        {/*>*/}
+                        {/*    Ienākt*/}
+                        {/*</Link>*/}
                     </div>
 
                     <button
@@ -95,6 +105,7 @@ const Header = () => {
                     year={year}
                     rallyName={rallyName}
                     t={t}
+                    currentYear={currentYear}
                 />
             </nav>
         </div>

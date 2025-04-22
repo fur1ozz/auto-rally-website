@@ -4,7 +4,7 @@ import HomePage from './Pages/HomePage';
 import NewsPage from "./Pages/PagesAboutRally/NewsPage";
 import ParticipantPage from "./Pages/PagesAboutRally/ParticipantPage";
 import SpectatorsPage from "./Pages/PagesAboutRally/SpectatorsPage";
-import ChampionshipPage from "./Pages/PagesAboutRally/ChampionshipPage";
+import ChampionshipPage from "./Pages/ChampionshipPage";
 import DocumentPage from "./Pages/PagesAboutRally/DocumentPage";
 import GalleryPage from "./Pages/PagesAboutRally/GalleryPage";
 import ResultsPage from "./Pages/PagesAboutRally/PagesForRallyResults/ResultsPage";
@@ -36,21 +36,26 @@ function App() {
 
                         <Route path="seasons" element={<AllSeasonsPage />} />
                         <Route path=":year" element={<SeasonPage />} />
+                        <Route path="championship" element={<ChampionshipPage />} />
+                        <Route path="championship/:year/:classId" element={<ChampionshipPage />} />
 
                         <Route path=":year/:rallyName/news" element={<NewsPage />} />
                         <Route path=":year/:rallyName/news/:articleId" element={<NewsArticlePage />} />
                         <Route path=":year/:rallyName/participants" element={<ParticipantPage />} />
+                        <Route path=":year/:rallyName/participants/:classId" element={<ParticipantPage />} />
                         <Route path=":year/:rallyName/documents" element={<DocumentPage />} />
                         <Route path=":year/:rallyName/spectators" element={<SpectatorsPage />} />
 
                         <Route path=":year/:rallyName/results" element={<ResultsPage />} />
+                        <Route path=":year/:rallyName/results/:classId" element={<ResultsPage />} />
                         <Route path=":year/:rallyName/results-stage/:stageNumber" element={<StageResultPage />} />
+                        <Route path=":year/:rallyName/results-stage/:stageNumber/:classId" element={<StageResultPage />} />
                         <Route path=":year/:rallyName/results-splits/:stageNumber" element={<SplitTimePage />} />
+                        <Route path=":year/:rallyName/results-splits/:stageNumber/:classId" element={<SplitTimePage />} />
                         <Route path=":year/:rallyName/results/retirements" element={<RetirementPage />} />
                         <Route path=":year/:rallyName/results/penalties" element={<PenaltyPage />} />
                         <Route path=":year/:rallyName/results/stage-winners" element={<StageWinnersPage />} />
 
-                        <Route path=":year/:rallyName/championship" element={<ChampionshipPage />} />
                         <Route path=":year/:rallyName/gallery" element={<GalleryPage />} />
                     </Route>
                 </Routes>

@@ -10,6 +10,7 @@ import useFetchData from "../../hooks/useFetchData";
 import Loader from "../elements/loaders/Loader";
 import {useTranslation} from "react-i18next";
 import useLanguage from "../../hooks/useLanguage";
+import ClassSortBar from "../elements/sortingBars/ClassSortBar";
 
 const ParticipantItem = ({ number, nationality, coNationality, driver, coDriver, team, car, group, className, eligibility, isOdd }) => {
 
@@ -35,11 +36,18 @@ const ParticipantItem = ({ number, nationality, coNationality, driver, coDriver,
 
 
 const ParticipantContainer = () => {
-    const { lng, year, rallyName } = useParams();
+    const { lng, year, rallyName, classId } = useParams();
     const { t } = useTranslation();
-    const url = `/participants/${year}/${rallyName}`;
 
-    const { data: participants, loading, error } = useFetchData(url);
+    let url = `/participants/${year}/${rallyName}`;
+    if (classId) {
+        url = `/participants/${year}/${rallyName}/${classId}`;
+    }
+
+    const { data: participantsData, loading, error } = useFetchData(url);
+
+    const participants = participantsData?.crew_details || [];
+    const rallyClasses = participantsData?.rally_classes || [];
 
     useLanguage(lng);
 
@@ -47,6 +55,7 @@ const ParticipantContainer = () => {
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px] overflow-x-auto">
                 <TitleWithLine title={t('rally-menu-bar.participants')}/>
+                <ClassSortBar resultLinkName="participants" groupClassData={rallyClasses} />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <Table>
                         <TableHeading>

@@ -19,7 +19,7 @@ const NewsItem = ({ id, date, title, paragraph, imgSrc }) => {
                     <h3 className="relative font-medium text-[#f0f2fe] cursor-pointer text-xl tracking-wide after:content-[''] after:absolute after:left-0 after:bottom-[-1px] after:w-0 after:h-[2px] after:bg-[#f0f2fe] after:transition-all after:duration-200 group-hover:after:w-full">
                         {title}
                     </h3>
-                    <p className="font-light opacity-60">{paragraph}</p>
+                    <p className="text-[#e6e6e6] font-light">{paragraph}</p>
                 </div>
             </Link>
         </div>

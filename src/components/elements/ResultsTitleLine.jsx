@@ -1,9 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {Link, useParams} from "react-router-dom";
+import {useTranslation} from "react-i18next";
+import useLanguage from "../../hooks/useLanguage";
 
 const ResultsTitleLine = () => {
     const [currentPath, setCurrentPath] = useState("");
     const { lng, year, rallyName, stageNumber } = useParams();
+    const { t } = useTranslation();
+    useLanguage(lng);
 
     useEffect(() => {
         const path = window.location.pathname;
@@ -13,15 +17,14 @@ const ResultsTitleLine = () => {
 
     const checkActive = (link) => {
         const lastPartOfLink = link.substring(link.lastIndexOf("/") + 1);
-        return currentPath === lastPartOfLink ? "text-4xl text-rally-primary" : "text-xl";
+        return currentPath === lastPartOfLink ? "text-4xl text-rally-primary border-b-2 border-rally-primary" : "text-xl";
     };
 
     const checkSplitActive = () => {
         const pathParts = window.location.pathname.split("/").filter(Boolean);
-        const lastTwoParts = pathParts.slice(-2);
 
-        if (lastTwoParts.length >= 2 && lastTwoParts[0] === "results-splits") {
-            return "text-4xl text-rally-primary";
+        if (pathParts.includes("results-splits")) {
+            return "text-4xl text-rally-primary border-b-2 border-rally-primary";
         }
 
         return "text-xl";
@@ -29,58 +32,55 @@ const ResultsTitleLine = () => {
 
     const checkResultsActive = () => {
         const pathParts = window.location.pathname.split("/").filter(Boolean);
-        const lastTwoParts = pathParts.slice(-2);
 
-        if (lastTwoParts.length >= 2 && (lastTwoParts[0] === "results-stage" || lastTwoParts[1] === "results")) {
-            return "text-4xl text-rally-primary";
+        const isResultsPage = pathParts[pathParts.length - 1] === "results";
+        const isResultsStagePage = pathParts.includes("results-stage");
+
+        if (isResultsPage || isResultsStagePage) {
+            return "text-4xl text-rally-primary border-b-2 border-rally-primary";
         }
+
         return "text-xl";
     };
 
     return (
-        <div className="flex items-center mb-10">
-            <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
+        <div className="flex items-center mb-10 min-[900px]:border-b-[1px] border-gray-200 justify-evenly max-[900px]:flex-col max-[900px]:items-start">
             <Link
                 to={`/${lng}/${year}/${rallyName}/results`}
-                className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkResultsActive()}`}
+                className={`font-containerHeading font-bold text-[#4e4e4e] min-[900px]:mx-4 max-[900px]:my-2 capitalize px-2 ${checkResultsActive()}`}
             >
-                Rezultāti
+                {t('results.results')}
             </Link>
-            <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
             <Link
                 to={`/${lng}/${year}/${rallyName}/results-splits/1`}
-                className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkSplitActive()}`}
+                className={`font-containerHeading font-bold text-[#4e4e4e] min-[900px]:mx-4 max-[900px]:my-1 capitalize px-2 ${checkSplitActive()}`}
             >
-                Starplaiki
+                {t('results.split-times')}
             </Link>
-            <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
             <Link
                 to={`/${lng}/${year}/${rallyName}/results/penalties`}
-                className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkActive(
+                className={`font-containerHeading font-bold text-[#4e4e4e] min-[900px]:mx-4 max-[900px]:my-1 capitalize px-2 ${checkActive(
                     "/penalties"
                 )}`}
             >
-                Sodi
+                {t('results.penalties')}
             </Link>
-            <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
             <Link
                 to={`/${lng}/${year}/${rallyName}/results/retirements`}
-                className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkActive(
+                className={`font-containerHeading font-bold text-[#4e4e4e] min-[900px]:mx-4 max-[900px]:my-1 capitalize px-2 ${checkActive(
                     "/retirements"
                 )}`}
             >
-                Izstājušies
+                {t('results.retirements')}
             </Link>
-            <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
             <Link
                 to={`/${lng}/${year}/${rallyName}/results/stage-winners`}
-                className={`font-containerHeading font-bold text-[#4e4e4e] mx-4 capitalize ${checkActive(
+                className={`font-containerHeading font-bold text-[#4e4e4e] min-[900px]:mx-4 max-[900px]:my-1 capitalize px-2 ${checkActive(
                     "/stage-winners"
                 )}`}
             >
-                Posmu Uzvarētāji
+                {t('results.stage-winners')}
             </Link>
-            <div className="flex-1 h-0.5 bg-[#4e4e4e]"></div>
         </div>
     );
 };

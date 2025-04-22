@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import TitleWithLine from "../../elements/titleWithLine";
 import ResultsTitleLine from "../../elements/ResultsTitleLine";
 import {TableNumber} from "../../elements/tableItems/TableNumber";
@@ -6,12 +6,13 @@ import TableFlag from "../../elements/tableItems/TableFlag";
 import {TableCrew, TableCrewHeading} from "../../elements/tableItems/TableCrew";
 import TableHeading from "../../elements/tableItems/TableHeading";
 import Table from "../../elements/tableItems/Table";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import StageSortBar from "../../elements/sortingBars/StageSortBar";
 import useFetchData from "../../../hooks/useFetchData";
 import Loader from "../../elements/loaders/Loader";
 import {useTranslation} from "react-i18next";
 import useLanguage from "../../../hooks/useLanguage";
+import ClassSortBar from "../../elements/sortingBars/ClassSortBar";
 
 const ResultsItem = ({ place, number, nationality, coNationality, driver, coDriver, car, team, driveType, groupClass, penalty, overallTime, difFromFirst, difFromPrev, isOdd }) => {
     return (
@@ -42,11 +43,24 @@ const ResultsItem = ({ place, number, nationality, coNationality, driver, coDriv
     );
 };
 const ResultsContainer = () => {
-    const { lng, year, rallyName } = useParams();
-    const url = `/overall-results/${year}/${rallyName}`;
+    const { lng, year, rallyName, classId } = useParams();
+    const navigate = useNavigate();
+
+    let url = `/overall-results/${year}/${rallyName}`;
+    if (classId) {
+        url = `/overall-results/${year}/${rallyName}/${classId}`;
+    }
 
     const { data: overallData, loading, error } = useFetchData(url);
+
+    useEffect(() => {
+        if (error) {
+            navigate('/');
+        }
+    }, [error, navigate]);
+
     const resultsData = overallData?.overall_results || [];
+    const rallyClasses = overallData?.rally_classes || [];
 
     const { t } = useTranslation();
     useLanguage(lng);
@@ -55,8 +69,9 @@ const ResultsContainer = () => {
         <section className="w-full min-h-20 bg-white sm:p-14 p-10 flex justify-center">
             <div className="lg:w-[1024px] overflow-x-auto">
                 <ResultsTitleLine />
-                <TitleWithLine title={t('rally-menu-bar.results')} />
-                <StageSortBar numberOfStage={overallData?.stage_count} resultLinkName="results-stage" />
+                <TitleWithLine title={t('results.overall-results')} />
+                <StageSortBar availableStages={overallData?.available_stage_numbers}  resultLinkName="results-stage" showFinish={true} />
+                <ClassSortBar resultLinkName="results" groupClassData={rallyClasses} />
                 <div className="flex mt-10 w-full text-[#4e4e4e] overflow-x-auto">
                     <Table>
                         <TableHeading>
