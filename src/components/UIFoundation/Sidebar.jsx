@@ -45,48 +45,53 @@ const LinkButtonPhoneRallies = ({ name, path, lng }) => {
 
 const Sidebar = ({ mobileMenuOpen, handleMobileMenuToggle, location, lng, year, rallyName, t, currentYear }) => {
     return (
-        <ul className={`sm:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-full min-[400px]:translate-x-[250px]"} flex flex-col justify-start w-full min-[400px]:w-[250px] h-screen bg-white/55 backdrop-blur fixed top-0 right-0 px-5 py-3 transition-all duration-200 ease-in-out z-10 shadow-[-10px_0_10px_rgba(0,0,0,0.1)]`}>
-            <li className="h-10 flex items-center capitalize text-black">
-                <button onClick={handleMobileMenuToggle}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="size-7">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </li>
-            <LinkButtonPhone name={t('header.home')} path={`/${lng}/home`} currentPath={location.pathname} />
-            <LinkButtonPhone name={t('header.calendar')} path={`/${lng}/home#calendar`} currentPath={location.pathname} />
-            <LinkButtonPhone name={t('header.all-rallies')} path={`/${lng}/seasons`} currentPath={location.pathname} />
-            <LinkButtonPhone name={t('header.championship')} path={`/${lng}/championship/${currentYear}/1`} currentPath={location.pathname} />
-            {rallyName ? (
-                <div>
-                    <div className="mt-5 h-10 flex items-center capitalize text-black text-lg">
-                        <div className="flex items-center font-medium">Rally Info</div>
+        <div className={`sm:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-full min-[400px]:translate-x-[250px]"} flex flex-col justify-between w-full min-[400px]:w-[250px] h-screen bg-white/55 backdrop-blur fixed top-0 right-0 px-5 py-3 transition-all duration-200 ease-in-out z-10 shadow-[-10px_0_10px_rgba(0,0,0,0.1)]`}>
+            <ul className="flex flex-col">
+                <li className="h-10 flex items-center capitalize text-black">
+                    <button onClick={handleMobileMenuToggle}>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="size-7">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </li>
+                <LinkButtonPhone name={t('header.home')} path={`/${lng}/home`} currentPath={location.pathname} />
+                <LinkButtonPhone name={t('header.calendar')} path={`/${lng}/home#calendar`} currentPath={location.pathname} />
+                <LinkButtonPhone name={t('header.all-rallies')} path={`/${lng}/seasons`} currentPath={location.pathname} />
+                <LinkButtonPhone name={t('header.championship')} path={`/${lng}/championship/${currentYear}/1`} currentPath={location.pathname} />
+                {rallyName ? (
+                    <div>
+                        <div className="mt-5 h-10 flex items-center capitalize text-black text-lg">
+                            <div className="flex items-center font-medium">Rally Info</div>
+                        </div>
+                        <LinkButtonPhoneRallyInfo name={t('rally-menu-bar.news')} path={`/${lng}/${year}/${rallyName}/news`} currentPath={location.pathname} tag="news" />
+                        <LinkButtonPhoneRallyInfo name={t('rally-menu-bar.participants')} path={`/${lng}/${year}/${rallyName}/participants`} currentPath={location.pathname} tag="participants" />
+                        <LinkButtonPhoneRallyInfo name={t('rally-menu-bar.documents')} path={`/${lng}/${year}/${rallyName}/documents`} currentPath={location.pathname} tag="documents" />
+                        <LinkButtonPhoneRallyInfo name={t('rally-menu-bar.spectators')} path={`/${lng}/${year}/${rallyName}/spectators`} currentPath={location.pathname} tag="spectators" />
+                        <LinkButtonPhoneRallyInfo name={t('rally-menu-bar.results')} path={`/${lng}/${year}/${rallyName}/results`} currentPath={location.pathname} tag="results" />
+                        <LinkButtonPhoneRallyInfo name={t('rally-menu-bar.gallery')} path={`/${lng}/${year}/${rallyName}/gallery`} currentPath={location.pathname} tag="gallery" />
                     </div>
-                    <LinkButtonPhoneRallyInfo name={t('rally-menu-bar.news')} path={`/${lng}/${year}/${rallyName}/news`} currentPath={location.pathname} tag="news" />
-                    <LinkButtonPhoneRallyInfo name={t('rally-menu-bar.participants')} path={`/${lng}/${year}/${rallyName}/participants`} currentPath={location.pathname} tag="participants" />
-                    <LinkButtonPhoneRallyInfo name={t('rally-menu-bar.documents')} path={`/${lng}/${year}/${rallyName}/documents`} currentPath={location.pathname} tag="documents" />
-                    <LinkButtonPhoneRallyInfo name={t('rally-menu-bar.spectators')} path={`/${lng}/${year}/${rallyName}/spectators`} currentPath={location.pathname} tag="spectators" />
-                    <LinkButtonPhoneRallyInfo name={t('rally-menu-bar.results')} path={`/${lng}/${year}/${rallyName}/results`} currentPath={location.pathname} tag="results" />
-                    <LinkButtonPhoneRallyInfo name={t('rally-menu-bar.gallery')} path={`/${lng}/${year}/${rallyName}/gallery`} currentPath={location.pathname} tag="gallery" />
-                </div>
-            ) : (
-                <div>
-                    {/*<li className="mt-5 h-10 flex items-center capitalize text-black text-lg">*/}
-                    {/*    <a className="flex items-center font-medium">2024</a>*/}
-                    {/*</li>*/}
-                    {/*/!*TODO have to change to have dynamic year selection not a specific 2024*!/*/}
-                    {/*{calendarData[2024].map((rally, index) => (*/}
-                    {/*    <LinkButtonPhoneRallies*/}
-                    {/*        key={index}*/}
-                    {/*        name={rally.rally_name}*/}
-                    {/*        path={rally.eng_name}*/}
-                    {/*        lng={lng}*/}
-                    {/*    />*/}
-                    {/*))}*/}
-                </div>
-            )}
-            <LanguageSwitcherSidebar />
-        </ul>
+                ) : (
+                    <div>
+                        {/*<li className="mt-5 h-10 flex items-center capitalize text-black text-lg">*/}
+                        {/*    <a className="flex items-center font-medium">2024</a>*/}
+                        {/*</li>*/}
+                        {/*/!*TODO have to change to have dynamic year selection not a specific 2024*!/*/}
+                        {/*{calendarData[2024].map((rally, index) => (*/}
+                        {/*    <LinkButtonPhoneRallies*/}
+                        {/*        key={index}*/}
+                        {/*        name={rally.rally_name}*/}
+                        {/*        path={rally.eng_name}*/}
+                        {/*        lng={lng}*/}
+                        {/*    />*/}
+                        {/*))}*/}
+                    </div>
+                )}
+            </ul>
+
+            <div className="mb-5 mx-auto">
+                <LanguageSwitcherSidebar />
+            </div>
+        </div>
     );
 };
 
