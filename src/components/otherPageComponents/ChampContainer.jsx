@@ -15,7 +15,7 @@ const ChampItem = ({ position, driver, coDrivers, events, totalPoints, rallies }
             `}
         >
             <div className="w-[5%] text-center text-lg font-semibold text-gray-700">
-                {position}
+                {position}.
             </div>
             <div className="flex flex-col w-[18%] text-left">
                 <div className="font-semibold text-gray-800 text-base">{driver}</div>
