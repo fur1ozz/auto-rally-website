@@ -9,6 +9,8 @@ const useFetchData = (url) => {
     const API_URL = process.env.REACT_APP_API_URL;
 
     useEffect(() => {
+        setLoading(true);
+
         const fetchData = async () => {
             try {
                 const response = await axios.get(API_URL+url);
