@@ -42,7 +42,7 @@ const Header = () => {
             <nav className="py-2 px-10">
                 <ul className="flex justify-between items-center mx-auto">
                     <div className="flex">
-                        <a href="/" className="flex mr-0 sm:mr-20 items-center">
+                        <a href={`/${lng}/home`} className="flex mr-0 sm:mr-20 items-center">
                             <img src="/icons/LRC-1.png" alt="LRC" className="mr-3 w-12" />
                         </a>
                         <div className="sm:flex hidden items-center flex-wrap">

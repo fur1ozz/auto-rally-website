@@ -32,6 +32,7 @@ function App() {
                         element={<Navigate to="/lv/home" />}
                     />
                     <Route path="/:lng" element={<LangParamValidator />}>
+                        <Route index element={<Navigate to="home" replace />} />
                         <Route path="home" element={<HomePage />} />
 
                         <Route path="seasons" element={<AllSeasonsPage />} />
